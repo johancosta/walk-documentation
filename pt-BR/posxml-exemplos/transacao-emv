@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+	<title>WALK | Transação EMV</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='Plano Be, Plano Bê, POS terminal, point of sale terminal, terminais POS, pos software, point of sale software, point of sale software development, point of sale software development, pos terminal software, pos credit card terminal, mobile pos terminal, credit card terminal, pos equipment, VeriFone, Redecard, Nurit, Ingenico, transações eletrônicas, PayNews, WALK platform, plataforma WALK, WALK framework, sistema WALK, POSXML, pagamentos movel, mobile payments, m-payments, pagamentos móveis' name='keywords' />
+	<meta content='Exemplo de aplicação POSXML para efetuar uma transação emv' name='description' />
+	<meta content='Plano Be' name='author' />
+  <meta name="google-site-verification" content="VxbryVDusgFi-QnPbJ-mnyHN9GlRkNwjJ4yLiR4QCdE" />
+
+	<link type="text/css" rel="stylesheet" href="../../stylesheets/main.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="../../stylesheets/default.css" media="screen" />
+	<link type="text/css" rel="stylesheet" href="../../stylesheets/print.css" media="print" />
+	
+	<!-- image map - maplight -->
+	<script type="text/javascript" src="../../javascripts/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../../javascripts/jquery.maphilight.min.js"></script>
+	<script>
+		$(function() {
+			$('.map').maphilight();
+		});
+	</script>
+
+	<!-- syntaxhighlighter_2 -->
+	<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter_2/styles/shCore.css" />
+	<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter_2/styles/shThemeHeroku.css" />
+	<script type="text/javascript" src="../../syntaxhighlighter_2/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../../syntaxhighlighter_2/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="../../syntaxhighlighter_2/scripts/shBrushPlain.js"></script>
+	<script type="text/javascript" src="../../syntaxhighlighter_2/scripts/shBrushRuby.js"></script>
+	<script type="text/javascript" src="../../syntaxhighlighter_2/scripts/shBrushCSharp.js"></script>
+	<script type="text/javascript" src="../../syntaxhighlighter_2/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="../../syntaxhighlighter_2/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../../syntaxhighlighter_2/scripts/shBrushVb.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+		SyntaxHighlighter.config.clipboardSwf = '/javascripts/clipboard.swf';
+		SyntaxHighlighter.defaults.gutter = false;
+	</script>
+</head>
+<body>
+
+<div style="display:none">  <div id='default-header-inner'>    <div id='language'>      <form id='i18n_form' action='estrutura-transacao-emv'>        <div>          <select id=locale style="display:none" name=locale onchange=validate_i18n(this);>             <option value=pt-BR selected=selected>Portuguese</option> <option value=en>English</option></select>          </select>        </div>      </form>    </div>    <div id='default-nav'>      <ul>        <li><a href='http://www.plataformawalk.com.br'><strong>INICIO</strong><span>Plataforma WALK</span></a></li>        <li><a href='http://blog.plataformawalk.com.br'><strong>WALKING</strong><span>Blog</span></a></li>        <li><a href='../../index.html'><strong>MANUAL</strong><span>Documentação</span></a></li>        <li><a href='http://helpdesk.plataformawalk.com.br'><strong>HELP DESK</strong><span>Peça Ajuda</span></a></li>      </ul>    </div>  </div></div>
+
+<div id="bodywrap">
+
+	<div id="docsnav">
+		<form action="http://manual.plataformawalk.com.br/search" id="cse-search-box">
+			<div id="search" style="display:none">
+				<input type="hidden" name="cx" value="006895165009419401911:3z-q2nkhyxk" />
+				<input type="hidden" name="cof" value="FORID:10;NB:1" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="31" />
+			</div>
+		</form>
+
+		<ul>
+			
+				<li>
+				<h3>Entendendo a Plataforma</h3>
+				<ul>
+					
+						
+							<li><a href="../understanding-the-platform">Framework WALK</a></li>
+						
+					
+						
+							<li><a href="../posxml">POSXML</a></li>
+						
+					
+						
+							<li><a href="../walk-compiler">WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="../walk-server">WALK Server</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Framework WALK</h3>
+				<ul>
+					
+						
+							<li><a href="../instalando-o-framework-walk">Instalação</a></li>
+						
+					
+						
+							<li><a href="../instalando-a-aplicacao-inicial">Aplicação Inicial</a></li>
+						
+					
+						
+							<li><a href="../gerando-licencas">Gerando Licenças</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>POSXML</h3>
+				<ul>
+					
+						
+							<li><a href="../posxml-intro">POSXML introdução</a></li>
+						
+					
+						
+							<li><a href="../posxml-a-estrutura-do-posxml">A estrutura do POSXML</a></li>
+						
+					
+						
+							<li><a href="../posxml-variaveis-e-memoria">Variáveis e Memória</a></li>
+						
+					
+						
+							<li><a href="../posxml-sistema-de-arquivos">Sistema de Arquivos</a></li>
+						
+					
+						
+							<li><a href="../posxml-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="../comandos-posxml">Lista de Comandos</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Compiler</h3>
+				<ul>
+					
+						
+							<li><a href="../walk-compiler-intro">WALK Compiler introdução</a></li>
+						
+					
+						
+							<li><a href="../utilizando-o-walk-compiler">Utilizando o WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="../posxml-exemplos/index">Aprendendo a Programar</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Server</h3>
+				<ul>
+					
+						
+							<li><a href="../walk-server-intro">WALK Server integração</a></li>
+						
+					
+						
+							<li><a href="../walk-server-instalacao">Instalação</a></li>
+						
+					
+						
+							<li><a href="../walk-server-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="../walk-server-testes-e-verificacoes">Testes</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Integração</h3>
+				<ul>
+					
+						
+							<li><a href="../integracao-map">Integração introdução</a></li>
+						
+					
+						
+							<li><a href="../integracao-introducao">Resumo da rede</a></li>
+						
+					
+						
+							<li><a href="../integracao-aplicacao-posxml">Aplicação POSXML</a></li>
+						
+					
+						
+							<li><a href="../integracao-configuracoes">Configurações</a></li>
+						
+					
+						
+							<li><a href="../integracao-carregando-o-aplicativo">Carregando o aplicativo</a></li>
+						
+					
+						
+							<li><a href="../integracao-entendendo-a-comunicacao">Entendendo a comunicação</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Tutoriais</h3>
+				<ul>
+					
+						
+							<li><a href="../configuracao-do-terminal-pos">Configuração do terminal</a></li>
+						
+					
+						
+							<li><a href="../formato-do-pacote-de-dados">Formato do pacote de dados</a></li>
+						
+					
+						
+							<li><a href="../resolucoes-de-tela-e-impressao">Resoluções de tela e impressão</a></li>
+						
+					
+						
+							<li><a href="../velocidade-dos-terminais">Velocidade dos terminais</a></li>
+						
+					
+						
+							<li><a href="../configuracao-do-teclado-no-framework-walk">Configuração do teclado no Framework WALK</a></li>
+						
+					
+						
+							<li><a href="../interface-grafica-para-terminais-verix">Interface gráfica para terminais Verix</a></li>
+						
+					
+						
+							<li><a href="../instalando-o-framework-a-partir-de-outro-terminal">Instalando o Framework a partir de outro terminal</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Instalando o chip GPRS</h3>
+				<ul>
+					
+						
+							<li><a href="../instalando-o-chip-gprs-em-terminais-nurit-8000">Terminais Nurit 8000</a></li>
+						
+					
+						
+							<li><a href="../instalando-o-chip-gprs-em-terminais-ingenico-i5100">Terminais Ingenico i5100</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Ajuda</h3>
+				<ul>
+					
+						
+							<li><a href="../perguntas-frequentes">Perguntas Frequentes</a></li>
+						
+					
+						
+							<li><a href="../fornecedores-de-equipamentos-e-acessorios">Fornecedores de equipamentos e acessórios</a></li>
+						
+					
+				</ul>
+				</li>
+			
+		</ul>
+	</div>
+
+	<div id="content">
+		<div class="topic_content">
+			<h1>Transação EMV</h1>
+
+
+
+
+
+
+
+<p id='description'>Exemplo de aplicação POSXML para efetuar uma transação emv</p>
+
+
+<p>Exemplo de aplicação POSXML para efetuar uma transação EMV</p>
+
+<h4>Pré-requisitos</h4>
+
+<ol>
+<li><p>WALK Compiler devidamente <a href="../utilizando-o-walk-compiler">instalado</a>;</p></li>
+<li><p>Terminal POS com o Framework WALK devidamente <a href="../instalando-o-framework-walk">instalado</a>;</p></li>
+</ol>
+
+
+<h4>Código POSXML</h4>
+
+<pre class="brush: xml;">
+&lt;aplicativoposxml xmlns="http://tempuri.org/posxml.xsd"&gt;
+  &lt;pagina nome="principal"&gt;
+
+    &lt;variavelint valor="0" variavel="status"&gt;
+    &lt;variavelstr valor="" variavel="sStatus"&gt;
+
+    &lt;display coluna="0" linha="0" mensagem="Inicializa EMV: "&gt;
+    &lt;emv.open variavelretorno="$(status)"&gt;
+    &lt;inttostring variavelint="$(status)" variavelstr="$(sStatus)"&gt;
+    &lt;inprima mensagem="$(sStatus)"&gt;
+    
+    &lt;emv.loadtables adquirente="4" variavelretorno="$(status)"&gt;
+    &lt;inttostring variavelint="$(status)" variavelstr="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    
+    &lt;emv.settimeout segundos="30" variavelretorno="$(status)"&gt;
+    &lt;inttostring variavelint="$(status)" variavelstr="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    
+    &lt;emv.adddata tipo="init" parametro="baInitialValue" valor="000000001000" variavelretorno="$(status)"&gt;
+    &lt;emv.cleanstructures&gt;
+    
+    &lt;emv.adddata tipo="init" parametro="bAcquirerID" valor="4" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="init" parametro="bReqApplication" valor="99" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="init" parametro="baInitialValue" valor="000000001000" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="init" parametro="baDate" valor="111101" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="init" parametro="baTime" valor="163000" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="init" parametro="baTimeStamp" valor="0111201101" variavelretorno="$(status)"&gt;
+    
+    &lt;emv.inittransaction variavelretorno="$(status)"&gt;
+    &lt;inttostring variavelint="$(status)" variavelstr="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    
+    &lt;emv.getinfo tipo="init" parametro="bCardType" valor="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;emv.getinfo tipo="init" parametro="baApplicationLabel" valor="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;emv.getinfo tipo="init" parametro="bLastChipStatus" valor="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;emv.getinfo tipo="init" parametro="bAppType" valor="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;emv.getinfo tipo="init" parametro="bAcquirerID" valor="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;emv.getinfo tipo="init" parametro="bRegisterIndex" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;emv.getinfo tipo="init" parametro="baCardHolderName" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="baTrack2" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="baTrack1" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="bTrack1Len" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="baTrack3" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="bTrack3Len" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="baPAN" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="bPANLen" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="bApplicationLabelLen" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="baServiceCode" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="bCardHolderNameLen" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="baExpirationDate" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="baExternalNumber" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="bExternalNumberLen" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="baBalance" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="init" parametro="baIssuerCountryCode" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    
+    &lt;emv.adddata tipo="process" parametro="bMandatoryTagsLen" valor="52" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="baMandatoryTags" valor="845A5F349F039F269F279F109F379F36959A9C9F025F2A829F1A" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="bOptionalTagsLen" valor="4" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="baOptionalTags" valor="9F47" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="bKeyMode" valor="02" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="bMustConnect" valor="01" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="bManageRisk" valor="01" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="bMaximumTarget" valor="10" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="bTargetPercentage" valor="10" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="dwFloorLimit" valor="100" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="dwThresholdValue" valor="0" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="baAmount" valor="000000001000" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="baAmountOther" valor="000000002000" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="bBlackList" valor="00" variavelretorno="$(status)"&gt; 
+    &lt;emv.adddata tipo="process" parametro="bRequirePIN" valor="01" variavelretorno="$(status)"&gt;
+          
+    &lt;emv.processtransaction variavelretorno="$(status)" mkslot="000" pinpadtype="1" pinpadwk="00000" showamount="1"&gt;
+    &lt;inttostring variavelint="$(status)" variavelstr="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    
+    &lt;emv.getinfo tipo="process" parametro="bDecision" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="process" parametro="bSignature" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="process" parametro="bOfflinePIN" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="process" parametro="bOfflinePINErrors" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="process" parametro="bOfflinePINBlocked" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="process" parametro="bOnlinePIN" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="process" parametro="baPINBlock" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="process" parametro="baDUKPTInfo" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="process" parametro="iTLVDataEMVLen" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+    &lt;emv.getinfo tipo="process" parametro="baTLVDataEMV" valor="$(sStatus)"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt; 
+        
+    &lt;variavelstr valor="$(sStatus)" variavel="sStatus2"&gt;
+    
+    &lt;editaarquivo nomearquivo="config.dat" chave="uclmedia" valor="ETHERNET"&gt; 
+    &lt;editaarquivo nomearquivo="config.dat" chave="uclprotocol" valor="TCP"&gt; 
+    &lt;editaarquivo nomearquivo="config.dat" chave="autooffmodem" valor="0"&gt; 
+    &lt;editaarquivo nomearquivo="config.dat" chave="iphost" valor="192.168.0.119"&gt;
+    &lt;editaarquivo nomearquivo="config.dat" chave="mygateway" valor="192.168.0.1"&gt; 
+    &lt;editaarquivo nomearquivo="config.dat" chave="subnet" valor="255.255.255.0"&gt; 
+    &lt;editaarquivo nomearquivo="config.dat" chave="dnsprimario" valor="8.8.8.8"&gt; 
+    &lt;editaarquivo nomearquivo="config.dat" chave="dnssecundario" valor="8.8.4.4"&gt; 
+    &lt;editaarquivo nomearquivo="config.dat" chave="portahost" valor="800"&gt; 
+    &lt;editaarquivo nomearquivo="config.dat" chave="withssl" valor="0"&gt; 
+    &lt;preconexao variavelstatus="$(status)"&gt; 
+    &lt;inttostring variavelint="$(status)" variavelstr="$(sStatus)"&gt; 
+    &lt;imprima mensagem="conexao:"&gt; 
+    &lt;imprima mensagem="$(sStatus)"&gt;
+          
+    &lt;variavelstr variavel="buf" valor="" &gt;
+    &lt;variavelstr variavel="bBufLen2" valor=""&gt;
+    &lt;variavelint variavel="bBufLen" valor="0"&gt;
+    &lt;variavelint valor="0" variavel="iStatus"&gt;
+    
+    &lt;string.tohex string="$(sStatus2)" variavelretorno="$(sStatus2)"&gt;
+    &lt;string.length valor="$(sStatus2)" variavelretorno="$(iStatus)"&gt;
+    &lt;network.send buffer="$(sStatus2)" tamanho="$(iStatus)" variavelretorno="$(status)"&gt;
+    &lt;display coluna="0" linha="5" mensagem="PRESS 1"&gt;
+    &lt;network.receive tamanhomaximo="512" variavelbuffer="$(buf)" variavelbytesrecebidos="$(bBufLen)" variavelretorno="$(status)"&gt;
+    &lt;inttostring variavelint="$(bBufLen)" variavelstr="$(bBufLen2)"&gt;
+    &lt;esperatecla&gt;
+    
+    &lt;imprima mensagem="==========================" &gt;
+    &lt;imprima mensagem="$(buf)" &gt;
+    &lt;imprima mensagem="==========================" &gt;
+    &lt;imprima mensagem="$(bBufLen2)" &gt;
+    &lt;imprima mensagem="==========================" &gt;
+    
+    &lt;emv.adddata tipo="finish" parametro="bCommStatus" valor="0" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="finish" parametro="bIssuerType" valor="00" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="finish" parametro="baAuthRespCode" valor="00" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="finish" parametro="iTLVDataEMVLen" valor="$(bBufLen2)" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="finish" parametro="baTLVDataEMV" valor="$(buf)" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="finish" parametro="bMandatoryTagsLen" valor="0" variavelretorno="$(status)"&gt;
+    &lt;emv.adddata tipo="finish" parametro="baMandatoryTags" valor=" " variavelretorno="$(status)"&gt;
+        
+    &lt;emv.finishtransaction variavelretorno="$(status)"&gt;   
+    &lt;inttostring variavelint="$(status)" variavelstr="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+        
+    
+    &lt;emv.getinfo tipo="finish" parametro="bDecision" valor="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;emv.getinfo tipo="finish" parametro="iTLVDataEMVLen" valor="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;emv.getinfo tipo="finish" parametro="baTLVDataEMV" valor="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;emv.getinfo tipo="finish" parametro="bIssuerScriptResLen" valor="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;emv.getinfo tipo="finish" parametro="baIssuerScriptResults" valor="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+        
+    &lt;emv.removecard variavelretorno="$(status)"&gt;
+    &lt;inttostring variavelint="$(status)" variavelstr="$(sStatus)"&gt;
+    &lt;imprima mensagem="$(sStatus)"&gt;
+    &lt;esperatecla &gt;
+    &lt;desligamodem &gt;
+    
+  &lt;/pagina&gt;
+&lt;/aplicativoposxml&gt;
+</pre>
+
+
+<h4>Entendendo o código POSXML</h4>
+
+<p><a href="../comandos-posxml#emv.open">emv.open</a>: Esta intrução é utilizada para inicializar a biblioteca EMV, a chamada bem sucedida desta instrução é pré-requisito para a chamada de todas as outras instruções EMV e somente é necessário executa-la ao inicar o terminal.</p>
+
+<p><a href="../comandos-posxml#emv.loadtables">emv.loadtables</a>: A instrução emv.loadtables carrega tabelas EMV e PKI de arquivo por número de adquirente, é necessário a chamada desta instrução somente ao iniciar o terminal.</p>
+
+<p><a href="../comandos-posxml#emv.settimeout">emv.settimeout</a>: Seta um timeout (em segundos) de bibliteca processos EMV.</p>
+
+<p><a href="../comandos-posxml#emv.cleanstructures">emv.cleanstructures</a>: Limpa todos os parâmetros de entrada e saída para &lsquo;init&rsquo;, &lsquo;process&rsquo; e &lsquo;finish&rsquo;.</p>
+
+<p><a href="../comandos-posxml#emv.adddata">emv.adddata</a>: Adiciona parâmetros ao processo EMV de tipos: &lsquo;init&rsquo;, &lsquo;process&rsquo; e &lsquo;finish&rsquo;.</p>
+
+<p><a href="../comandos-posxml#emv.inittransaction">emv.inittransaction</a>: Inicia EMV com os parâmetros inseridos em emv.adddata com tipo &lsquo;init&rsquo;.</p>
+
+<p><a href="../comandos-posxml#emv.processtransaction">emv.processtransaction</a>: Processamento de transação EMV, utiliza dados inseridos em emv.adddata com tipo &lsquo;process&rsquo;.</p>
+
+<p><a href="../comandos-posxml#emv.finishtransaction">emv.finishtransaction</a>: Finalização de transação EMV, utiliza dados inseridos em emv.adddata com tipo &lsquo;finish&rsquo;.</p>
+
+<p><a href="../comandos-posxml#emv.getinfo">emv.getinfo</a>: Retorna informações dos parâmetros adicionados com emv.adddata após a execução de processo EMV, tipos &lsquo;init&rsquo;, &lsquo;process&rsquo; e &lsquo;finish&rsquo;.</p>
+
+<p><a href="../comandos-posxml#emv.removecard">emv.removecard</a>: Aguarda remoção do cartão, utiliza de emv.settimeout se setado, a chamada desta instrução é sempre recomendada ao final de uma transação EMV mesmo que o fluxo não tenha sido bem sucedido.</p>
+
+
+
+
+		</div>
+	</div>
+	
+	<div id='end-application'><br /></div><div id='default-footer'>  <div id='default-footer-inner'>    <a href='http://www.planobe.com.br'><img alt='PlanoBe' src='../../images/logo-planobe.png' /></a>    <p>Os nomes e logomarcas WALK, WALKWEB, WALKSERVER, POSXML, xTiss e Plano Bê são marcas registradas da Plano Bê Desenvolvimento de Sistemas Ltda.</p>    <p>Todos os textos e design são de direito autoral de ©2005-2012 Plano Bê, LTDA.</p>    <p>Todos os direitos reservados.</p>    <p style="display:none">valid: <a href='http://validator.w3.org/check?uri=referer'>XHTML 1.1</a> | <a href='http://jigsaw.w3.org/css-validator/check/referer?profile=css3'>CSS 3</a></p>  </div></div>
+</div>
+
+<!-- google site search -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&amp;t13n_langs=en"></script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+  <!-- Analytics -->
+  
+  <script type='text/javascript'> 
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3586526-19']);
+      _gaq.push(['_setDomainName', '.plataformawalk.com.br']);
+      _gaq.push(['_trackPageview']);
+    //]]>
+  </script>
+  
+
+  <script type='text/javascript'> 
+    //<![CDATA[
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+  </script>
+
+	<script type="text/javascript">
+		function validate_i18n(form){
+			if(form.value == 'es'){
+				window.location = 'http://translate.google.com/translate?hl=en&sl=pt&tl=es&u=http%3A%2F%2Fmanual.plataformawalk.com.br';
+			}else{
+				document.getElementById('i18n_form').submit();
+			}
+		}
+
+		$(document).ready(function() {
+			$("#locale").append("<option value='es'>Spanish</option>");
+			$("img[rel]").overlay();
+		});
+	</script>
+</body>
+</html>

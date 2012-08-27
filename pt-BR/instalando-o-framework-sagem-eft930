@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+	<title>WALK | Instalando o Framework: Ingenico Telium 1</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='Plano Be, Plano Bê, POS terminal, point of sale terminal, terminais POS, pos software, point of sale software, point of sale software development, point of sale software development, pos terminal software, pos credit card terminal, mobile pos terminal, credit card terminal, pos equipment, VeriFone, Redecard, Nurit, Ingenico, transações eletrônicas, PayNews, WALK platform, plataforma WALK, WALK framework, sistema WALK, POSXML, pagamentos movel, mobile payments, m-payments, pagamentos móveis' name='keywords' />
+	<meta content='Este guia o conduzirá através do processo de instalação do Framework WALK em terminais Ingenico Telium dos modelos EFT930s e EFT930g' name='description' />
+	<meta content='Plano Be' name='author' />
+  <meta name="google-site-verification" content="VxbryVDusgFi-QnPbJ-mnyHN9GlRkNwjJ4yLiR4QCdE" />
+
+	<link type="text/css" rel="stylesheet" href="../stylesheets/main.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/default.css" media="screen" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/print.css" media="print" />
+	
+	<!-- image map - maplight -->
+	<script type="text/javascript" src="../javascripts/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../javascripts/jquery.maphilight.min.js"></script>
+	<script>
+		$(function() {
+			$('.map').maphilight();
+		});
+	</script>
+
+	<!-- syntaxhighlighter_2 -->
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shCore.css" />
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shThemeHeroku.css" />
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPlain.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushRuby.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushCSharp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushVb.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+		SyntaxHighlighter.config.clipboardSwf = '/javascripts/clipboard.swf';
+		SyntaxHighlighter.defaults.gutter = false;
+	</script>
+</head>
+<body>
+
+<div style="display:none">  <div id='default-header-inner'>    <div id='language'>      <form id='i18n_form' action='instalando-o-framework-sagem-eft930'>        <div>          <select id=locale style="display:none" name=locale onchange=validate_i18n(this);>             <option value=pt-BR selected=selected>Portuguese</option> <option value=en>English</option></select>          </select>        </div>      </form>    </div>    <div id='default-nav'>      <ul>        <li><a href='http://www.plataformawalk.com.br'><strong>INICIO</strong><span>Plataforma WALK</span></a></li>        <li><a href='http://blog.plataformawalk.com.br'><strong>WALKING</strong><span>Blog</span></a></li>        <li><a href='../index.html'><strong>MANUAL</strong><span>Documentação</span></a></li>        <li><a href='http://helpdesk.plataformawalk.com.br'><strong>HELP DESK</strong><span>Peça Ajuda</span></a></li>      </ul>    </div>  </div></div>
+
+<div id="bodywrap">
+
+	<div id="docsnav">
+		<form action="http://manual.plataformawalk.com.br/search" id="cse-search-box">
+			<div id="search" style="display:none">
+				<input type="hidden" name="cx" value="006895165009419401911:3z-q2nkhyxk" />
+				<input type="hidden" name="cof" value="FORID:10;NB:1" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="31" />
+			</div>
+		</form>
+
+		<ul>
+			
+				<li>
+				<h3>Entendendo a Plataforma</h3>
+				<ul>
+					
+						
+							<li><a href="understanding-the-platform">Framework WALK</a></li>
+						
+					
+						
+							<li><a href="posxml">POSXML</a></li>
+						
+					
+						
+							<li><a href="walk-compiler">WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="walk-server">WALK Server</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Framework WALK</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-framework-walk">Instalação</a></li>
+						
+					
+						
+							<li><a href="instalando-a-aplicacao-inicial">Aplicação Inicial</a></li>
+						
+					
+						
+							<li><a href="gerando-licencas">Gerando Licenças</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>POSXML</h3>
+				<ul>
+					
+						
+							<li><a href="posxml-intro">POSXML introdução</a></li>
+						
+					
+						
+							<li><a href="posxml-a-estrutura-do-posxml">A estrutura do POSXML</a></li>
+						
+					
+						
+							<li><a href="posxml-variaveis-e-memoria">Variáveis e Memória</a></li>
+						
+					
+						
+							<li><a href="posxml-sistema-de-arquivos">Sistema de Arquivos</a></li>
+						
+					
+						
+							<li><a href="posxml-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="comandos-posxml">Lista de Comandos</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Compiler</h3>
+				<ul>
+					
+						
+							<li><a href="walk-compiler-intro">WALK Compiler introdução</a></li>
+						
+					
+						
+							<li><a href="utilizando-o-walk-compiler">Utilizando o WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="posxml-exemplos/index">Aprendendo a Programar</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Server</h3>
+				<ul>
+					
+						
+							<li><a href="walk-server-intro">WALK Server integração</a></li>
+						
+					
+						
+							<li><a href="walk-server-instalacao">Instalação</a></li>
+						
+					
+						
+							<li><a href="walk-server-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="walk-server-testes-e-verificacoes">Testes</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Integração</h3>
+				<ul>
+					
+						
+							<li><a href="integracao-map">Integração introdução</a></li>
+						
+					
+						
+							<li><a href="integracao-introducao">Resumo da rede</a></li>
+						
+					
+						
+							<li><a href="integracao-aplicacao-posxml">Aplicação POSXML</a></li>
+						
+					
+						
+							<li><a href="integracao-configuracoes">Configurações</a></li>
+						
+					
+						
+							<li><a href="integracao-carregando-o-aplicativo">Carregando o aplicativo</a></li>
+						
+					
+						
+							<li><a href="integracao-entendendo-a-comunicacao">Entendendo a comunicação</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Tutoriais</h3>
+				<ul>
+					
+						
+							<li><a href="configuracao-do-terminal-pos">Configuração do terminal</a></li>
+						
+					
+						
+							<li><a href="formato-do-pacote-de-dados">Formato do pacote de dados</a></li>
+						
+					
+						
+							<li><a href="resolucoes-de-tela-e-impressao">Resoluções de tela e impressão</a></li>
+						
+					
+						
+							<li><a href="velocidade-dos-terminais">Velocidade dos terminais</a></li>
+						
+					
+						
+							<li><a href="configuracao-do-teclado-no-framework-walk">Configuração do teclado no Framework WALK</a></li>
+						
+					
+						
+							<li><a href="interface-grafica-para-terminais-verix">Interface gráfica para terminais Verix</a></li>
+						
+					
+						
+							<li><a href="instalando-o-framework-a-partir-de-outro-terminal">Instalando o Framework a partir de outro terminal</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Instalando o chip GPRS</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-nurit-8000">Terminais Nurit 8000</a></li>
+						
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-ingenico-i5100">Terminais Ingenico i5100</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Ajuda</h3>
+				<ul>
+					
+						
+							<li><a href="perguntas-frequentes">Perguntas Frequentes</a></li>
+						
+					
+						
+							<li><a href="fornecedores-de-equipamentos-e-acessorios">Fornecedores de equipamentos e acessórios</a></li>
+						
+					
+				</ul>
+				</li>
+			
+		</ul>
+	</div>
+
+	<div id="content">
+		<div class="topic_content">
+			<h1>Instalando o Framework: Ingenico Telium 1</h1>
+
+
+
+<p id='description'>Este guia o conduzirá através do processo de instalação do Framework WALK em terminais Ingenico Telium dos modelos EFT930s e EFT930g</p>
+
+
+<p>Este guia o conduzirá através do processo de instalação do Framework WALK em terminais <strong>Ingenico Telium 1</strong> dos modelos <strong>EFT930s e EFT930g</strong>. Atente-se aos pré-requisitos e siga o processo de instalação com atenção.</p>
+
+<a name="pr-requisitos"></a>
+
+
+	<ul id="toc">
+		
+			<li><a href="instalando-o-framework-sagem-eft930#pr-requisitos">Pré-requisitos</a></li>
+		
+			<li><a href="instalando-o-framework-sagem-eft930#instalao-passo-a-passo">Instalação: Passo a passo</a></li>
+		
+	</ul>
+
+
+<h2>Pré-requisitos</h2>
+
+<ol>
+<li><p><strong>Microsoft Windows XP:</strong> Service Pack 2 ou 3</p></li>
+<li><p><strong>Sistema Operacional na versão 8.0.2 ou mais recente:</strong> Consulte seu fornecedor caso o S.O. seja anterior a versão 8.0.2. Não sabe qual é a versão? <a href="instalando-o-framework-sagem-eft930#identify-os">Clique aqui</a></p></li>
+<li><p><strong>Pacote de instalação do Framework WALK:</strong> Baixe-o para versão T58 <a href="http://downloads.planobe.com.br/walk/walk_sagem_eft930x_t58.zip">aqui</a> ou para versão U44 <a href="http://downloads.planobe.com.br/walk/walk_sagem_eft930x_u44.zip">aqui</a>. Não sabe qual é a versão? <a href="instalando-o-framework-sagem-eft930#identify-os">Clique aqui</a></p></li>
+<li><p><strong>Pendrive comum:</strong> Preferencialmente formatado</p></li>
+<li><p><strong>Cabo de carga USB Fêmea/Mini A:</strong> Necessário para copiar os arquivos do pendrive para o terminal</p></li>
+</ol>
+
+
+<a name="instalao-passo-a-passo"></a><h2>Instalação: Passo a passo</h2>
+
+<h4 id="identify-os">1. Identificando a versão do seu sistema operacional</h4>
+
+
+<p>Reinicie o terminal (pressione os botões <strong>AMARELO</strong> e <strong>PONTO</strong> simultaneamente).</p>
+
+<p>Se seu fornecedor for TefTi, seu terminal exibirá a mensagem <strong>T58 E931G</strong>.</p>
+
+<div class="pos verix">
+<pre>
+ 
+T58 E931G
+ 
+ 
+</pre>
+</div>
+
+
+<p>Se seu fornecedor for Paytec, seu terminal exibirá a mensagem <strong>U44 E931G</strong>.</p>
+
+<div class="pos verix">
+<pre>
+ 
+U44 E931G
+ 
+ 
+</pre>
+</div>
+
+
+
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>Para outros fornecedores, por favor entre em <a href="http://www.plataformawalk.com.br/comprar#contact-us">contato</a>.</td>
+</tr></table>
+
+
+<p>Quando este exibir a mensagem <strong>T58 E931G</strong> ou <strong>U44 E931G</strong>, pressione rapidamente o botão <strong>F2</strong>. O seguinte menu será exibido:</p>
+
+<div class="pos verix">
+<pre>
+>>Download menu<<
+Diagnosis menu
+Delete menu
+Parameters menu
+</pre>
+</div>
+
+
+<p>Pressione <strong>F1</strong> para que seja impresso as informações sobre o terminal. Note que é necessário que o terminal possua uma bobina cheia e instalada.</p>
+
+<p>No ticket impresso, procure pelas informações <strong>System Pack</strong> e <strong>Telium Pack</strong>, que para o S.O. 8.0.2 as versões devem ser:</p>
+
+<p><strong>System Pack</strong></p>
+
+<pre><code>Version: 10
+Patch  : 50
+</code></pre>
+
+<p><strong>Telium Pack</strong></p>
+
+<pre><code>Version: 62
+Patch  : 04
+</code></pre>
+
+<p>Consulte seu fornecedor se seu terminal possuir o System Pack ou Telium Pack de versões anteriores (versões mais recentes funcionam normalmente).</p>
+
+<h4>2. Limpando o terminal</h4>
+
+<p>Acesse o menu do S.O. (reinicie e pressione o botão <strong>F2</strong> quando aparecer a mensagem <strong>T58 E931G</strong> ou <strong>U44 E931G</strong>) e selecione a opção <strong>Delete menu</strong>:</p>
+
+<div class="pos verix">
+<pre>
+Download menu
+Diagnosis menu
+>>Delete menu<<
+Parameters menu
+</pre>
+</div>
+
+
+<p>Em seguida, selecione o menu <strong>Delete application</strong>:</p>
+
+<div class="pos verix">
+<pre>
+>>Delete application<<
+Delete library
+</pre>
+</div>
+
+
+<p>A próxima tela exibi alguns programas instalados no terminal, onde <strong>M2OS</strong> refere-se ao <strong>Telium Manager</strong> (não deve ser excluído). Qualquer outro arquivo que seja listado <strong>deve</strong> ser apagado, selecionado o arquivo a ser excluído e pressionando o botão <strong>VERDE</strong>.</p>
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'><strong>NÃO</strong> exclua de forma alguma o conteúdo do menu <strong>Delete library</strong> ou o arquivo <strong>M2OS</strong>, ou o terminal pode ser danificado.</td>
+</tr></table>
+
+
+
+
+<h4 id="carga-pelo-pendrive">3. Montando a carga no pendrive</h4>
+
+
+<p>Para montar a carga do Framework WALK no pendrive, siga o seguinte procedimento:</p>
+
+<ol>
+<li><p>Conecte o pendrive no computador e formate-o</p></li>
+<li><p>Após formatar o pendrive, acesse-o e crie um diretório chamado <strong>TELIUM</strong> (tudo maiúsculo), e dentro deste diretório crie um novo chamado <strong>WALK</strong> (tudo maiúsculo também)</p></li>
+<li><p>Dentro do diretório <strong>WALK</strong>, coloque todos os arquivos do pacote de instalação do Framework WALK (baixado anteriormente), com exceção do arquivo <strong>historico.txt</strong></p></li>
+</ol>
+
+
+<h4>4. Instalando o Framework</h4>
+
+<p>Será necessário utilizar o cabo USB Fêmea/Mini <strong>A</strong> (branco). Segue abaixo uma ilustração:</p>
+
+<p><img src="../images/mini-usb-AB.jpg" alt="Cabo Mini USB A e B" /></p>
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>A maioria dos cabos Mini USB são do tipo <strong>B</strong>, mas para esta operação será necessário o tipo <strong>A</strong></td>
+</tr></table>
+
+
+<p>No terminal POS deve-se encaixar o cabo USB Fêmea/Mini <strong>A</strong> na entrada <strong>BRANCA (slave)</strong>, e o pendrive deve ser encaixado na extremidade oposta, conforme pode ser observado abaixo:</p>
+
+<div class="triggers">
+    <img src="../images/sagem/loading-process-small.png" alt="POS e cabo de carga" rel="#rel01" />
+</div>
+
+
+
+
+<div class="simple_overlay" id="rel01" style="height: 511px;">
+    <img src="../images/sagem/loading-process.png" alt="POS e cabo de carga" />
+</div>
+
+
+<p>Siga então o seguinte procedimento:</p>
+
+<ol>
+<li><p>Reinicie o terminal e mantenha pressionado o botão <strong>F4</strong>. O terminal deverá exibir a mensagem <strong>USB MASS STORAGE</strong></p></li>
+<li><p>Aguarde alguns instantes (dependendo da capacidade e quantidade de arquivos no pendrive), e o terminal irá mostrar o diretório <strong>WALK</strong> no display</p></li>
+<li><p>Selecione então o diretório <strong>WALK</strong> pressionando o botão <strong>VERDE</strong></p></li>
+<li><p>Aguarde a finalização do processo de carga, que irá reiniciar o terminal, e este deverá exibir a mensagem <strong>WAITING DOWNLOAD&hellip;</strong></p></li>
+</ol>
+
+
+<h4>5. Instalando a aplicação inicial</h4>
+
+<p>Siga <a href="instalando-a-aplicacao-inicial">este tutorial</a> para finalizar a instalação do Framework WALK instalando a aplicação inicial, de forma que seja possível incluir a licença do Framework WALK para o terminal.</p>
+
+<div id="next_section">Próximo: <a href="instalando-a-aplicacao-inicial">Instalando a aplicação inicial &rarr;</a></div>
+
+
+
+
+
+		</div>
+	</div>
+	
+	<div id='end-application'><br /></div><div id='default-footer'>  <div id='default-footer-inner'>    <a href='http://www.planobe.com.br'><img alt='PlanoBe' src='../images/logo-planobe.png' /></a>    <p>Os nomes e logomarcas WALK, WALKWEB, WALKSERVER, POSXML, xTiss e Plano Bê são marcas registradas da Plano Bê Desenvolvimento de Sistemas Ltda.</p>    <p>Todos os textos e design são de direito autoral de ©2005-2012 Plano Bê, LTDA.</p>    <p>Todos os direitos reservados.</p>    <p style="display:none">valid: <a href='http://validator.w3.org/check?uri=referer'>XHTML 1.1</a> | <a href='http://jigsaw.w3.org/css-validator/check/referer?profile=css3'>CSS 3</a></p>  </div></div>
+</div>
+
+<!-- google site search -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&amp;t13n_langs=en"></script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+  <!-- Analytics -->
+  
+  <script type='text/javascript'> 
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3586526-19']);
+      _gaq.push(['_setDomainName', '.plataformawalk.com.br']);
+      _gaq.push(['_trackPageview']);
+    //]]>
+  </script>
+  
+
+  <script type='text/javascript'> 
+    //<![CDATA[
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+  </script>
+
+	<script type="text/javascript">
+		function validate_i18n(form){
+			if(form.value == 'es'){
+				window.location = 'http://translate.google.com/translate?hl=en&sl=pt&tl=es&u=http%3A%2F%2Fmanual.plataformawalk.com.br';
+			}else{
+				document.getElementById('i18n_form').submit();
+			}
+		}
+
+		$(document).ready(function() {
+			$("#locale").append("<option value='es'>Spanish</option>");
+			$("img[rel]").overlay();
+		});
+	</script>
+</body>
+</html>

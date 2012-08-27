@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+	<title>WALK | Integração: Entendendo a comunicação</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='Plano Be, Plano Bê, POS terminal, point of sale terminal, terminais POS, pos software, point of sale software, point of sale software development, point of sale software development, pos terminal software, pos credit card terminal, mobile pos terminal, credit card terminal, pos equipment, VeriFone, Redecard, Nurit, Ingenico, transações eletrônicas, PayNews, WALK platform, plataforma WALK, WALK framework, sistema WALK, POSXML, pagamentos movel, mobile payments, m-payments, pagamentos móveis' name='keywords' />
+	<meta content='Este guia o conduzirá através do processo de integração do WALK Server com um sistema de autorização hospedado na internet' name='description' />
+	<meta content='Plano Be' name='author' />
+  <meta name="google-site-verification" content="VxbryVDusgFi-QnPbJ-mnyHN9GlRkNwjJ4yLiR4QCdE" />
+
+	<link type="text/css" rel="stylesheet" href="../stylesheets/main.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/default.css" media="screen" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/print.css" media="print" />
+	
+	<!-- image map - maplight -->
+	<script type="text/javascript" src="../javascripts/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../javascripts/jquery.maphilight.min.js"></script>
+	<script>
+		$(function() {
+			$('.map').maphilight();
+		});
+	</script>
+
+	<!-- syntaxhighlighter_2 -->
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shCore.css" />
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shThemeHeroku.css" />
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPlain.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushRuby.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushCSharp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushVb.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+		SyntaxHighlighter.config.clipboardSwf = '/javascripts/clipboard.swf';
+		SyntaxHighlighter.defaults.gutter = false;
+	</script>
+</head>
+<body>
+
+<div style="display:none">  <div id='default-header-inner'>    <div id='language'>      <form id='i18n_form' action='integracao-entendendo-a-comunicacao'>        <div>          <select id=locale style="display:none" name=locale onchange=validate_i18n(this);>             <option value=pt-BR selected=selected>Portuguese</option> <option value=en>English</option></select>          </select>        </div>      </form>    </div>    <div id='default-nav'>      <ul>        <li><a href='http://www.plataformawalk.com.br'><strong>INICIO</strong><span>Plataforma WALK</span></a></li>        <li><a href='http://blog.plataformawalk.com.br'><strong>WALKING</strong><span>Blog</span></a></li>        <li><a href='../index.html'><strong>MANUAL</strong><span>Documentação</span></a></li>        <li><a href='http://helpdesk.plataformawalk.com.br'><strong>HELP DESK</strong><span>Peça Ajuda</span></a></li>      </ul>    </div>  </div></div>
+
+<div id="bodywrap">
+
+	<div id="docsnav">
+		<form action="http://manual.plataformawalk.com.br/search" id="cse-search-box">
+			<div id="search" style="display:none">
+				<input type="hidden" name="cx" value="006895165009419401911:3z-q2nkhyxk" />
+				<input type="hidden" name="cof" value="FORID:10;NB:1" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="31" />
+			</div>
+		</form>
+
+		<ul>
+			
+				<li>
+				<h3>Entendendo a Plataforma</h3>
+				<ul>
+					
+						
+							<li><a href="understanding-the-platform">Framework WALK</a></li>
+						
+					
+						
+							<li><a href="posxml">POSXML</a></li>
+						
+					
+						
+							<li><a href="walk-compiler">WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="walk-server">WALK Server</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Framework WALK</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-framework-walk">Instalação</a></li>
+						
+					
+						
+							<li><a href="instalando-a-aplicacao-inicial">Aplicação Inicial</a></li>
+						
+					
+						
+							<li><a href="gerando-licencas">Gerando Licenças</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>POSXML</h3>
+				<ul>
+					
+						
+							<li><a href="posxml-intro">POSXML introdução</a></li>
+						
+					
+						
+							<li><a href="posxml-a-estrutura-do-posxml">A estrutura do POSXML</a></li>
+						
+					
+						
+							<li><a href="posxml-variaveis-e-memoria">Variáveis e Memória</a></li>
+						
+					
+						
+							<li><a href="posxml-sistema-de-arquivos">Sistema de Arquivos</a></li>
+						
+					
+						
+							<li><a href="posxml-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="comandos-posxml">Lista de Comandos</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Compiler</h3>
+				<ul>
+					
+						
+							<li><a href="walk-compiler-intro">WALK Compiler introdução</a></li>
+						
+					
+						
+							<li><a href="utilizando-o-walk-compiler">Utilizando o WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="posxml-exemplos/index">Aprendendo a Programar</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Server</h3>
+				<ul>
+					
+						
+							<li><a href="walk-server-intro">WALK Server integração</a></li>
+						
+					
+						
+							<li><a href="walk-server-instalacao">Instalação</a></li>
+						
+					
+						
+							<li><a href="walk-server-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="walk-server-testes-e-verificacoes">Testes</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Integração</h3>
+				<ul>
+					
+						
+							<li><a href="integracao-map">Integração introdução</a></li>
+						
+					
+						
+							<li><a href="integracao-introducao">Resumo da rede</a></li>
+						
+					
+						
+							<li><a href="integracao-aplicacao-posxml">Aplicação POSXML</a></li>
+						
+					
+						
+							<li><a href="integracao-configuracoes">Configurações</a></li>
+						
+					
+						
+							<li><a href="integracao-carregando-o-aplicativo">Carregando o aplicativo</a></li>
+						
+					
+						
+							<li class="current"><a>Entendendo a comunicação</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Tutoriais</h3>
+				<ul>
+					
+						
+							<li><a href="configuracao-do-terminal-pos">Configuração do terminal</a></li>
+						
+					
+						
+							<li><a href="formato-do-pacote-de-dados">Formato do pacote de dados</a></li>
+						
+					
+						
+							<li><a href="resolucoes-de-tela-e-impressao">Resoluções de tela e impressão</a></li>
+						
+					
+						
+							<li><a href="velocidade-dos-terminais">Velocidade dos terminais</a></li>
+						
+					
+						
+							<li><a href="configuracao-do-teclado-no-framework-walk">Configuração do teclado no Framework WALK</a></li>
+						
+					
+						
+							<li><a href="interface-grafica-para-terminais-verix">Interface gráfica para terminais Verix</a></li>
+						
+					
+						
+							<li><a href="instalando-o-framework-a-partir-de-outro-terminal">Instalando o Framework a partir de outro terminal</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Instalando o chip GPRS</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-nurit-8000">Terminais Nurit 8000</a></li>
+						
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-ingenico-i5100">Terminais Ingenico i5100</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Ajuda</h3>
+				<ul>
+					
+						
+							<li><a href="perguntas-frequentes">Perguntas Frequentes</a></li>
+						
+					
+						
+							<li><a href="fornecedores-de-equipamentos-e-acessorios">Fornecedores de equipamentos e acessórios</a></li>
+						
+					
+				</ul>
+				</li>
+			
+		</ul>
+	</div>
+
+	<div id="content">
+		<div class="topic_content">
+			<h1>Integração: Entendendo a comunicação</h1>
+
+
+
+<p id='description'>Este guia o conduzirá através do processo de integração do WALK Server com um sistema de autorização hospedado na internet</p>
+
+
+<p>Este guia o conduziu através do processo de integração do WALK Server com um sistema de autorização feito em Sinatra, hospedado na internet.</p>
+
+<p>O próximo passo é entender como o WALK Server e o autorizador trocam informações.</p>
+
+<a name="autorizador-exemplo"></a>
+
+
+	<ul id="toc">
+		
+			<li><a href="integracao-entendendo-a-comunicacao#autorizador-exemplo">Autorizador exemplo</a></li>
+		
+			<li><a href="integracao-entendendo-a-comunicacao#autorizador-em-outras-linguagens">Autorizador em outras linguagens</a></li>
+		
+	</ul>
+
+
+<h2>Autorizador exemplo</h2>
+
+<h4>1. WALK Server submete um <em>post</em> ao autorizador</h4>
+
+<p>O WALK Server recebe a transação do terminal POS, formata o pacote de dados e submete uma requisição <em>post</em> ao autorizador.</p>
+
+<p>Note que o WALK Server delimita as informações do pacote de dados com <strong>vírgula</strong></p>
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>Entenda o <a href="formato-do-pacote-de-dados">formato do pacote de dados</a></td>
+</tr></table>
+
+
+<h4>2. Autorizador retorna a resposta para o WALK Server</h4>
+
+<p>O trecho de código abaixo (feito em Sinatra) é responsável por duas ações:</p>
+
+<ol>
+<li><p>Processar o recebimento de dados do WALK Server</p></li>
+<li><p>Retornar para o WALK Server o resultado da operação</p></li>
+</ol>
+
+
+<pre class="brush: ruby;">
+post '*' do
+    inf = params[:buffer].split(',')
+
+    if inf[2] == "1"
+        return "&lt;pagina_retorno>\"msg=Venda: R$ #{(inf[3].to_f)/100}\""
+    end
+
+    if inf[2] == "2"
+        return "&lt;pagina_retorno>\"msg=Saldo: R$ 10.44\""
+    end
+
+    return "&lt;pagina_retorno>\"msg=Opcao Invalida\""
+end
+</pre>
+
+
+<p>Observe que na segunda linha, a variável <strong>inf</strong> recebe o conteúdo do parâmetro <strong>buffer</strong>, enviado pelo WALK Server.</p>
+
+<p>O comando <strong>split</strong> é utilizado para que a variável <strong>inf</strong> se transforme em um Array, e dessa forma, os dados enviados pelo WALK Server (separados por vírgula) podem ser lidos separadamente.</p>
+
+<h4>3. WALK Server retorna a página para o terminal POS</h4>
+
+<p>Assim que o WALK Server recebe a resposta do autorizador, este envia a página formatada para o terminal POS.</p>
+
+<p>Observe que no trecho de código POSXML abaixo, é definido uma página chamada <strong>pagina_retorno</strong>, e que esta utiliza uma variável chamada <strong>msg</strong>, que é exatamente o que o autorizador está retornando.</p>
+
+<pre class="brush: xml;">
+    &lt;pagina nome="pagina_retorno"&gt;
+        &lt;display coluna="0" linha="0" mensagem="** PLATAFORMA WALK **" /&gt;
+        &lt;display coluna="0" linha="2" mensagem="[msg]" /&gt;
+        
+        &lt;esperatecla /&gt;
+    &lt;/pagina&gt;
+&lt;/aplicativoposxml&gt;
+</pre>
+
+
+<a name="autorizador-em-outras-linguagens"></a><h2>Autorizador em outras linguagens</h2>
+
+<p>O mesmo código do autorizador exemplo (feito em Sinatra) pode ser feito na linguagem de programação do seu interesse. Segue abaixo alguns exemplos em outras linguagens:</p>
+
+<h4>ASP (classic)</h4>
+
+<pre class="brush: vb;">
+&lt;%
+    If ISNull(Request.QueryString("buffer")) Then
+        Response.Write("Buffer não informado")
+        Response.End()
+    End If
+
+    inf = split(Request.QueryString("buffer"), ",")
+
+    If inf(2) = "1" Then
+        valor = FormatCurrency(inf(3) / 100)
+        Response.Write("&lt;pagina_retorno&gt;""msg=Venda: " & valor & """")
+        Response.End()
+    End If
+
+    If inf(2) = "2" Then
+        valor = FormatCurrency(10.44)
+        Response.Write("&lt;pagina_retorno&gt;""msg=Saldo: " & valor & """")
+        Response.End()
+    End If
+
+    Response.Write("&lt;pagina_retorno&gt;""msg=Opcao Invalida""")
+%&gt;
+</pre>
+
+
+<h4>ASP.NET (C#)</h4>
+
+<pre class="brush: csharp;">
+&lt;%@ Page Language="C#" ValidateRequest="false" %&gt;
+ 
+&lt;script runat="server"&gt;
+ 
+protected void Page_Load(object sender, EventArgs e){
+    if (Request.Params["buffer"] == null){
+        Response.Write("Buffer não informado");
+        Response.End();
+    }
+
+    string[] inf = Request.Params["buffer"].Split(',');
+
+    if (inf[2] == "1"){
+        double valor = Convert.ToDouble(inf[3]) / (double)100;
+        Response.Write(string.Format("&lt;pagina_retorno&gt; \"msg=Venda: {0:c}\"", valor));
+        Response.End();
+    }
+
+    if (inf[2] == "2"){
+        Response.Write(string.Format("&lt;pagina_retorno&gt; \"msg=Saldo: {0:c}\"", 10.44));
+        Response.End();
+    }
+
+    Response.Write("&lt;pagina_retorno&gt; \"msg=Opcao Invalida\"");
+}
+ 
+&lt;/script&gt;
+</pre>
+
+
+<h4>ASP.NET (VB)</h4>
+
+<pre class="brush: vb;">
+&lt;%@ Page Language="VB" ValidateRequest="false" %&gt;
+ 
+&lt;script runat="server"&gt;
+
+Protected  Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs)
+    If Request.Params("buffer") Is Nothing Then
+        Response.Write("Buffer não informado")
+        Response.End()
+    End If
+
+    Dim inf() As String = Request.Params("buffer").Split(",")
+
+    If inf(2) = "1" Then
+        Dim valor As Double =  Convert.ToDouble(inf(3)) / 100 
+        Response.Write(String.Format("&lt;pagina_retorno&gt;""msg=Venda: {0:c}""", valor))
+        Response.End()
+    End If
+
+    If inf(2) = "2" Then
+        Response.Write(String.Format("&lt;pagina_retorno&gt;""msg=Saldo: {0:c}""", 123.44))
+        Response.End()
+    End If
+
+    Response.Write("&lt;pagina_retorno&gt;""msg=Opcao Invalida""")
+End Sub
+ 
+&lt;/script&gt;
+</pre>
+
+
+<h4>Ruby on Rails</h4>
+
+<pre class="brush: ruby;">
+class AuthController < ApplicationController
+    def index
+        if params[:buffer].nil?
+            return render :text => "Buffer não informado"
+        end
+
+        inf = params[:buffer].split(',')
+
+        if inf[2] == "1"
+            return render :text => "&lt;pagina_retorno>\"msg=Venda: R$ #{(inf[3].to_f)/100}\""
+        end
+
+        if inf[2] == "2"
+            return render :text => "&lt;pagina_retorno>\"msg=Saldo: R$ 10.44\""
+        end
+
+        render :text => "&lt;pagina_retorno>\"msg=Opcao Invalida\""
+
+    end
+end
+</pre>
+
+
+<h4>PHP</h4>
+
+<pre class="brush: php;">
+&lt;?php
+    if ($_GET["buffer"] == null){
+        print("Buffer não informado");
+        return;
+    }
+
+    $inf = explode(',',$_GET["buffer"]);
+
+    if ($inf[2] == "1"){
+        $valor = floatval($inf[3]) / 100;
+        print("&lt;pagina_retorno&gt;\"msg=Venda: R$ " . $valor . "\"");
+        return;
+    }
+ 
+    if ($inf[2] == "2"){
+        print("&lt;pagina_retorno&gt;\"msg=Saldo: R$ 10.44\"");
+        return;
+    }
+
+    print("&lt;pagina_retorno&gt;\"msg=Opcao Invalida\"");
+?&gt;
+</pre>
+
+
+<h4>JSP</h4>
+
+<pre class="brush: java;">
+&lt;%
+    if(request.getParameter("buffer") == null){
+        out.print("Buffer não informado");
+        return;
+    }
+
+    String[] inf = request.getParameter("buffer").split(",");
+
+    if(inf[2].equals("1")) {
+        String valor = String.valueOf(Double.parseDouble(inf[3]) / 100);
+        out.print("&lt;pagina_retorno&gt;\"msg=Venda: R$ " + valor + "\"");
+        return;
+    }
+
+    if(inf[2].equals("2")) {
+        out.print("&lt;pagina_retorno&gt;\"msg=Saldo: R$ 10.44\"");
+        return;
+    }
+
+    out.print("&lt;pagina_retorno&gt; \"msg=Opcao Invalida\"");
+%&gt;
+</pre>
+
+
+
+
+
+		</div>
+	</div>
+	
+	<div id='end-application'><br /></div><div id='default-footer'>  <div id='default-footer-inner'>    <a href='http://www.planobe.com.br'><img alt='PlanoBe' src='../images/logo-planobe.png' /></a>    <p>Os nomes e logomarcas WALK, WALKWEB, WALKSERVER, POSXML, xTiss e Plano Bê são marcas registradas da Plano Bê Desenvolvimento de Sistemas Ltda.</p>    <p>Todos os textos e design são de direito autoral de ©2005-2012 Plano Bê, LTDA.</p>    <p>Todos os direitos reservados.</p>    <p style="display:none">valid: <a href='http://validator.w3.org/check?uri=referer'>XHTML 1.1</a> | <a href='http://jigsaw.w3.org/css-validator/check/referer?profile=css3'>CSS 3</a></p>  </div></div>
+</div>
+
+<!-- google site search -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&amp;t13n_langs=en"></script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+  <!-- Analytics -->
+  
+  <script type='text/javascript'> 
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3586526-19']);
+      _gaq.push(['_setDomainName', '.plataformawalk.com.br']);
+      _gaq.push(['_trackPageview']);
+    //]]>
+  </script>
+  
+
+  <script type='text/javascript'> 
+    //<![CDATA[
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+  </script>
+
+	<script type="text/javascript">
+		function validate_i18n(form){
+			if(form.value == 'es'){
+				window.location = 'http://translate.google.com/translate?hl=en&sl=pt&tl=es&u=http%3A%2F%2Fmanual.plataformawalk.com.br';
+			}else{
+				document.getElementById('i18n_form').submit();
+			}
+		}
+
+		$(document).ready(function() {
+			$("#locale").append("<option value='es'>Spanish</option>");
+			$("img[rel]").overlay();
+		});
+	</script>
+</body>
+</html>

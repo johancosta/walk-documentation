@@ -1,0 +1,652 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+	<title>WALK | Instalando o Framework: Ingenico</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='Plano Be, Plano Bê, POS terminal, point of sale terminal, terminais POS, pos software, point of sale software, point of sale software development, point of sale software development, pos terminal software, pos credit card terminal, mobile pos terminal, credit card terminal, pos equipment, VeriFone, Redecard, Nurit, Ingenico, transações eletrônicas, PayNews, WALK platform, plataforma WALK, WALK framework, sistema WALK, POSXML, pagamentos movel, mobile payments, m-payments, pagamentos móveis' name='keywords' />
+	<meta content='Este guia o conduzirá através do processo de instalação do Framework WALK em terminais Ingenico' name='description' />
+	<meta content='Plano Be' name='author' />
+  <meta name="google-site-verification" content="VxbryVDusgFi-QnPbJ-mnyHN9GlRkNwjJ4yLiR4QCdE" />
+
+	<link type="text/css" rel="stylesheet" href="../stylesheets/main.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/default.css" media="screen" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/print.css" media="print" />
+	
+	<!-- image map - maplight -->
+	<script type="text/javascript" src="../javascripts/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../javascripts/jquery.maphilight.min.js"></script>
+	<script>
+		$(function() {
+			$('.map').maphilight();
+		});
+	</script>
+
+	<!-- syntaxhighlighter_2 -->
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shCore.css" />
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shThemeHeroku.css" />
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPlain.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushRuby.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushCSharp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushVb.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+		SyntaxHighlighter.config.clipboardSwf = '/javascripts/clipboard.swf';
+		SyntaxHighlighter.defaults.gutter = false;
+	</script>
+</head>
+<body>
+
+<div style="display:none">  <div id='default-header-inner'>    <div id='language'>      <form id='i18n_form' action='instalando-o-framework-ingenico'>        <div>          <select id=locale style="display:none" name=locale onchange=validate_i18n(this);>             <option value=pt-BR selected=selected>Portuguese</option> <option value=en>English</option></select>          </select>        </div>      </form>    </div>    <div id='default-nav'>      <ul>        <li><a href='http://www.plataformawalk.com.br'><strong>INICIO</strong><span>Plataforma WALK</span></a></li>        <li><a href='http://blog.plataformawalk.com.br'><strong>WALKING</strong><span>Blog</span></a></li>        <li><a href='../index.html'><strong>MANUAL</strong><span>Documentação</span></a></li>        <li><a href='http://helpdesk.plataformawalk.com.br'><strong>HELP DESK</strong><span>Peça Ajuda</span></a></li>      </ul>    </div>  </div></div>
+
+<div id="bodywrap">
+
+	<div id="docsnav">
+		<form action="http://manual.plataformawalk.com.br/search" id="cse-search-box">
+			<div id="search" style="display:none">
+				<input type="hidden" name="cx" value="006895165009419401911:3z-q2nkhyxk" />
+				<input type="hidden" name="cof" value="FORID:10;NB:1" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="31" />
+			</div>
+		</form>
+
+		<ul>
+			
+				<li>
+				<h3>Entendendo a Plataforma</h3>
+				<ul>
+					
+						
+							<li><a href="understanding-the-platform">Framework WALK</a></li>
+						
+					
+						
+							<li><a href="posxml">POSXML</a></li>
+						
+					
+						
+							<li><a href="walk-compiler">WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="walk-server">WALK Server</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Framework WALK</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-framework-walk">Instalação</a></li>
+						
+					
+						
+							<li><a href="instalando-a-aplicacao-inicial">Aplicação Inicial</a></li>
+						
+					
+						
+							<li><a href="gerando-licencas">Gerando Licenças</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>POSXML</h3>
+				<ul>
+					
+						
+							<li><a href="posxml-intro">POSXML introdução</a></li>
+						
+					
+						
+							<li><a href="posxml-a-estrutura-do-posxml">A estrutura do POSXML</a></li>
+						
+					
+						
+							<li><a href="posxml-variaveis-e-memoria">Variáveis e Memória</a></li>
+						
+					
+						
+							<li><a href="posxml-sistema-de-arquivos">Sistema de Arquivos</a></li>
+						
+					
+						
+							<li><a href="posxml-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="comandos-posxml">Lista de Comandos</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Compiler</h3>
+				<ul>
+					
+						
+							<li><a href="walk-compiler-intro">WALK Compiler introdução</a></li>
+						
+					
+						
+							<li><a href="utilizando-o-walk-compiler">Utilizando o WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="posxml-exemplos/index">Aprendendo a Programar</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Server</h3>
+				<ul>
+					
+						
+							<li><a href="walk-server-intro">WALK Server integração</a></li>
+						
+					
+						
+							<li><a href="walk-server-instalacao">Instalação</a></li>
+						
+					
+						
+							<li><a href="walk-server-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="walk-server-testes-e-verificacoes">Testes</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Integração</h3>
+				<ul>
+					
+						
+							<li><a href="integracao-map">Integração introdução</a></li>
+						
+					
+						
+							<li><a href="integracao-introducao">Resumo da rede</a></li>
+						
+					
+						
+							<li><a href="integracao-aplicacao-posxml">Aplicação POSXML</a></li>
+						
+					
+						
+							<li><a href="integracao-configuracoes">Configurações</a></li>
+						
+					
+						
+							<li><a href="integracao-carregando-o-aplicativo">Carregando o aplicativo</a></li>
+						
+					
+						
+							<li><a href="integracao-entendendo-a-comunicacao">Entendendo a comunicação</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Tutoriais</h3>
+				<ul>
+					
+						
+							<li><a href="configuracao-do-terminal-pos">Configuração do terminal</a></li>
+						
+					
+						
+							<li><a href="formato-do-pacote-de-dados">Formato do pacote de dados</a></li>
+						
+					
+						
+							<li><a href="resolucoes-de-tela-e-impressao">Resoluções de tela e impressão</a></li>
+						
+					
+						
+							<li><a href="velocidade-dos-terminais">Velocidade dos terminais</a></li>
+						
+					
+						
+							<li><a href="configuracao-do-teclado-no-framework-walk">Configuração do teclado no Framework WALK</a></li>
+						
+					
+						
+							<li><a href="interface-grafica-para-terminais-verix">Interface gráfica para terminais Verix</a></li>
+						
+					
+						
+							<li><a href="instalando-o-framework-a-partir-de-outro-terminal">Instalando o Framework a partir de outro terminal</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Instalando o chip GPRS</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-nurit-8000">Terminais Nurit 8000</a></li>
+						
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-ingenico-i5100">Terminais Ingenico i5100</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Ajuda</h3>
+				<ul>
+					
+						
+							<li><a href="perguntas-frequentes">Perguntas Frequentes</a></li>
+						
+					
+						
+							<li><a href="fornecedores-de-equipamentos-e-acessorios">Fornecedores de equipamentos e acessórios</a></li>
+						
+					
+				</ul>
+				</li>
+			
+		</ul>
+	</div>
+
+	<div id="content">
+		<div class="topic_content">
+			<h1>Instalando o Framework: Ingenico</h1>
+
+
+
+<p id='description'>Este guia o conduzirá através do processo de instalação do Framework WALK em terminais Ingenico</p>
+
+
+<p>Este guia o conduzirá através do processo de instalação do Framework WALK em terminais Ingenico i5100 e i7910. Atente-se aos pré-requisitos e siga o processo de instalação com atenção.</p>
+
+<a name="pr-requisitos"></a>
+
+
+	<ul id="toc">
+		
+			<li><a href="instalando-o-framework-ingenico#pr-requisitos">Pré-requisitos</a></li>
+		
+			<li><a href="instalando-o-framework-ingenico#screencast">Screencast</a></li>
+		
+			<li><a href="instalando-o-framework-ingenico#instalao-passo-a-passo">Instalação: Passo a passo</a></li>
+		
+	</ul>
+
+
+<h2>Pré-requisitos</h2>
+
+<ol>
+<li><p><strong>Microsoft Windows XP:</strong> Service Pack 2 ou 3</p></li>
+<li><p><strong>Pacote de instalação do Framework WALK:</strong> Baixe-o <a href="http://downloads.planobe.com.br/walk/walk_ingenico_ixxxx.zip">aqui</a></p></li>
+<li><p><strong>Cabo de carga para Ingenico i5100:</strong> Se você estiver utilizando um terminal Ingenico i7910, será necessário um cabo que pode ser solicitado junto a seu revendedor autorizado</p></li>
+<li><p><strong>Bobina de papel:</strong> Necessário para imprimir os relatórios com informações do terminal</p></li>
+<li><p><strong>Porta serial:</strong> Disponível e configurada como <strong>COM1</strong> (verifique o item 6 caso o computador não tenha porta serial)</p></li>
+<li><p><strong>Adaptador:</strong> Caso o computador não tenha um porta COM1, será necessário adquirir um adaptador especial (USB) junto ao seu revendedor autorizado. Para utilizar o adaptador, <a href="utilizando-adaptadores-usb">confira este tutorial</a></p></li>
+</ol>
+
+
+<a name="screencast"></a><h2>Screencast</h2>
+
+<p>Video para ajudar no processo de instalação do Framework WALK.</p>
+
+<p><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/JMZB4zee7EM&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/JMZB4zee7EM&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object></p>
+
+<a name="instalao-passo-a-passo"></a><h2>Instalação: Passo a passo</h2>
+
+<h4>1. Verificação inicial</h4>
+
+<p>Antes de iniciar o processo de carga do Framework WALK, é preciso verificar se seu terminal já possui algumas bibliotecas instaladas. Para isso, entre no menu de configuração do terminal seguindo as instruções abaixo.</p>
+
+<p>1.1. Com o terminal ligado, pressione ao mesmo tempo as teclas abaixo para reiniciar o terminal:</p>
+
+<p><img src="../images/ingenico/01-small.png" alt="Ingenico" /></p>
+
+<hr />
+
+<p>1.2. Ao reiniciar, mantenha pressionado o botão <strong>Limpa</strong> até que apareça o seguinte menu:</p>
+
+<div class="pos ingenico">
+    <div>
+        &nbsp;&nbsp;&nbsp;SSA System Menu<br/><br/>
+        <span class="selected">Configuration Ticket</span><br/>
+        HW Settings<br/>
+        Local Download
+    </div>
+</div>
+
+
+<hr />
+
+<p>1.3. Com a bobina devidamente instalada no terminal, selecione a opção <strong>Configuration Ticket</strong> e imprima os relatórios <strong>HW Ticket</strong>, <strong>OS Ticket</strong> e <strong>App Ticket</strong>:</p>
+
+<div class="pos ingenico">
+    <div>
+        Configuration Ticket<br/><br/>
+        <span class="selected">HW Ticket</span><br/>
+        OS Ticket<br/>
+        App Ticket
+    </div>
+</div>
+
+
+<p>Para efetuar a impressão, selecione o relatório desejado (tecla <strong>OK</strong>) e em seguida pressione a tecla <strong>MENU</strong>.</p>
+
+<hr />
+
+<p>1.4. No relatório <strong>HW Ticket</strong>, item <strong>OS</strong>, a versão mínima para utilizar o Framework WALK é 03.29 para o modelo i5100 e 03.4b para o modelo i7910, conforme pode ser observado abaixo:</p>
+
+<p><strong>i5100</strong></p>
+
+<div class='ticket'>
+<img src='../images/ticket-hd.png' alt=' '/>
+<pre>
+<strong>OS:</strong>
+Control CRC       0xd8de
+Release            <span class="highlight">03.29</span>
+</pre>
+<img src='../images/ticket-ft.png' alt=' '/>
+</div>
+
+
+<p><strong>i7910</strong></p>
+
+<div class='ticket'>
+<img src='../images/ticket-hd.png' alt=' '/>
+<pre>
+<strong>OS:</strong>
+Control CRC       0x6772
+Release            <span class="highlight">03.4b</span>
+</pre>
+<img src='../images/ticket-ft.png' alt=' '/>
+</div>
+
+
+
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>Entre em contato com seu fornecedor para possível troca caso seu terminal não possua uma versão maior ou igual à versão acima</td>
+</tr></table>
+
+
+<hr />
+
+<p>1.5. No relatório <strong>OS Ticket</strong>, item <strong>Peripherals</strong>, veja se o terminal possui ou não a Lib de SSL. Segue abaixo o nome da biblioteca:</p>
+
+<div class='ticket'>
+<img src='../images/ticket-hd.png' alt=' '/>
+<pre>
+<strong>Peripherals:</strong>
+0INGA0AG3280 V03.28
+0INGA0AG3281 V03.28_f145
+</pre>
+<img src='../images/ticket-ft.png' alt=' '/>
+</div>
+
+
+
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>Caso não tenha, a Lib de SSL será instalada no final deste guia</td>
+</tr></table>
+
+
+<hr />
+
+<p>1.6. Ainda no relatório <strong>OS Ticket</strong>, logo no início, a versão do <strong>SAP</strong> que é compatível com o WALK é o <strong>PPT05XX</strong> para o modelo de terminal i5100, ou a versão <strong>MPU03XX</strong> para o modelo i7910, conforme pode ser observado abaixo:</p>
+
+<p><strong>i5100</strong></p>
+
+<div class='ticket'>
+<img src='../images/ticket-hd.png' alt=' '/>
+<pre>
+<strong>    OS CONFIGURATION</strong><br/>
+2010/05/13         14H00
+HW SN       006904811610
+SAP         I5100<span class="highlight">PPT051A</span>
+</pre>
+<img src='../images/ticket-ft.png' alt=' '/>
+</div>
+
+
+<p><strong>i7910</strong></p>
+
+<div class='ticket'>
+<img src='../images/ticket-hd.png' alt=' '/>
+<pre>
+<strong>    OS CONFIGURATION</strong><br/>
+2010/05/13         14H00
+HW SN       006904811610
+SAP         I5100<span class="highlight">MPU035D</span>
+</pre>
+<img src='../images/ticket-ft.png' alt=' '/>
+</div>
+
+
+
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>Entre em contato com seu fornecedor para possível troca caso seu terminal possua um SAP incompatível</td>
+</tr></table>
+
+
+<h4>2. Preparação do computador</h4>
+
+<p>2.1 Descompacte o pacote <strong>walk_2.33_ingenico.zip</strong> em um diretório de sua preferência, e em seguida execute o arquivo <strong>HXLoader2004.exe</strong>.</p>
+
+<p><strong>Observação:</strong></p>
+
+<p>Existem alguns casos em que o programa HXLoader pode abrir mas não ficar visível. Caso isto ocorra, clique <a href="corrigindo-bug-hxloader">aqui</a>.</p>
+
+<hr />
+
+<p>2.2 Ao abrir o HXLoader, selecione a aba <strong>Protocol</strong> e clique na opção <strong>Unicapt32 Load</strong>:</p>
+
+<div class="triggers">
+    <img src="../images/ingenico/02-small.png" alt="HXLoader" rel="#rel02" />
+</div>
+
+
+
+
+<div class="simple_overlay" id="rel02" style="height: 288px;">
+    <img src="../images/ingenico/02.png" alt="HXLoader" />
+</div>
+
+
+<hr />
+
+<p>2.3 Selecione então a aba <strong>File</strong>, clique no botão <strong>Browse</strong> e aponte para o arquivo <strong>WALK.srp</strong>, contido no diretório onde foi descompactado o pacote <strong>walk_2.33_ingenico.zip</strong>.</p>
+
+<p>Com o protocolo definido e o arquivo selecionado, clique no botão <strong>Load</strong>:</p>
+
+<div class="triggers">
+    <img src="../images/ingenico/03-small.png" alt="HXLoader" rel="#rel03" />
+</div>
+
+
+
+
+<div class="simple_overlay" id="rel03" style="height: 288px;">
+    <img src="../images/ingenico/03.png" alt="HXLoader" />
+</div>
+
+
+<h4>3. Preparação do terminal</h4>
+
+<p>3.1 Conecte o cabo serial na porta <strong>COM1</strong> do computador em seguida na porta <strong>RS232-1</strong> do terminal.</p>
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>Remova o modem GPRS do terminal caso este esteja instalado na porta <strong>RS232-1</strong></td>
+</tr></table>
+
+
+<p><img src="../images/ingenico/04-small.png" alt="Ingenico" /></p>
+
+<hr />
+
+<p>3.2. Com o terminal ligado, pressione ao mesmo tempo as teclas abaixo para reiniciar o terminal:</p>
+
+<p><img src="../images/ingenico/01-small.png" alt="Ingenico" rel="#rel05" /></p>
+
+<hr />
+
+<p>3.3. Ao reiniciar, mantenha pressionado o botão <strong>Limpa</strong> até que apareça o seguinte menu:</p>
+
+<div class="pos ingenico">
+    <div>
+        &nbsp;&nbsp;&nbsp;SSA System Menu<br/><br/>
+        <span class="selected">Configuration Ticket</span><br/>
+        HW Settings<br/>
+        Local Download
+    </div>
+</div>
+
+
+<hr />
+
+<p>3.4. Selecione a opção <strong>Local Download</strong> e entre com a senha <strong>1975</strong>:</p>
+
+<div class="pos ingenico">
+    <div>
+        Protected Menu<br/>
+        Password: ****
+    </div>
+</div>
+
+
+<hr />
+
+<p>3.5. Selecione então a opção <strong>Port: COM1</strong>:</p>
+
+<div class="pos ingenico">
+    <div>
+        &nbsp;&nbsp;&nbsp;Local Download<br/><br/>
+        Start Now<br/>
+        <span class="selected">Port: COM1</span>
+    </div>
+</div>
+
+
+<hr />
+
+<p>3.6. Na listagem de portas, selecione a opção <strong>COM1</strong>:</p>
+
+<div class="pos ingenico">
+    <div>
+        Select a Com Port:<br/><br/>
+        <span class="selected">COM1</span><br/>
+        COM2
+    </div>
+</div>
+
+
+<hr />
+
+<p>3.7. Selecione agora a opção <strong>Start Now</strong>, para iniciar o processo. Ao finalizar o download, o terminal será reiniciado, limpando a memória do mesmo e instalando a Lib GPRS e o Framework WALK.</p>
+
+<div class="pos ingenico">
+    <div>
+        &nbsp;&nbsp;&nbsp;Local Download<br/><br/>
+        <span class="selected">Start Now</span><br/>
+        Port: COM1
+    </div>
+</div>
+
+
+<p><strong>Observação:</strong></p>
+
+<p>Caso seu terminal não possua a <strong>Lib SSL</strong> (verificado no passo 1.5, no relatório <strong>OS Ticket</strong>), efetue novamente o processo de carga utilizando o arquivo <strong>LIB_SSL_Add.srp</strong> no HXLoader.</p>
+
+<hr />
+
+<p>Após ser reiniciado, a seguinte tela será exibida, mostrando que a memória do terminal foi limpa e o Framework WALK foi instalado com sucesso:</p>
+
+<div class="pos verix">
+<pre>
+Waiting download
+</pre>
+</div>
+
+
+<h4>5. Instalando a aplicação inicial</h4>
+
+<p>Siga <a href="instalando-a-aplicacao-inicial">este tutorial</a> para finalizar a instalação do Framework WALK instalando a aplicação inicial, de forma que seja possível incluir a licença do Framework WALK para o terminal.</p>
+
+<div id="next_section">Próximo: <a href="instalando-a-aplicacao-inicial">Instalando a aplicação inicial &rarr;</a></div>
+
+
+
+
+
+		</div>
+	</div>
+	
+	<div id='end-application'><br /></div><div id='default-footer'>  <div id='default-footer-inner'>    <a href='http://www.planobe.com.br'><img alt='PlanoBe' src='../images/logo-planobe.png' /></a>    <p>Os nomes e logomarcas WALK, WALKWEB, WALKSERVER, POSXML, xTiss e Plano Bê são marcas registradas da Plano Bê Desenvolvimento de Sistemas Ltda.</p>    <p>Todos os textos e design são de direito autoral de ©2005-2012 Plano Bê, LTDA.</p>    <p>Todos os direitos reservados.</p>    <p style="display:none">valid: <a href='http://validator.w3.org/check?uri=referer'>XHTML 1.1</a> | <a href='http://jigsaw.w3.org/css-validator/check/referer?profile=css3'>CSS 3</a></p>  </div></div>
+</div>
+
+<!-- google site search -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&amp;t13n_langs=en"></script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+  <!-- Analytics -->
+  
+  <script type='text/javascript'> 
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3586526-19']);
+      _gaq.push(['_setDomainName', '.plataformawalk.com.br']);
+      _gaq.push(['_trackPageview']);
+    //]]>
+  </script>
+  
+
+  <script type='text/javascript'> 
+    //<![CDATA[
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+  </script>
+
+	<script type="text/javascript">
+		function validate_i18n(form){
+			if(form.value == 'es'){
+				window.location = 'http://translate.google.com/translate?hl=en&sl=pt&tl=es&u=http%3A%2F%2Fmanual.plataformawalk.com.br';
+			}else{
+				document.getElementById('i18n_form').submit();
+			}
+		}
+
+		$(document).ready(function() {
+			$("#locale").append("<option value='es'>Spanish</option>");
+			$("img[rel]").overlay();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+#default-header{
+	background: #383d44 url(../images/h-bg.gif) repeat-x bottom left;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, sans-serif;
+	font-size: 62.5%;
+	padding-top: 5px;
+	width: 100%;
+}
+#default-header-inner{
+	font-size: 1.2em;
+	margin: 0 auto;
+	width: 976px;
+}
+#default-header-inner img{
+	border: none;
+	float: right;
+}
+#default-header-inner div#language{
+	float: right;
+	margin-bottom: -19px !important;
+	margin-top: 13px;
+	width: auto;
+}
+
+/* NAVIGATION */
+#default-nav ul{
+	list-style: none;
+	margin: -10px 0 0;
+	overflow: hidden;
+	padding: 0;
+}
+#default-nav ul li{
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: auto;
+}
+#default-nav ul li a{
+	background: url(../images/nav-bg.gif) no-repeat bottom left;
+	border: none;
+	color: #7b828c;
+	display: block;
+	float: left;
+	line-height: 1.4em;
+	margin: 0;
+	padding: 1em 1em .5em;
+	text-decoration: none;
+	width: 8.5em;
+}
+#default-nav ul li a strong{
+	color: #e3e3e3;
+	display: block;
+	font-size: 1em;
+	font-weight: 700;
+	letter-spacing: 1px;
+	line-height: 1em;
+	text-transform: uppercase;
+}
+#default-nav li a:hover{
+	background: url(../images/tab-hover.gif) repeat-x bottom left;
+}
+
+#default-nav li a.active{
+	background: url(../images/tab-on-noise.gif) repeat-x bottom left;
+	color: #7b828c;
+}
+
+#default-footer{
+	clear: both;
+	font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, sans-serif;
+	background: #383d44 url(../images/h-bg.gif) repeat-x bottom left;
+	width: 100%;
+	margin-top: -60px;
+}
+#default-footer-inner{
+	color: #e3e3e3;
+	font-size: 12px;
+	margin: 0 auto;
+	padding-bottom: 38px;
+	padding-top: 15px;
+	text-align: center;
+	width: 976px;
+}
+#default-footer-inner img{
+	border: none;
+	padding: 15px 0;
+}
+#default-footer-inner p{
+	margin-bottom: -9px;
+}
+
+#default-footer-inner a{
+	color: #fff;
+	font-weight: 700;
+	text-decoration: none;
+}
+#end-application{
+	clear: both;
+	margin: 0 auto 2.5em 3%;
+	min-width: 545px;
+	padding: 0 15px;
+	width: 67%;
+}

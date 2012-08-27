@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+	<title>WALK | Configuração</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='Plano Be, Plano Bê, POS terminal, point of sale terminal, terminais POS, pos software, point of sale software, point of sale software development, point of sale software development, pos terminal software, pos credit card terminal, mobile pos terminal, credit card terminal, pos equipment, VeriFone, Redecard, Nurit, Ingenico, transações eletrônicas, PayNews, WALK platform, plataforma WALK, WALK framework, sistema WALK, POSXML, pagamentos movel, mobile payments, m-payments, pagamentos móveis' name='keywords' />
+	<meta content='Variáveis de configuração do Framework WALK' name='description' />
+	<meta content='Plano Be' name='author' />
+  <meta name="google-site-verification" content="VxbryVDusgFi-QnPbJ-mnyHN9GlRkNwjJ4yLiR4QCdE" />
+
+	<link type="text/css" rel="stylesheet" href="../stylesheets/main.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/default.css" media="screen" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/print.css" media="print" />
+	
+	<!-- image map - maplight -->
+	<script type="text/javascript" src="../javascripts/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../javascripts/jquery.maphilight.min.js"></script>
+	<script>
+		$(function() {
+			$('.map').maphilight();
+		});
+	</script>
+
+	<!-- syntaxhighlighter_2 -->
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shCore.css" />
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shThemeHeroku.css" />
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPlain.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushRuby.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushCSharp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushVb.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+		SyntaxHighlighter.config.clipboardSwf = '/javascripts/clipboard.swf';
+		SyntaxHighlighter.defaults.gutter = false;
+	</script>
+</head>
+<body>
+
+<div style="display:none">  <div id='default-header-inner'>    <div id='language'>      <form id='i18n_form' action='posxml-configuracao'>        <div>          <select id=locale style="display:none" name=locale onchange=validate_i18n(this);>             <option value=pt-BR selected=selected>Portuguese</option> <option value=en>English</option></select>          </select>        </div>      </form>    </div>    <div id='default-nav'>      <ul>        <li><a href='http://www.plataformawalk.com.br'><strong>INICIO</strong><span>Plataforma WALK</span></a></li>        <li><a href='http://blog.plataformawalk.com.br'><strong>WALKING</strong><span>Blog</span></a></li>        <li><a href='../index.html'><strong>MANUAL</strong><span>Documentação</span></a></li>        <li><a href='http://helpdesk.plataformawalk.com.br'><strong>HELP DESK</strong><span>Peça Ajuda</span></a></li>      </ul>    </div>  </div></div>
+
+<div id="bodywrap">
+
+	<div id="docsnav">
+		<form action="http://manual.plataformawalk.com.br/search" id="cse-search-box">
+			<div id="search" style="display:none">
+				<input type="hidden" name="cx" value="006895165009419401911:3z-q2nkhyxk" />
+				<input type="hidden" name="cof" value="FORID:10;NB:1" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="31" />
+			</div>
+		</form>
+
+		<ul>
+			
+				<li>
+				<h3>Entendendo a Plataforma</h3>
+				<ul>
+					
+						
+							<li><a href="understanding-the-platform">Framework WALK</a></li>
+						
+					
+						
+							<li><a href="posxml">POSXML</a></li>
+						
+					
+						
+							<li><a href="walk-compiler">WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="walk-server">WALK Server</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Framework WALK</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-framework-walk">Instalação</a></li>
+						
+					
+						
+							<li><a href="instalando-a-aplicacao-inicial">Aplicação Inicial</a></li>
+						
+					
+						
+							<li><a href="gerando-licencas">Gerando Licenças</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>POSXML</h3>
+				<ul>
+					
+						
+							<li><a href="posxml-intro">POSXML introdução</a></li>
+						
+					
+						
+							<li><a href="posxml-a-estrutura-do-posxml">A estrutura do POSXML</a></li>
+						
+					
+						
+							<li><a href="posxml-variaveis-e-memoria">Variáveis e Memória</a></li>
+						
+					
+						
+							<li><a href="posxml-sistema-de-arquivos">Sistema de Arquivos</a></li>
+						
+					
+						
+							<li class="current"><a>Configuração</a></li>
+						
+					
+						
+							<li><a href="comandos-posxml">Lista de Comandos</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Compiler</h3>
+				<ul>
+					
+						
+							<li><a href="walk-compiler-intro">WALK Compiler introdução</a></li>
+						
+					
+						
+							<li><a href="utilizando-o-walk-compiler">Utilizando o WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="posxml-exemplos/index">Aprendendo a Programar</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Server</h3>
+				<ul>
+					
+						
+							<li><a href="walk-server-intro">WALK Server integração</a></li>
+						
+					
+						
+							<li><a href="walk-server-instalacao">Instalação</a></li>
+						
+					
+						
+							<li><a href="walk-server-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="walk-server-testes-e-verificacoes">Testes</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Integração</h3>
+				<ul>
+					
+						
+							<li><a href="integracao-map">Integração introdução</a></li>
+						
+					
+						
+							<li><a href="integracao-introducao">Resumo da rede</a></li>
+						
+					
+						
+							<li><a href="integracao-aplicacao-posxml">Aplicação POSXML</a></li>
+						
+					
+						
+							<li><a href="integracao-configuracoes">Configurações</a></li>
+						
+					
+						
+							<li><a href="integracao-carregando-o-aplicativo">Carregando o aplicativo</a></li>
+						
+					
+						
+							<li><a href="integracao-entendendo-a-comunicacao">Entendendo a comunicação</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Tutoriais</h3>
+				<ul>
+					
+						
+							<li><a href="configuracao-do-terminal-pos">Configuração do terminal</a></li>
+						
+					
+						
+							<li><a href="formato-do-pacote-de-dados">Formato do pacote de dados</a></li>
+						
+					
+						
+							<li><a href="resolucoes-de-tela-e-impressao">Resoluções de tela e impressão</a></li>
+						
+					
+						
+							<li><a href="velocidade-dos-terminais">Velocidade dos terminais</a></li>
+						
+					
+						
+							<li><a href="configuracao-do-teclado-no-framework-walk">Configuração do teclado no Framework WALK</a></li>
+						
+					
+						
+							<li><a href="interface-grafica-para-terminais-verix">Interface gráfica para terminais Verix</a></li>
+						
+					
+						
+							<li><a href="instalando-o-framework-a-partir-de-outro-terminal">Instalando o Framework a partir de outro terminal</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Instalando o chip GPRS</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-nurit-8000">Terminais Nurit 8000</a></li>
+						
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-ingenico-i5100">Terminais Ingenico i5100</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Ajuda</h3>
+				<ul>
+					
+						
+							<li><a href="perguntas-frequentes">Perguntas Frequentes</a></li>
+						
+					
+						
+							<li><a href="fornecedores-de-equipamentos-e-acessorios">Fornecedores de equipamentos e acessórios</a></li>
+						
+					
+				</ul>
+				</li>
+			
+		</ul>
+	</div>
+
+	<div id="content">
+		<div class="topic_content">
+			<h1>Configuração</h1>
+
+
+
+
+
+
+
+<p id='description'>Variáveis de configuração do Framework WALK</p>
+
+
+<p>O Framework WALK possui várias variáveis de configuração, permitindo configurar qualquer parâmetro do terminal através da linguagem POSXML, como se fossem variáveis de ambiente utilizadas pelo aplicativo e por dispositivos do terminal, como modem e impressora.</p>
+
+<p>Qualquer um desses parâmetros pode ser configurado com o auxílio do comando <a href="comandos-posxml#editaarquivo">editaarquivo</a>, apontando para <strong>config.dat</strong>, e utilizando o nome desses parâmetros como chave. O arquivo <strong>config.dat</strong> nada mais é do que um arquivo no formato de <a href="posxml-sistema-de-arquivos">sistema de arquivos</a> do WALK.</p>
+
+<p>É possível configurar qualquer tipo de media, retentativas, entre outros parâmetros e fazer lógicas de reconexão de backup através da linguagem PosXML, utilizando as instruções <a href="comandos-posxml#editaarquivo">editaarquivo</a> e <a href="comandos-posxml#preconexao">preconexao</a>.</p>
+
+<p>Abaixo as variáveis de configuração do arquivo <strong>config.dat</strong>:</p>
+
+<ol>
+<li><p><strong>sn_walk</strong><br/>Licença do Framework WALK;</p></li>
+<li><p><strong>nomeaplicativo</strong><br/>Nome do aplicativo que será buscado no diretório do WALK Server (obrigatoriamente 10 letras);</p></li>
+<li><p><strong>primeiravez</strong><br/>Indica se é a primeira vez que o terminal está executando uma aplicação POSXML;</p></li>
+<li><p><strong>numerodestepos</strong><br/>Número (identificação) do terminal POS;</p></li>
+<li><p><strong>tiposcartao</strong><br/> Define as regras para utilização de cartões, conforme a tabela abaixo:<br/><table id="models">
+<tr>
+<th class="topleft" style="width: 33%;">Opção</th>
+<th style="width: 33%;">Trilhas</th>
+<th class="topright" style="width: 33%;">Tipo de leitura</th>
+</tr>
+<tr class="off">
+<td>0 <i>(Default)</i></td>
+<td>Aceita trilha 2</td>
+<td>Digitação manual ou Passe</td>
+</tr>
+<tr class="light">
+<td>2</td>
+<td>Aceita trilha 2</td>
+<td>Não permite digitação manual</td>
+</tr>
+<tr class="off">
+<td>4</td>
+<td>Aceita trilha 1 e trilha 2</td>
+<td>Digitação manual ou Passe</td>
+</tr>
+<tr class="light">
+<td>255</td>
+<td>Aceita trilha 1 e trilha 2</td>
+<td>Não permite digitação manual</td>
+</tr>
+</table></p></li>
+<li><p><strong>retentativas</strong><br/>Quantidade de retentativas de conexão com o dispositivo configurado;</p></li>
+<li><p><strong>qtdetentativasenvio</strong><br/>Número de pacotes que serão enviados até haver a confirmação pelo WALK Server;</p></li>
+<li><p><strong>sn_terminal</strong><br/>Número de série (serial number) do terminal;</p></li>
+<li><p><strong>model</strong><br/>Modelo do terminal, conforme a tabela abaixo:<table id="models">
+<tr>
+<th class="topleft" style="width: 50%;">Modelo do terminal POS</th>
+<th class="topright" style="width: 50%;">Modelo no config.dat</th>
+</tr>
+<tr class="off">
+<td>NURIT 80XX</td>
+<td>8010 ou 8020</td>
+</tr>
+<tr class="light">
+<td>NURIT 83XX</td>
+<td>8320</td>
+</tr>
+<tr class="off">
+<td>NURIT 84XX</td>
+<td>8400</td>
+</tr>
+<tr class="light">
+<td>VeriFone VX 510/570</td>
+<td>O5150</td>
+</tr>
+<tr class="off">
+<td>VeriFone VX 510/570/610/670</td>
+<td>VX510, VX570, VX610 ou VX670</td>
+</tr>
+<tr class="light">
+<td>Verifone VX680</td>
+<td>VX680</td>
+</tr>
+<tr class="off">
+<td>Ingênico Ixxxx</td>
+<td>I5100 ou I7910</td>
+</tr>
+<tr class="light">
+<td>SAGEM EFT930</td>
+<td>EFT930G ou EFT930S</td>
+</tr>
+<tr class="off">
+<td>TELIUM ICT220/ICT250/IWL220</td>
+<td>ICT220, ICT250 ou IWL220</td>
+</tr>
+</table></p></li>
+<li><p><strong>withssl</strong><br/>Indica se deve ou não utilizar SSL, onde:<pre>
+0 &ndash; Não utilizar SSL
+1 &ndash; Utilizar SSL
+2 &ndash; Ultilizar SSL Mutual authentication
+</pre>Para trabalhar com SSL mutual authentication, é necessário carregar 3 arquivos de certificados, com os respectivos nomes:<pre>CA.pem   &ndash; Certificate authority
+key.pem  &ndash; Private Key
+cert.pem &ndash; Certificate
+</pre></p></li>
+<li><p><strong>myip</strong><br/>Endereço IP do terminal. É necessário definir o IP <strong>0.0.0.0</strong> se o protocolo de comunicação <strong>PPP</strong> ou <strong>DHCP</strong> for utilizado;</p></li>
+<li><p><strong>mygateway</strong><br/>Gateway que será utilizado pelo terminal. É necessário definir o Gateway <strong>0.0.0.0</strong> se o protocolo de comunicação <strong>PPP</strong> ou <strong>DHCP</strong> for utilizado;</p></li>
+<li><p><strong>dnsprimario</strong><br/>DNS primário que será utilizado pelo terminal. É necessário definir o DNS <strong>0.0.0.0</strong> se o protocolo de comunicação <strong>PPP</strong> for utilizado;</p></li>
+<li><p><strong>dnssecundario</strong><br/>DNS secundário que será utilizado pelo terminal. É necessário definir o DNS <strong>0.0.0.0</strong> se o protocolo de comunicação <strong>PPP</strong> for utilizado;</p></li>
+<li><p><strong>iphost</strong><br/>Endereço IP do WALK Server;</p></li>
+<li><p><strong>portahost</strong><br/>Porta do WALK Server;</p></li>
+<li><p><strong>subnet</strong><br/>Máscara de rede. É necessário definir a máscara <strong>255.255.255.255</strong> se o protocolo de comunicação <strong>PPP</strong> for utilizado, se for utilizado  <strong>DHCP</strong> é necessário definir a máscara <strong>0.0.0.0</strong>;</p></li>
+<li><p><strong>uclmedia</strong><br/>Tipo de conexão que será utilizada, podendo ser:<pre>
+LANDLINE
+ETHERNET
+GPRS
+WIFI
+</pre></p></li>
+<li><p><strong>uclapn</strong><br/>APN da rede GPRS;</p></li>
+<li><p><strong>uclprotocol</strong><br/>Protocolo de comunicação que será utilizado, podendo ser:<pre>
+TCP
+SDLC
+X28
+</pre></p></li>
+<li><p><strong>uclphoneno</strong><br/>Número que o terminal irá efetuar a discagem;</p></li>
+<li><p><strong>uclusername</strong><br/>Nome de usuário do RAS ou APN (PPP);</p></li>
+<li><p><strong>uclpassword</strong><br/>Senha do usuário do RAS ou APN (PPP);</p></li>
+<li><p><strong>uclvelocidademodem</strong><br/>Velocidade que será utilizado pelo modem, podendo ser:<pre>
+1200
+2400
+9600
+14400
+</pre></p></li>
+<li><p><strong>gprs_pin</strong><br/>PIN do chip GPRS</p></li>
+<li><p><strong>autooffmodem</strong><br/>Desliga o modem automaticamente após uma conexão;</p></li>
+<li><p><strong>versaoframework</strong><br/>Versão do Framework WALK instalado no terminal;</p></li>
+<li><p><strong>crcpaginawalkserver</strong><br/>CRC do aplicativo do WALK Server;</p></li>
+<li><p><strong>keypaperfeed</strong><br/>Tecla que será utilizada para efetuar o <a href="comandos-posxml#paperfeed">paperfeed</a>.</p></li>
+<li><p><strong>keyalpha</strong><br/>Tecla que será utilizada para fazer o <strong>alpha</strong> do teclado. As teclas opcionais variam de terminal pra terminal, e podem ir de KEY_EXTRA1 até KEY_EXTRA99.</p></li>
+<li><p><strong>keypound</strong><br/>Tecla que será utilizada para colocar o <strong>#</strong> (sharp). As teclas opcionais variam de terminal pra terminal, e podem ir de KEY_EXTRA1 até KEY_EXTRA99.</p></li>
+<li><p><strong>keystar</strong><br/>Tecla que será utilizada para colocar o<strong> * </strong>(asterisco). As teclas opcionais variam de terminal pra terminal, e podem ir de KEY_EXTRA1 até KEY_EXTRA99.</p></li>
+<li><p><strong>touchscreen</strong><br/>Habilita ou não o teclado virtual, caso o terminal possua <u>touchscreen</u>, onde:<pre>
+0 &ndash; Não ativa o teclado virtual
+1 &ndash; Ativa o teclado virtual
+</pre></p></li>
+<li><p><strong>renpac_nua</strong><br/>Configurações de RENPAC;</p></li>
+<li><p><strong>renpac_niu</strong><br/>Configurações de RENPAC;</p></li>
+<li><p><strong>renpac_psw</strong><br/>Configurações de RENPAC;</p></li>
+<li><p><strong>epack</strong><br/>Utilizado quando a tecnologia de comunicação for semelhante ao RENPAC da EMBRATEL.</p></li>
+<li><p><strong>uclwifinetwork</strong><br/>Nome da rede WIFI que desejamos conectar.</p></li>
+<li><p><strong>uclwifisecurity</strong><br/>Tipo de criptografia da rede.</p></li>
+<li><p><strong>uclwifikey</strong><br/>Senha para a rede WIFI que desejamos conectar(Hex)</p></li>
+<li><p><strong>timeoutinput</strong><br/>Timeout para todas as instruções que a utilizam</p></li>
+<li><p><strong>iswalkserver3</strong><br/>Utilizado para identificar se a comunicação é com o walk server 3.</p></li>
+<li><p><strong>iskeytimeout</strong><br/>Utilizado para identificar se retorno de função letecla, quando timeout, deve ser -1, onde:<pre>
+0 &ndash; Desativado, letecla retorna KEY_CANCEL em timeout.
+1 &ndash; Ativado, letecla retorna -1 em timeout.<br/>
+</pre></p></li>
+</ol>
+
+
+
+
+	<div id="next_section">Próximo: <a href="comandos-posxml">Lista de Comandos &rarr;</a></div>
+
+
+		</div>
+	</div>
+	
+	<div id='end-application'><br /></div><div id='default-footer'>  <div id='default-footer-inner'>    <a href='http://www.planobe.com.br'><img alt='PlanoBe' src='../images/logo-planobe.png' /></a>    <p>Os nomes e logomarcas WALK, WALKWEB, WALKSERVER, POSXML, xTiss e Plano Bê são marcas registradas da Plano Bê Desenvolvimento de Sistemas Ltda.</p>    <p>Todos os textos e design são de direito autoral de ©2005-2012 Plano Bê, LTDA.</p>    <p>Todos os direitos reservados.</p>    <p style="display:none">valid: <a href='http://validator.w3.org/check?uri=referer'>XHTML 1.1</a> | <a href='http://jigsaw.w3.org/css-validator/check/referer?profile=css3'>CSS 3</a></p>  </div></div>
+</div>
+
+<!-- google site search -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&amp;t13n_langs=en"></script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+  <!-- Analytics -->
+  
+  <script type='text/javascript'> 
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3586526-19']);
+      _gaq.push(['_setDomainName', '.plataformawalk.com.br']);
+      _gaq.push(['_trackPageview']);
+    //]]>
+  </script>
+  
+
+  <script type='text/javascript'> 
+    //<![CDATA[
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+  </script>
+
+	<script type="text/javascript">
+		function validate_i18n(form){
+			if(form.value == 'es'){
+				window.location = 'http://translate.google.com/translate?hl=en&sl=pt&tl=es&u=http%3A%2F%2Fmanual.plataformawalk.com.br';
+			}else{
+				document.getElementById('i18n_form').submit();
+			}
+		}
+
+		$(document).ready(function() {
+			$("#locale").append("<option value='es'>Spanish</option>");
+			$("img[rel]").overlay();
+		});
+	</script>
+</body>
+</html>

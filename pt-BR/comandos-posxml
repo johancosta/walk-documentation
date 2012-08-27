@@ -1,0 +1,3716 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+	<title>WALK | Comandos POSXML</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='Plano Be, Plano Bê, POS terminal, point of sale terminal, terminais POS, pos software, point of sale software, point of sale software development, point of sale software development, pos terminal software, pos credit card terminal, mobile pos terminal, credit card terminal, pos equipment, VeriFone, Redecard, Nurit, Ingenico, transações eletrônicas, PayNews, WALK platform, plataforma WALK, WALK framework, sistema WALK, POSXML, pagamentos movel, mobile payments, m-payments, pagamentos móveis' name='keywords' />
+	<meta content='Comandos disponíveis na linguagem POSXML' name='description' />
+	<meta content='Plano Be' name='author' />
+  <meta name="google-site-verification" content="VxbryVDusgFi-QnPbJ-mnyHN9GlRkNwjJ4yLiR4QCdE" />
+
+	<link type="text/css" rel="stylesheet" href="../stylesheets/main.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/default.css" media="screen" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/print.css" media="print" />
+	
+	<!-- image map - maplight -->
+	<script type="text/javascript" src="../javascripts/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../javascripts/jquery.maphilight.min.js"></script>
+	<script>
+		$(function() {
+			$('.map').maphilight();
+		});
+	</script>
+
+	<!-- syntaxhighlighter_2 -->
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shCore.css" />
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shThemeHeroku.css" />
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPlain.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushRuby.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushCSharp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushVb.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+		SyntaxHighlighter.config.clipboardSwf = '/javascripts/clipboard.swf';
+		SyntaxHighlighter.defaults.gutter = false;
+	</script>
+</head>
+<body>
+
+<div style="display:none">  <div id='default-header-inner'>    <div id='language'>      <form id='i18n_form' action='comandos-posxml'>        <div>          <select id=locale style="display:none" name=locale onchange=validate_i18n(this);>             <option value=pt-BR selected=selected>Portuguese</option> <option value=en>English</option></select>          </select>        </div>      </form>    </div>    <div id='default-nav'>      <ul>        <li><a href='http://www.plataformawalk.com.br'><strong>INICIO</strong><span>Plataforma WALK</span></a></li>        <li><a href='http://blog.plataformawalk.com.br'><strong>WALKING</strong><span>Blog</span></a></li>        <li><a href='../index.html'><strong>MANUAL</strong><span>Documentação</span></a></li>        <li><a href='http://helpdesk.plataformawalk.com.br'><strong>HELP DESK</strong><span>Peça Ajuda</span></a></li>      </ul>    </div>  </div></div>
+
+<div id="bodywrap">
+
+	<div id="docsnav">
+		<form action="http://manual.plataformawalk.com.br/search" id="cse-search-box">
+			<div id="search" style="display:none">
+				<input type="hidden" name="cx" value="006895165009419401911:3z-q2nkhyxk" />
+				<input type="hidden" name="cof" value="FORID:10;NB:1" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="31" />
+			</div>
+		</form>
+
+		<ul>
+			
+				<li>
+				<h3>Entendendo a Plataforma</h3>
+				<ul>
+					
+						
+							<li><a href="understanding-the-platform">Framework WALK</a></li>
+						
+					
+						
+							<li><a href="posxml">POSXML</a></li>
+						
+					
+						
+							<li><a href="walk-compiler">WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="walk-server">WALK Server</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Framework WALK</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-framework-walk">Instalação</a></li>
+						
+					
+						
+							<li><a href="instalando-a-aplicacao-inicial">Aplicação Inicial</a></li>
+						
+					
+						
+							<li><a href="gerando-licencas">Gerando Licenças</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>POSXML</h3>
+				<ul>
+					
+						
+							<li><a href="posxml-intro">POSXML introdução</a></li>
+						
+					
+						
+							<li><a href="posxml-a-estrutura-do-posxml">A estrutura do POSXML</a></li>
+						
+					
+						
+							<li><a href="posxml-variaveis-e-memoria">Variáveis e Memória</a></li>
+						
+					
+						
+							<li><a href="posxml-sistema-de-arquivos">Sistema de Arquivos</a></li>
+						
+					
+						
+							<li><a href="posxml-configuracao">Configuração</a></li>
+						
+					
+						
+							<li class="current"><a>Lista de Comandos</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Compiler</h3>
+				<ul>
+					
+						
+							<li><a href="walk-compiler-intro">WALK Compiler introdução</a></li>
+						
+					
+						
+							<li><a href="utilizando-o-walk-compiler">Utilizando o WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="posxml-exemplos/index">Aprendendo a Programar</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Server</h3>
+				<ul>
+					
+						
+							<li><a href="walk-server-intro">WALK Server integração</a></li>
+						
+					
+						
+							<li><a href="walk-server-instalacao">Instalação</a></li>
+						
+					
+						
+							<li><a href="walk-server-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="walk-server-testes-e-verificacoes">Testes</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Integração</h3>
+				<ul>
+					
+						
+							<li><a href="integracao-map">Integração introdução</a></li>
+						
+					
+						
+							<li><a href="integracao-introducao">Resumo da rede</a></li>
+						
+					
+						
+							<li><a href="integracao-aplicacao-posxml">Aplicação POSXML</a></li>
+						
+					
+						
+							<li><a href="integracao-configuracoes">Configurações</a></li>
+						
+					
+						
+							<li><a href="integracao-carregando-o-aplicativo">Carregando o aplicativo</a></li>
+						
+					
+						
+							<li><a href="integracao-entendendo-a-comunicacao">Entendendo a comunicação</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Tutoriais</h3>
+				<ul>
+					
+						
+							<li><a href="configuracao-do-terminal-pos">Configuração do terminal</a></li>
+						
+					
+						
+							<li><a href="formato-do-pacote-de-dados">Formato do pacote de dados</a></li>
+						
+					
+						
+							<li><a href="resolucoes-de-tela-e-impressao">Resoluções de tela e impressão</a></li>
+						
+					
+						
+							<li><a href="velocidade-dos-terminais">Velocidade dos terminais</a></li>
+						
+					
+						
+							<li><a href="configuracao-do-teclado-no-framework-walk">Configuração do teclado no Framework WALK</a></li>
+						
+					
+						
+							<li><a href="interface-grafica-para-terminais-verix">Interface gráfica para terminais Verix</a></li>
+						
+					
+						
+							<li><a href="instalando-o-framework-a-partir-de-outro-terminal">Instalando o Framework a partir de outro terminal</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Instalando o chip GPRS</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-nurit-8000">Terminais Nurit 8000</a></li>
+						
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-ingenico-i5100">Terminais Ingenico i5100</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Ajuda</h3>
+				<ul>
+					
+						
+							<li><a href="perguntas-frequentes">Perguntas Frequentes</a></li>
+						
+					
+						
+							<li><a href="fornecedores-de-equipamentos-e-acessorios">Fornecedores de equipamentos e acessórios</a></li>
+						
+					
+				</ul>
+				</li>
+			
+		</ul>
+	</div>
+
+	<div id="content">
+		<div class="topic_content">
+			<h1>Comandos POSXML</h1>
+
+
+
+
+
+
+
+<p id='description'>Comandos disponíveis na linguagem POSXML</p>
+
+
+<p>Confira abaixo os comandos existentes até o momento na linguagem POSXML, que está em constante evolução, e por este motivo novos comandos podem ser adicionados.</p>
+
+<p>Caso você execute algum aplicativo contendo um comando não suportado pela versão do Framework WALK instalada no terminal POS, ocorrerá o erro &ldquo;WALK: Byte Mode Error&hellip;&rdquo;, informando que aquele <strong>Byte Code</strong> daquele comando ainda não existe nesta versão.</p>
+
+<p><strong>Lista de comandos disponíveis na versão 6.5.7.0 do WALK Compiler</strong></p>
+
+<ul id="commands" style="width: 100%">
+  <li><a href="comandos-posxml#ajustadatahora">ajustadatahora</a></li>
+  <li><a href="comandos-posxml#baixaarquivo">baixaarquivo</a></li>
+  <li><a href="comandos-posxml#break">break</a></li>
+  <li><a href="comandos-posxml#chamafuncao">chamafuncao</a></li>
+  <li><a href="comandos-posxml#closeserialport">closeserialport</a></li>
+  <li><a href="comandos-posxml#conectar">conectar</a></li>
+  <li><a href="comandos-posxml#conversaointeiro">conversaointeiro</a></li>
+  <li><a href="comandos-posxml#convert.toint">convert.toint</a></li>
+  <li><a href="comandos-posxml#crypto.encryptdecrypt">crypto.encryptdecrypt</a></li>
+  <li><a href="comandos-posxml#crypto.lrc">crypto.lrc</a></li>
+  <li><a href="comandos-posxml#crypto.xor">crypto.xor</a></li>
+  <li><a href="comandos-posxml#desligamodem">desligamodem</a></li>
+  <li><a href="comandos-posxml#diferencadatahora">diferencadatahora</a></li>
+  <li><a href="comandos-posxml#digitadecimal">digitadecimal</a></li>
+  <li><a href="comandos-posxml#digitaformato">digitaformato</a></li>
+  <li><a href="comandos-posxml#digitainteiro">digitainteiro</a></li>
+  <li><a href="comandos-posxml#digitaopcao">digitaopcao</a></li>
+  <li><a href="comandos-posxml#digitavalor">digitavalor</a></li>
+  <li><a href="comandos-posxml#display">display</a></li>
+  <li><a href="comandos-posxml#editaarquivo">editaarquivo</a></li>
+  <li><a href="comandos-posxml#else">else</a></li>
+  <li><a href="comandos-posxml#emv.adddata">emv.adddata</a></li>
+  <li><a href="comandos-posxml#emv.cleanstructures">emv.cleanstructures</a></li>
+  <li><a href="comandos-posxml#emv.finishtransaction">emv.finishtransaction</a></li>
+  <li><a href="comandos-posxml#emv.getinfo">emv.getinfo</a></li>
+  <li><a href="comandos-posxml#emv.inittransaction">emv.inittransaction</a></li>
+  <li><a href="comandos-posxml#emv.loadtables">emv.loadtables</a></li>
+  <li><a href="comandos-posxml#emv.open">emv.open</a></li>
+  <li><a href="comandos-posxml#emv.processtransaction">emv.processtransaction</a></li>
+  <li><a href="comandos-posxml#emv.removecard">emv.removecard</a></li>
+  <li><a href="comandos-posxml#emv.settimeout">emv.settimeout</a></li>
+  <li><a href="comandos-posxml#enviaarquivo">enviaarquivo</a></li>
+  <li><a href="comandos-posxml#espera">espera</a></li>
+  <li><a href="comandos-posxml#esperatecla">esperatecla</a></li>
+  <li><a href="comandos-posxml#esperateclatimeout">esperateclatimeout</a></li>
+  <li><a href="comandos-posxml#excluiarquivo">excluiarquivo</a></li>
+  <li><a href="comandos-posxml#execute">execute</a></li>
+  <li><a href="comandos-posxml#exit">exit</a></li>
+  <li><a href="comandos-posxml#file.close">file.close</a></li>
+  <li><a href="comandos-posxml#file.open">file.open</a></li>
+  <li><a href="comandos-posxml#file.read">file.read</a></li>
+  <li><a href="comandos-posxml#file.write">file.write</a></li>
+  <li><a href="comandos-posxml#filesystem.filesize">filesystem.filesize</a></li>
+  <li><a href="comandos-posxml#filesystem.listfiles">filesystem.listfiles</a></li>
+  <li><a href="comandos-posxml#filesystem.space">filesystem.space</a></li>
+  <li><a href="comandos-posxml#funcao">funcao</a></li>
+  <li><a href="comandos-posxml#guardavariavel">guardavariavel</a></li>
+  <li><a href="comandos-posxml#if">if</a></li>
+  <li><a href="comandos-posxml#input.getvalue">input.getvalue</a></li>
+  <li><a href="comandos-posxml#imprima">imprima e imprimagrande</a></li>
+  <li><a href="comandos-posxml#imprimabitmap">imprimabitmap</a></li>
+  <li><a href="comandos-posxml#imprimacodigodebarras">imprimacodigodebarras</a></li>
+  <li><a href="comandos-posxml#incrementadatahora">incrementadatahora</a></li>
+  <li><a href="comandos-posxml#inttostring">inttostring</a></li>
+  <li><a href="comandos-posxml#iso8583.analisamensagem">iso8583.analisamensagem</a></li>
+  <li><a href="comandos-posxml#iso8583.finalizamensagem">iso8583.finalizamensagem</a></li>
+  <li><a href="comandos-posxml#iso8583.iniciamensagem">iso8583.iniciamensagem</a></li>
+  <li><a href="comandos-posxml#iso8583.iniciatabelacampos">iso8583.iniciatabelacampos</a></li>
+  <li><a href="comandos-posxml#iso8583.inserecampo">iso8583.inserecampo</a></li>
+  <li><a href="comandos-posxml#iso8583.pegacampo">iso8583.pegacampo</a></li>
+  <li><a href="comandos-posxml#iso8583.transactmessage">iso8583.transactmessage</a></li>
+  <li><a href="comandos-posxml#learquivo">learquivo</a></li>
+  <li><a href="comandos-posxml#learquivobyindex">learquivobyindex</a></li>
+  <li><a href="comandos-posxml#letecla">letecla</a></li>
+  <li><a href="comandos-posxml#limpadisplay">limpadisplay</a></li>
+  <li><a href="comandos-posxml#limpavariaveis">limpavariaveis</a></li>
+  <li><a href="comandos-posxml#menu">menu</a></li>
+  <li><a href="comandos-posxml#menuwithheader">menuwithheader</a></li>
+  <li><a href="comandos-posxml#mostrabitmap">mostrabitmap</a></li>
+  <li><a href="comandos-posxml#network.checkgprssignal">network.checkgprssignal</a></li>
+  <li><a href="comandos-posxml#network.hostdisconnect">network.hostdisconnect</a></li>
+  <li><a href="comandos-posxml#network.httprequest">network.httprequest</a></li>
+  <li><a href="comandos-posxml#network.ping">network.ping</a></li>
+  <li><a href="comandos-posxml#network.receive">network.receive</a></li>
+  <li><a href="comandos-posxml#network.send">network.send</a></li>
+  <li><a href="comandos-posxml#openserialport">openserialport</a></li>
+  <li><a href="comandos-posxml#operacaomatematica">operacaomatematica</a></li>
+  <li><a href="comandos-posxml#paperfeed">paperfeed</a></li>
+  <li><a href="comandos-posxml#parseticket">parseticket</a></li>
+  <li><a href="comandos-posxml#pegacartao">pegacartao</a></li>
+  <li><a href="comandos-posxml#pegacartaoevariavel">pegacartaoevariavel</a></li>
+  <li><a href="comandos-posxml#pegadatahora">pegadatahora</a></li>
+  <li><a href="comandos-posxml#pinpad.close">pinpad.close</a></li>
+  <li><a href="comandos-posxml#pinpad.display">pinpad.display</a></li>
+  <li><a href="comandos-posxml#pinpad.getkey">pinpad.getkey</a></li>
+  <li><a href="comandos-posxml#pinpad.getpindukpt">pinpad.getpindukpt</a></li>
+  <li><a href="comandos-posxml#pinpad.loadipek">pinpad.loadipek</a></li>
+  <li><a href="comandos-posxml#pinpad.open">pinpad.open</a></li>
+  <li><a href="comandos-posxml#preconexao">preconexao</a></li>
+  <li><a href="comandos-posxml#predial">predial</a></li>
+  <li><a href="comandos-posxml#readserialport">readserialport</a></li>
+  <li><a href="comandos-posxml#smartcard.cartaoinserido">smartcard.cartaoinserido</a></li>
+  <li><a href="comandos-posxml#smartcard.fechaleitor">smartcard.fechaleitor</a></li>
+  <li><a href="comandos-posxml#smartcard.inicialeitor">smartcard.inicialeitor</a></li>
+  <li><a href="comandos-posxml#smartcard.transmiteAPDU">smartcard.transmiteAPDU</a></li>
+  <li><a href="comandos-posxml#somastring">somastring</a></li>
+  <li><a href="comandos-posxml#string.charat">string.charat</a></li>
+  <li><a href="comandos-posxml#string.elementat">string.elementat</a></li>
+  <li><a href="comandos-posxml#string.elements">string.elements</a></li>
+  <li><a href="comandos-posxml#string.find">string.find</a></li>
+  <li><a href="comandos-posxml#string.fromhex">string.fromhex</a></li>
+  <li><a href="comandos-posxml#string.getvaluebykey">string.getvaluebykey</a></li>
+  <li><a href="comandos-posxml#string.insertat">string.insertat</a></li>
+  <li><a href="comandos-posxml#string.length">string.length</a></li>
+  <li><a href="comandos-posxml#string.pad">string.pad</a></li>
+  <li><a href="comandos-posxml#string.removeat">string.removeat</a></li>
+  <li><a href="comandos-posxml#string.replace">string.replace</a></li>
+  <li><a href="comandos-posxml#string.replaceat">string.replaceat</a></li>
+  <li><a href="comandos-posxml#string.substring">string.substring</a></li>
+  <li><a href="comandos-posxml#string.tohex">string.tohex</a></li>
+  <li><a href="comandos-posxml#string.trim">string.trim</a></li>
+  <li><a href="comandos-posxml#stringtoint">stringtoint</a></li>
+  <li><a href="comandos-posxml#substring">substring</a></li>
+  <li><a href="comandos-posxml#system.beep">system.beep</a></li>
+  <li><a href="comandos-posxml#system.checkbattery">system.checkbattery</a></li>
+  <li><a href="comandos-posxml#system.info">system.info</a></li>
+  <li><a href="comandos-posxml#system.readcard">system.readcard</a></li>
+  <li><a href="comandos-posxml#system.reinicia">system.reinicia</a></li>
+  <li><a href="comandos-posxml#ultimapagina">ultimapagina</a></li>
+  <li><a href="comandos-posxml#unzipfile">unzipfile</a></li>
+  <li><a href="comandos-posxml#variavelint">variavelint</a></li>
+  <li><a href="comandos-posxml#variavelintoperador">variavelintoperador</a></li>
+  <li><a href="comandos-posxml#variavelstr">variavelstr</a></li>
+  <li><a href="comandos-posxml#verificapapelimpressora">verificapapelimpressora</a></li>
+  <li><a href="comandos-posxml#while">while</a></li>
+  <li><a href="comandos-posxml#writeserialport">writeserialport</a></li>
+  <li>&nbsp;</li>
+</ul>
+
+
+
+
+<br style="clear: both;"/>
+
+
+
+
+<h2 id="ajustadatahora">ajustadatahora<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite atualizar o relógio interno do terminal. É necessário informar o ano, mês, dia, hora, minuto e segundo, no formato &lsquo;yyyyMMddhhmmss&rsquo;.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>datahora</u>: Data/hora no formato yyyyMMddhhmmss (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;ajustadatahora datahora="20121221235959" /&gt;
+</pre>
+
+
+
+
+<h2 id="baixaarquivo">baixaarquivo<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Baixa um arquivo do WALK Server para o terminal, em um protocolo de comunicação próprio semelhante ao FTP.</p>
+
+<p>O terminal busca o arquivo no diretório de <u>downloads</u> do WALK Server.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo que será gravado na memória do terminal (string).</li>
+<li><u>caminhoremoto</u>: Nome do arquivo na pasta de <u>downloads</u> do WALK Server. Deve iniciar com &lsquo;\&rsquo; (string).</li>
+<li><u>excluiaposdownload</u>: Deve excluir o arquivo (WALK Server) após o download? 0 &ndash; Não ou 1 &ndash; Sim (inteiro).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):</li>
+</ol>
+
+
+<pre> 2: Arquivo tem o mesmo CRC do arquivo do servidor(WALK Server 3)
+ 1: Arquivo baixado com sucesso
+&nbsp;0: Erro no encode do arquivo para base 64
+-1: Arquivo não encontrado no servidor ou não foi possível encoda-lo
+-2: Erro na conexão no envio do buffer
+-3: Erro no recebimento do buffer de conteúdo do arquivo no servidor
+-4: Erro no pacote recebido do servidor
+-5: Erro na conexão com o servidor
+-6: Erro na transferência do header ou do footer
+-7: Erro no envio da confirmação de download completo
+-8 Serial number não autorizado(WALK Server 3)
+</pre>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint value="0" variable="iRet" /&gt;
+&lt;baixaarquivo nomearquivo="file.dat" caminhoremoto="\file.dat" excluiaposdownload="0" variavelretorno="$(iRet)" /&gt;
+</pre>
+
+
+
+
+<h2 id="break">break<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando break possibilita a saída imediata do loop while.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="i" /&gt;
+&lt;while variavel="$(i)" operador="menor" valor="10"&gt;
+  &lt;display linha="0" coluna="0" mensagem=" Loop ..." /&gt;
+  &lt;variavelintoperador operador="++" variavelorigem="$(i) /&gt;
+  &lt;break /&gt; &lt;!-- sai do loop --&gt;
+&lt;/while&gt;
+</pre>
+
+
+
+
+<h2 id="chamafuncao">chamafuncao<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>chamafuncao</u> é um termo de desvio responsável por fazer uma chamada e executar uma função contendo um bloco de comandos.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nome</u>: Função a ser executada (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;chamafuncao nome="Imprime_cupom" /&gt;
+</pre>
+
+
+
+
+<h2 id="closeserialport">closeserialport<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Fecha a porta serial, previamente aberta com a instrução <u>openserialport</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelhandle</u>: Variável retornada em <u>openserialport</u>. Deve ser diferente e maior que zero (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="iRet" /&gt;
+&lt;openserialport porta="COM1" velocidade="115200" configuracao="A8N1" variavelretorno="$(iRet)" /&gt;
+&lt;closeserialport variavelhandle="$(iRet)" /&gt;
+</pre>
+
+
+
+
+<h2 id="conectar">conectar<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>conectar</u> prepara o dispositivo de conexão, seja um modem analógico ou não, e envia todas as informações coletadas (nas variáveis) pelo operador ao sistema atendedor, que irá receber as informações coletadas.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;conectar /&gt;
+</pre>
+
+
+
+
+<h2 id="conversaointeiro">conversaointeiro<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite converter um número inteiro em um número binário, octal ou hexadecimal.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>numero</u>: Número que será convertido (inteiro).</li>
+<li><u>base</u>: 2: binário, 8: octal ou 16: hexadecimal (inteiro).</li>
+<li><u>tamanhoretorno</u>: Tamanho do resultado. Se o número convertido for menor, então vai ser completado com zeros a esquerda  (inteiro).</li>
+<li><u>variavelretorno</u>: Variável onde será armazenado o número convertido (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="12" variavel="iNum"/&gt;
+&lt;variavelint valor="2" variavel="iBase"/&gt;
+&lt;variavelint valor="10" variavel="iTamanho"/&gt;
+&lt;variavelstr valor="" variavel="sRet"/&gt;
+&lt;conversaointeiro numero="$(iNum)" base="$(iBase)" tamanhoretorno="$(iTamanho)" variavelretorno="$(sRet)"/&gt;
+&lt;display coluna="0" linha="0" mensagem="$(sRet)"/&gt;
+&lt;esperatecla/&gt;
+</pre>
+
+
+
+
+<h2 id="convert.toint">convert.toint<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>convert.toint</u> permite converter uma string contendo um número binário, decimal ou hexadecimal em um número inteiro.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>base</u>: Base do número que será convertido, que pode ser 2, 10 ou 16 (string).</li>
+<li><u>numero</u>: Número que será convertido (string).</li>
+<li><u>variavelretorno</u>: Variável onde será armazenado o número convertido (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;convert.toint base="16" numero="FF" variavelretorno="$(num)" /&gt;
+</pre>
+
+
+
+
+<h2 id="crypto.encryptdecrypt">crypto.encryptdecrypt<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Este comando criptografa ou descriptografa uma mensagem utilizando os algoritmos DES, 3DES, NEWDES ou 3DESTripleLength.</p>
+
+<table id="models">
+  <tr>
+    <th class="topleft" style="width: 33%;">Tipo de Algoritmo</th>
+    <th style="width: 33%;">Quantidade de Bytes</th>
+    <th class="topright" style="width: 33%;">Quantidade de Caracters</th>
+  </tr>
+  <tr>
+    <td>DES</td>
+    <td>8</td>
+    <td>16 (em hexadecimal)</td>
+  </tr>
+  <tr>
+    <td>NEWDES</td>
+    <td>15</td>
+    <td>30 (em hexadecimal)</td>
+  </tr>
+  <tr>
+    <td>3DES</td>
+    <td>16</td>
+    <td>32 (em hexadecimal)</td>
+  </tr>
+  <tr>
+    <td>3DESTripleLength</td>
+    <td>24</td>
+    <td>48 (em hexadecimal)</td>
+  </tr>
+</table>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>cryptotype</u>: Tipo de algoritmo: DES, NEWDES, 3DES ou 3DESTripleLength (string).</li>
+<li><u>key</u>: Representação hexadecimal da chave criptográfica, baseado na tabela acima (string).</li>
+<li><u>message</u>: Representação hexadecimal de 8 bytes da mensagem que será criptografada ou descriptografada. Caso a mensagem seja maior do que 8 bytes, será necessário dividi-la em blocos de 8 bytes (string).</li>
+<li><u>type</u>: Ação que será executada: 0 &ndash; Criptografia ou 1 &ndash; Descriptografia (inteiro).</li>
+<li><u>variavelretorno</u>: Representação hexadecimal do resultado da operação (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;crypto.encryptdecrypt cryptotype="3DES" key="30313233" message="$(str_msg)" type="0" variablereturn="$(str_msg_cript)" /&gt;
+</pre>
+
+
+
+
+<h2 id="crypto.lrc">crypto.lrc<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Gera um byte de LRC com base na string informada em <u>buffer</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>buffer</u>: Buffer no formato hexadecimal que será gerado o byte de LRC (string).</li>
+<li><u>size</u>: Tamanho do buffer (inteiro).</li>
+<li><u>variavelretorno</u>: Byte LRC no formato hexadecimal (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;crypto.lrc buffer="4B91443C5F1234" size="7" variavelretorno="$(sHexLrc)" /&gt;
+</pre>
+
+
+
+
+<h2 id="crypto.xor">crypto.xor<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Realiza uma operação binaria XOR entre os bytes de <u>buffer1</u> e <u>buffer2</u>, o tamanho de ambos deve ser igual (preencha com zeros caso o tamanho for diferente).</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>buffer1</u>: Buffer que sera realizado o XOR no formato hexadecimal (string).</li>
+<li><u>buffer1</u>: Buffer que sera realizado o XOR no formato hexadecimal (string).</li>
+<li><u>size</u>: Tamanho do buffer (inteiro).</li>
+<li><u>variavelretorno</u>: Buffer com o resultado do XOR no formato hexadecimal (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;crypto.xor buffer1="$(hexStartVector)" buffer2="$(sPacket8Bytes)" size="8" variavelretorno="$(hexPacket8BytesXOR)" /&gt;
+</pre>
+
+
+
+
+<h2 id="desligamodem">desligamodem<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>desligamodem</u> cancela as operações do dispositivo de conexão, finalizando a conexão aberta com o host (atendedor) e desliga o modem.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;desligamodem /&gt;
+</pre>
+
+
+
+
+<h2 id="diferencadatahora">diferencadatahora<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite calcular a diferença entre duas datas especificadas em <u>datahora1</u> e <u>datahora2</u>. Basta criar uma variável do tipo inteiro, que receberá o resultado da diferença das duas datas na forma de segundos, para ser exibida. Se a diferença entre as duas datas ultrapassar uma hora, a função indicará erro de <u>datetime</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>datahora1</u>: Data final (maior) no formato yyyyMMddhhmmss (string).</li>
+<li><u>datahora2</u>: Data inicial (menor) no formato yyyyMMddhhmmss (string).</li>
+<li><u>variavelretorno</u>: Diferença em segundos entre as duas datas (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="var"/&gt; &lt;variavelstr valor="" variavel="var2"/&gt;
+&lt;diferencadatahora datahora1="20070510155135" datahora2="20070510155030" variavelretorno="$(var)"/&gt;
+&lt;inttostring variavelint="$(var)" variavelstr="$(var2)"/&gt;
+&lt;display coluna="0" linha="0" mensagem="$(var2)"/&gt;
+</pre>
+
+
+
+
+<h2 id="digitadecimal">digitadecimal<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p> O comando digitadecimal aguarda o operador do terminal digitar um valor com ponto (.) através do teclado do terminal utilizando a tecla * para inserir o ponto. Exibe uma mensagem em linha e coluna especificadas. O valor digitado é armazenado em uma variável string de memória do terminal POS, incluindo o ponto.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavel</u>: Variável onde será armazenado o valor digitado (string).</li>
+<li><u>linha</u>: Linha de exibição da mensagem (inteiro).</li>
+<li><u>coluna</u>: Coluna de exibição da mensagem (inteiro).</li>
+<li><u>mensagem</u>: Mensagem que será exibida no display do terminal (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor="1.00" variavel="valor" /&gt;
+&lt;digitadecimal variavel="$(valor)" linha="1" coluna="1" mensagem="Kilogramas:" /&gt;
+</pre>
+
+
+
+
+<h2 id="digitaformato">digitaformato<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>digitaformato</u> exibe uma <u>mensagem</u> no visor do terminal na <u>linha</u> e <u>coluna</u> especificadas e aguarda o operador do terminal digitar uma informação que tenha formato específico da máscara de entrada.</p>
+
+<p>A informação digitada no teclado do terminal é então armazenada em uma <u>variável</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>linha</u>: Linha de exibição da mensagem (inteiro).</li>
+<li><u>coluna</u>: Coluna de exibição da mensagem (inteiro).</li>
+<li><u>mensagem</u>: Mensagem que será exibida no display do terminal (string).</li>
+<li><u>variavel</u>: Variável onde será armazenado o valor digitado (string).</li>
+<li><u>Máscara</u>: Formato da entrada de dados, onde <strong>9</strong> é numérico, <strong> * </strong> é senha e <strong>A</strong> é alfanumérico. Os demais caracters serão inseridos automaticamente (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;digitaformato linha="1" coluna="1" mensagem="Data da compra:" variavel="$(Data)" formato="99/99/9999" /&gt;
+</pre>
+
+
+
+
+<h2 id="digitainteiro">digitainteiro<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>digitainteiro</u> permite a digitação de dados numéricos através do teclado do terminal POS. Uma mensagem é exibida no visor do terminal na <u>linha</u> e <u>coluna</u> especificadas, e este fica aguardando a digitação da informação solicitada.</p>
+
+<p>Pode se configurar os intervalos mínimo e máximo do valor numérico digitado, que por sua vez é armazenado em uma <u>variável</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>linha</u>: Linha de exibição da mensagem (inteiro).</li>
+<li><u>coluna</u>: Coluna de exibição da mensagem (inteiro).</li>
+<li><u>mensagem</u>: Mensagem que será exibida no display do terminal (string).</li>
+<li><u>variavel</u>: Variável onde será armazenado o valor digitado (inteiro).</li>
+<li><u>minimo</u>: Número mínimo a ser digitado (inteiro).</li>
+<li><u>maximo</u>: Número máximo a ser digitado (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;digitainteiro linha="1" coluna="1" mensagem="Digite CEP:" variavel="$(CEP)" minimo="0" maximo="999999" /&gt;
+</pre>
+
+
+
+
+<h2 id="digitaopcao">digitaopcao<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Semelhante ao comando <u>digitainteiro</u>, com a diferença que ao digitarmos o <u>número máximo</u> especificado, a instrução pula automaticamente para a próxima, como se tivéssemos pressionado as teclas ENTER ou OK.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>linha</u>: Linha de exibição da mensagem (inteiro).</li>
+<li><u>coluna</u>: Coluna de exibição da mensagem (inteiro).</li>
+<li><u>mensagem</u>: Mensagem que será exibida no display do terminal (string).</li>
+<li><u>variavel</u>: Variável onde será armazenado o valor digitado (inteiro).</li>
+<li><u>minimo</u>: Número mínimo a ser digitado (inteiro).</li>
+<li><u>maximo</u>: Número máximo a ser digitado (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;digitaopcao linha="0" coluna="0" mensagem="Digite a opcao:" variavel="$(Var)" minimo="0" maximo="9" /&gt;
+</pre>
+
+
+
+
+<h2 id="digitavalor">digitavalor<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>digitavalor</u> exibe uma <u>mensagem</u> no visor do terminal na <u>linha</u> e <u>coluna</u> especificadas e aguarda o operador do terminal digitar um valor monetário através do teclado do terminal. A informação digitada no teclado do terminal é então armazenada em uma <u>variável</u>.</p>
+
+<p>Note que este comando possui uma máscara de pontos e vírgulas dinâmica, ou seja, os pontos e virgulas são exibidos no display conforme o operador vai digitando o valor, porém o valor armazenado na <u>variável</u> é do tipo inteiro e não contem pontos nem vírgulas.</p>
+
+<p>O valor armazenado na <u>variável</u> segue a especificação ISO8583, onde:</p>
+
+<ul>
+<li>1 = 1 centavo</li>
+<li>10 = 10 centavos</li>
+<li>100 = 1 real</li>
+<li>1000 = 10 reais</li>
+<li>10000 = 100 reais</li>
+<li>100000 = 1000 reais</li>
+<li>1000000 = 10000 reais</li>
+</ul>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>linha</u>: Linha de exibição da mensagem (inteiro).</li>
+<li><u>coluna</u>: Coluna de exibição da mensagem (inteiro).</li>
+<li><u>mensagem</u>: Mensagem que será exibida no display do terminal (string).</li>
+<li><u>variavel</u>: Variável onde será armazenado o valor digitado (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;digitavalor linha="1" coluna="1" mensagem="Valor da Compra:" variavel="$(valor)" /&gt;
+</pre>
+
+
+
+
+<h2 id="display">display<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>display</u> é utilizado para exibir no visor (display) do terminal POS uma mensagem específicada na posição <u>linha</u> e <u>coluna</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>linha</u>: Linha de exibição da mensagem (inteiro).</li>
+<li><u>coluna</u>: Coluna de exibição da mensagem (inteiro).</li>
+<li><u>mensagem</u>: Mensagem que será exibida no display do terminal (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;display linha="1" coluna="1" mensagem="POSXML" /&gt;
+</pre>
+
+
+
+
+<h2 id="editaarquivo">editaarquivo<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite escrever um arquivo no formato WALK dbfile (‘chave=valor\nchave=valor\n’).</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo a ser editado ou criado (string).</li>
+<li><u>chave</u>: Chave do valor que será editado no arquivo (string).</li>
+<li><u>valor</u>: Valor que será atribuído a chave especificada (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor="config.dat" variavel="filename" /&gt;
+&lt;variavelstr valor="senhatecnica" variavel="key" /&gt;
+&lt;variavelstr valor="12345 " variavel="buffer" /&gt;
+&lt;editaarquivo nomearquivo="$(filename)" chave="$(key)" valor="$(buffer)" /&gt;
+</pre>
+
+
+
+
+<h2 id="else">else<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>else</u> é utilizado dentro de um <u>if</u>, como uma condição lógica (se não).</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="num"/&gt;
+&lt;if operador="igual" variavel="$(num)" valor="1"&gt;
+  &lt;display coluna="0" linha="0" mensagem="Variavel igual a 1"/&gt;
+  &lt;esperatecla/&gt;
+&lt;else/&gt;
+  &lt;display coluna="0" linha="0" mensagem="Variavel diferente de 1"/&gt;
+  &lt;esperatecla/&gt;
+&lt;/if&gt;
+</pre>
+
+
+
+
+<h2 id="emv.adddata">emv.adddata<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>A instrução <u>emv.adddata</u> adiciona parâmetros ao processo EMV, tipos &lsquo;init&rsquo;, &lsquo;process&rsquo;, &lsquo;finish&rsquo;.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>parametro</u>: Nome do Parâmetro que vai ser atribuido em data (string).</li>
+<li><u>tipo</u>: Tipo do parâmetro (string).</li>
+<li><u>valor</u>: Valor que será atribuido ao parâmetro especificado (string).</li>
+<li><u>variavelretorno</u>: 0: ok, -1: erro, type, chave ou valor não existe (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;emv.adddata tipo="init" parametro="baInitialValue" valor="000000001000" variavelretorno="$(status)"/&gt;
+</pre>
+
+
+
+
+<h2 id="emv.cleanstructures">emv.cleanstructures<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Limpa todos os parâmetros de entrada e saída para &lsquo;init&rsquo;, &lsquo;process&rsquo; e &lsquo;finish&rsquo;.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;emv.cleanstructures/&gt;
+</pre>
+
+
+
+
+<h2 id="emv.finishtransaction">emv.finishtransaction<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Finalização de transação EMV, ultiliza dados inseridos emv.adddata com type finish.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelretorno</u>: 0: OK, 11: Parâmetro inválido, 12: Timeout, 40: Erro interno, 43: Cartão retirado no meio da operação (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;emv.finishtransaction variavelretorno="$(sStatus)"/&gt;
+</pre>
+
+
+
+
+<h2 id="emv.getinfo">emv.getinfo<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Retorna parâmetros de informação após a execução de processo EMV, tipos &lsquo;init&rsquo;, &lsquo;process&rsquo;, &lsquo;finish&rsquo;.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>parametro</u>: Nome do Parâmetro a buscar (string).</li>
+<li><u>tipo</u>: Tipo do parâmetro (string).</li>
+<li><u>valor</u>: Valor do parâmetro buscado (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;emv.getinfo tipo="finish" parametro="bDecision" valor="$(sStatus)/&gt;
+</pre>
+
+
+
+
+<h2 id="emv.inittransaction">emv.inittransaction<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Inicializa EMV com os parâmetros inseridos em emv.adddata com type init.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelretorno</u>: 0: OK, 11: Parâmetro inválido, 12: Timeout, 13: Cancelado pelo operador, 15: Biblioteca EMV não inicializada, 40: Erro interno, 41: Erro ao ler tarja magnética, 43: Cartão não está presente(inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;emv.inittransaction variavelretorno="$(status)"/&gt;
+</pre>
+
+
+
+
+<h2 id="emv.loadtables">emv.loadtables<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Carrega tabelas EMV e PKI de arquivo por Adquirente.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>adquirente</u>: Número de identificação do Adquirente (inteiro).</li>
+<li><u>variavelretorno</u>: 0: OK, 15: Biblioteca não inicializada, 30: Erro de comunicação(Ocupado), 31: Erro de comunicação (desconectado), 10: Erro na inicialização das tabelas, 21: Erro na escrita da tabela, 1: Arquivo dat não encontrado para este adquirente (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;emv.loadtables adquirente="4" variavelretorno="$(status)"/&gt;
+</pre>
+
+
+
+
+<h2 id="emv.open">emv.open<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Inicializa biblioteca EMV.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelretorno</u>: 0: OK, 14: já foi inicializada, 16: Erro (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;emv.open variavelretorno="$(status)"/&gt;
+</pre>
+
+
+
+
+<h2 id="emv.processtransaction">emv.processtransaction<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>processamento de transação EMV, ultiliza dados inseridos emv.adddata com type process.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>mkslot</u>: Slot do terminal aonde esta gravado Master Key (inteiro).</li>
+<li><u>pinpadtype</u>: Tipo do pinpad utilizado, externo 2 ou inteiro 1(inteiro).</li>
+<li><u>pinpadwk</u>: Workinng key utilizada na sessão com o pinpad (string).</li>
+<li><u>showamount</u>: Defini se bilioteca mostrará o amount ou não, 1-Mostra 0-Não mostra(inteiro).</li>
+<li><u>variavelretorno</u>: 0: OK, 11: Parâmetro inválido, 12: Timeout, 13: Operação de entrada de PIN cancelada pelo usuário, 15: Biblioteca EMV não inicializada, 19: Ausência de dados mandatório para processamento, 40: Erro interno, 41: Erro ao ler tarja magnética, 43: Cartão não esta presente(inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;emv.processtransaction variavelretorno="$(status)" mkslot=" " pinpadtype="1" pinpadwk=" " showamount="1"/&gt;
+</pre>
+
+
+
+
+<h2 id="emv.removecard">emv.removecard<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Aguarda Remoção do cartão, utiliza de emv.settimeout, se setado.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelretorno</u>: 0: OK, 12: Timeout, 13: Cancelado, 15: Biblioteca EMV não inicializada (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;emv.removecard variavelretorno="$(iStatus)"/&gt;
+</pre>
+
+
+
+
+<h2 id="emv.settimeout">emv.settimeout<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Define timeout(em segundos) de biblioteca processos EMV.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>segundos</u>: Segundos (inteiro).</li>
+<li><u>variavelretorno</u>: 0: OK, 15: Biblioteca EMV não inicializada (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;emv.settimeout segundos="30" variavelretorno="$(status)"/&gt;
+</pre>
+
+
+
+
+<h2 id="enviaarquivo">enviaarquivo<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Envia um arquivo do terminal para o WALK Server, em um protocolo de comunicação próprio semelhante ao FTP. Se no envio não ocorrer nenhum erro o arquivo vai estar disponível no caminho remoto especificado, dentro da pasta de upload do WALK Server.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo que está na memória do terminal que desejamos enviar para o Walk Server (string).</li>
+<li><u>caminhoremoto</u>: Nome do arquivo que será criado na pasta de upload do Walk Server 2. Deve iniciar com &lsquo;\&rsquo; (string).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre> 1: Arquivo enviado com sucesso
+&nbsp;0: Erro no encode do arquivo para base 64
+-1: Arquivo não encontrado
+-2: Erro na conexão no envio do buffer
+-3: Erro no recebimento da confirmação de recebimento do buffer do arquivo pelo servidor
+-4: Erro no pacote enviado para o servidor
+-5: Erro na conexão com o servidor
+-6: Erro na transferência do header ou do footer</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;enviaarquivo nomearquivo="file.dat" caminhoremoto="\file.dat" variavelretorno="$(ret)" /&gt;
+</pre>
+
+
+
+
+<h2 id="espera">espera<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>espera</u> aguarda o tempo especificado em mili-segundos até liberar o fluxo de execução do programa. O aplicativo irá aguardar o tempo especificado mesmo que operador pressione qualquer tecla.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>milisegundos</u>: Tempo em mili-segundos que a instrução irá aguardar antes de continuar a execução (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;espera milisegundos="1000" /&gt;
+</pre>
+
+
+
+
+<h2 id="esperatecla">esperatecla<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>esperatecla</u> aguarda o operador do terminal pressionar qualquer tecla para continuar alguma operação.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;esperatecla /&gt;
+</pre>
+
+
+
+
+<h2 id="esperateclatimeout">esperateclatimeout<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>esperateclatimeout</u> é basicamente igual a instrução <u>esperatecla</u>. Aguarda o operador do terminal pressionar qualquer tecla no terminal para continuar alguma operação, com a diferença que podemos especificar em segundos o tempo que a instrução irá aguardar até que seja pressionado uma tecla para prosseguir a ação.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>segundos</u>: Segundos que a instrução vai aguardar antes de continuar a execução (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;esperateclatimeout segundos="10" /&gt;
+</pre>
+
+
+
+
+<h2 id="excluiarquivo">excluiarquivo<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite excluir um arquivo do sistema de arquivo do POS.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo a ser excluído (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor="config.dat" variavel="filename" /&gt;
+&lt;excluiarquivo nomearquivo="$(filename)" /&gt;
+</pre>
+
+
+
+
+<h2 id="execute">execute<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando execute permite executar um aplicativo PosXML compilado armazenado no disco. Basta passarmos o nome do arquivo no parametro nomedoarquivo para que se inicie a execução do mesmo.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomedoarquivo</u>: Nome do arquivo POSXML compilado que será executado (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;execute nomedoarquivo="inicio.posxml" /&gt;
+</pre>
+
+
+
+
+<h2 id="exit">exit<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Encerra imediatamente a execução do aplicativo POSXML.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="i" /&gt;
+&lt;while variavel="$(i)" operador="menor" valor="10"&gt;
+  &lt;display linha="0" coluna="0" mensagem=" Loop ..." /&gt;
+  &lt;variavelintoperador operador="++" variavelorigem="$(i) /&gt;
+  &lt;exit /&gt; &lt;!-- sai da aplicaticacao --&gt;
+&lt;/while&gt;
+</pre>
+
+
+
+
+<h2 id="file.close">file.close<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Fecha o arquivo que foi previamente aberto com <u>file.open</u></p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>handle</u>: Handle do arquivo que será fechado(inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;file.close handle="$(iRet)"/&gt;
+</pre>
+
+
+
+
+<h2 id="file.open">file.open<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Abre um arquivo para leitura ou escrita</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>filename</u>: Nome do arquivo(string).</li>
+<li><u>mode</u>: Modo de abertura &ldquo;w&rdquo; para write ou &ldquo;r&rdquo; read mode(string).</li>
+<li><u>variablehandle</u>: Resultado da operação, -1: não foi possível abir o arquivo, >-1: handle para arquivo aberto(inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;file.open filename="teste.dat" mode="w" variablehandle="$(iRet)"/&gt;
+</pre>
+
+
+
+
+<h2 id="file.read">file.read<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Lê um arquivo que foi previamente aberto com <u>file.open</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>handle</u>: Handle do arquivo que será lido(inteiro).</li>
+<li><u>size</u>: Numero de bytes que queremos ler do arquivo(inteiro).</li>
+<li><u>variablebuffer</u>: Variavel na onde será armazenado os bytes lidos no formato hex ascii(string).</li>
+<li><u>variablereturn</u>: Variavel na onde será armazenado a quantidade de bytes lidos(inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;file.read handle="$(iRet)" size="8" variablebuffer="$(sBuffer)" variablereturn="$(iBufReturn)"/&gt;
+</pre>
+
+
+
+
+<h2 id="file.write">file.write<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Grava um arquivo que foi previamente aberto com <u>file.open</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>buffer</u>: Buffer no formato hex ascii que será gravado no arquivo(string).</li>
+<li><u>handle</u>: Handle do arquivo que será gravado(inteiro).</li>
+<li><u>size</u>: Número de bytes que queremos gravar no arquivo(inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;file.write buffer="$(sBuffer)" handle="$(iRet)" size="8"/&gt;
+</pre>
+
+
+
+
+<h2 id="filesystem.filesize">filesystem.filesize<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Retorna o tamanho do arquivo especificado.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo (string).</li>
+<li><u>variavelretorno</u>: Tamanho do arquivo em bytes (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;filesystem.filesize nomearquivo="$(nome)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="filesystem.space">filesystem.space<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite verificar o tamanho total da memória, o espaço utilizado, o espaço livre e o número de arquivos na memória.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>dir</u>: Diretório que será analisado, podendo ser <u>I:</u> ou <u>F:</u> (string).</li>
+<li><u>tipo</u>: Tipo da informação, que pode ser <u>free</u>, <u>used</u>, <u>total</u> ou <u>countfiles</u> (string).</li>
+<li><u>variavelretorno</u>: Espaço em bytes ou número de arquivos (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;filesystem.space dir="$(dir)" tipo="$(tipo)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="funcao">funcao<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>funcao</u> é responsável por nomear uma função ou bloco de código contendo outros comandos e regras lógicas.</p>
+
+<p>A execução da <u>função</u> sé se dará após a execução do comando <u>chamafuncao</u>.</p>
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>Não é possível declarar blocos de funções dentro de funções</td>
+</tr></table>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nome</u>: Função a ser chamada (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;funcao nome="Imprime_cupom"&gt;
+  &lt;imprimagrande mensagem="Plano Be" /&gt;
+  &lt;imprimagrande mensagem="Tecnologia" /&gt;
+  &lt;paperfeed /&gt;
+&lt;/funcao&gt;
+</pre>
+
+
+
+
+<h2 id="guardavariavel">guardavariavel<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>guardavariavel</u> é um termo de atribuição, responsável pelo armazenamento e enfileiramento do conteúdo de uma <u>variável</u> para ser enviado ao host (atendedor).</p>
+
+<p>O conteúdo é armazenado em um buffer na memória do Terminal POS, onde cada execução do comando <u>guardavariavel</u> faz com que o conteúdo da <u>variável</u> seja armazenado no buffer, separado por virgula.</p>
+
+<p>Ao executar o comando <u>conectar</u>, o terminal envia o buffer completo para o host.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavel</u>: Variável que será armazenada no buffer que será enviado ao host (string ou inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;guardavariavel variavel="$(numeroCartao)" /&gt;
+</pre>
+
+
+
+
+<h2 id="if">if<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>if</u> é utilizado para especificar uma tomada de decisão ou comparação lógica, onde outros comandos e instruções podem ser declarados dentro de um block <u>if</u>, e estes são executados caso a expressão seja verdadeira.</p>
+
+<p>A instrução processa a operação entre a <u>variável</u> e o <u>valor</u> especificado, e entra na execução da próxima instrução dentro de <u>if</u>, caso seja verdadeiro o resultado.</p>
+
+<p>Todos os operadores (<u>igual</u>, <u>diferente</u>, <u>maior</u>, <u>menor</u>, <u>maiorigual</u> e <u>menorigual</u>) no caso de uma <u>variável</u> inteiro realizam as operações padrões de comparação de qualquer linguagem de programação.</p>
+
+<p>Já os operadores (<u>maior</u>, <u>menor</u>, <u>maiorigual</u> e <u>menorigual</u>) no caso de uma <u>variável</u> string, o valor da <u>variável</u> será convertido para ponto flutuante e a comparação será realizada.</p>
+
+<p>Os operadores <u>igual</u> e <u>diferente</u> seguem a mesma lógica de comparação de qualquer linguagem de programação.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavel</u>: Variável para comparação (string ou inteiro).</li>
+<li><u>operador</u>: Operador de comparação: <u>menor</u>, <u>maior</u>, <u>igual</u>, <u>diferente</u>, <u>maiorigual</u>, <u>menorigual</u> (string).</li>
+<li><u>valor</u>: Valor para comparação (string ou inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;if variavel="$(TipoServico)" operador="igual" valor="1"&gt;
+  &lt;guardavariavel variavel="$(TipoServico)" /&gt;
+  &lt;pegacartao primeiramensagem="1. Cartao ou (OK)" segundamensagem="Digite Cartao:" minimo="15" maximo="16" /&gt;
+  &lt;conectar /&gt;
+&lt;/if&gt;
+</pre>
+
+
+
+
+<h2 id="input.getvalue">input.getvalue<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite capturar uma string e mostra-la na tela em qualquer posição.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>allowsempty</u>: Operador booleano de permissão de retorno caso não tenha sido pressionado qualquer tecla, true ou false (string).</li>
+<li><u>caption</u>: Uma mensagem a ser exibida (string).</li>
+<li><u>columncaption</u>: Coluna de exibição do caption (inteiro).</li>
+<li><u>columninput</u>: Coluna de exibição dos números capturados (inteiro).</li>
+<li><u>linecaption</u>: Linha de exibição do caption (inteiro).</li>
+<li><u>lineinput</u>: Linha de exibição dos números capturados (inteiro).</li>
+<li><u>maximo</u>: Tamanho máximo da string que aguardamos (inteiro).</li>
+<li><u>minimo</u>: Tamanho mínimo da string que aguardamos (inteiro).</li>
+<li><u>variablereturn</u>: Retorno do comando (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;input.getvalue caption="String:" columncaption="$(iColumncaption)" columinput="$(iColumninput)" linecaption="$(iLinecaption)" lineinput="$(iLineinput)" maximo="10" minimo="10" variablereturn="$(sReturn)"/&gt;
+</pre>
+
+
+
+
+<h2 id="imprima">imprima e imprimagrande<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Os comandos <u>imprima</u> e <u>imprimagrande</u> enviam para a impressora do terminal uma <u>mensagem</u> especificada, que por sua vez é impressa em papel, independente do tipo de impressora (térmica, matricial de impacto, etc).</p>
+
+<p>O comando <u>imprima</u> imprime a <u>mensagem</u> com o tamanho de fonte normal, enquanto o comando <u>imprimegrande</u> realiza uma impressão com tamanho de fonte dupla, ou seja, duas vezes maior que o tamanho normal.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>mensagem</u>: Mensagem a ser impressa pela impressora do terminal (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;imprimagrande mensagem="Plano Be" /&gt;
+&lt;imprima mensagem="Tecnologia" /&gt;
+</pre>
+
+
+
+
+<h2 id="imprimabitmap">imprimabitmap<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite imprimir um bitmap monocromático, após o mesmo ter sido baixado da pasta download.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo bitmap que será impresso (string).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre> 0: Bitmap não encontrado
+ 1: Impressão realizada com sucesso
+-1: Bitmap com tamanho inválido
+-2: Bitmap não monocromático</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="1" variavel="ret"/&gt;
+&lt;variavelstr valor="teste.bmp" variavel="arquivobmp"/&gt;
+&lt;baixaarquivo caminhoremoto="\teste.bmp" excluiaposdownload="0" nomearquivo="$(arquivobmp)" variavelretorno="$(ret)"/&gt;
+&lt;imprimabitmap nomearquivo="$(arquivobmp)" variavelretorno="$(ret)"/&gt;
+&lt;esperatecla/&gt;
+</pre>
+
+
+
+
+<h2 id="imprimacodigodebarras">imprimacodigodebarras<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Imprime o código de barras no formato I25, especificado na variável string numero. O formato I25 é o padrão adotado pela FEBRABAN ficando possível imprimir boletos de cobrança e qualquer outro titulo.</p>
+
+<p>O parâmetro numero deve ter o numero de caracters par, pois é exigido pelo formato I25, por exemplo: &ldquo;1234&rdquo; funcionaria e imprimiria o código de barras normalmente. &ldquo;123&rdquo; não funcionaria, pois não conseguiríamos codificar no formato exigido pelo padrão I25.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>numero</u>: Número do código de barras a ser impresso (string).</li>
+<li><u>horizontal</u>: Informe 1 caso queira imprimir na horizontal (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;imprimacodigodebarras horizontal="0" numero="123456" /&gt;
+</pre>
+
+
+
+
+<h2 id="incrementadatahora">incrementadatahora<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite incrementar (somar) dias a uma data pré-estabelecida. Basta criar uma variável do tipo string que receberá o valor de retorno dos dias incrementados. Em datahora será informada a data base, com a qual você deseja efetuar o cálculo; em dias, o número de dias que serão acrescidos na data base; o formatoretorno recebe o formato como a nova data calculada será exibida; e por último, a variavelretorno, criada anteriormente, que receberá a data calculada.</p>
+
+<p>Opções de formato de retorno:</p>
+
+<pre>
+ y - Ano com 2 dígitos
+yy - Ano com 4 dígitos
+ M - Mês com 2 dígitos
+ d - Dia com 2 dígitos
+ h - Hora com 2 dígitos
+ m - Minuto com 2 dígitos
+ s - Segundo com 2 dígitos
+</pre>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>datahora</u>: Data e hora no formato yyyyMMddhhmmss (string).</li>
+<li><u>dias</u>: Quantidade de dias que será incrementado (inteiro).</li>
+<li><u>formatoretorno</u>: Formato da data que será retornada (string).</li>
+<li><u>variavelretorno</u>: Variável que irá armazenar a data com os dias acrescentados no formato especificado (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor="0" variavel="var"/&gt;
+&lt;incrementadatahora datahora="20070501165807" dias="5" formatoretorno="d/M/y h:m:s" variavelretorno="$(var)"/&gt;
+&lt;display coluna="0" linha="0" mensagem="$(var)"/&gt;
+</pre>
+
+
+
+
+<h2 id="inttostring">inttostring<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>inttostring</u> converte o conteúdo de variáveis do tipo inteiro para o tipo string. O conteúdo convertido é armazenado em uma variável do tipo string.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelint</u>: Variável que será convertida (inteiro).</li>
+<li><u>variavelstr</u>: Variável que irá armazenar o valor convertido para string (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;inttostring variavelint="$(ValorInteiro)" variavelstr="$(ValorStr)" /&gt;
+</pre>
+
+
+
+
+<h2 id="iso8583.analisamensagem">iso8583.analisamensagem<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Inicia o processo de análise e decomposição dos campos da mensagem especificada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>formato</u>: Formato da mensagem que desejamos analisar, podendo ser : &ldquo;ASCII&rdquo; ou &ldquo;BCD&rdquo; (string).</li>
+<li><u>tamanho</u>: Tamanho da mensagem que vamos analisar (inteiro).</li>
+<li><u>variavelmensagem</u>: Variável onde está localizada a mensagem que será analisada (string).</li>
+<li><u>variavelidentificador</u>:Variável onde será armazenado o identificador da mensagem, se a análise foi realizada com sucesso (string).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre>   0: mensagem analisada com sucesso
+-806: erro na mensagem que foi analisada</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;iso8583.analisamensagem formato="$(formato)" tamanho="$(tam)" variavelmensagem="$(var_msg)" variavelidentificador="$(var_id)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="iso8583.finalizamensagem">iso8583.finalizamensagem<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Finaliza a montagem de uma mensagem a ser enviada ao host autorizador, iniciada por <u>iso8583.iniciamensagem</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variaveltamanho</u>: Variável onde será armazenado o tamanho da mensagem finalizada (inteiro).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre>   0: mensagem finalizada com sucesso
+-803: buffer overrun
+-802: function error</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;iso8583.finalizamensagem variaveltamanho="$(tam)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="iso8583.iniciamensagem">iso8583.iniciamensagem<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Inicia a montagem de uma mensagem que será enviada ao host autorizador.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>formato</u>: Formato da mensagem que desejamos montar, podendo ser : &ldquo;ASCII&rdquo; ou &ldquo;BCD&rdquo; (string).</li>
+<li><u>identificador</u>: Identificador da mensagem com 4 digitos, por exemplo: &ldquo;0200&rdquo; ou &ldquo;0400&rdquo; (string).</li>
+<li><u>variavelmensagem</u>: Variável onde será armazenada a mensagem que está sendo montada (string).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre>   0: mensagem iniciada com sucesso
+-803: buffer overrun
+-801: invalid parameter</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;iso8583.iniciamensagem formato="$(formato)" identificador="$(id)" variavelmensagem="$(var_msg)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="iso8583.iniciatabelacampos">iso8583.iniciatabelacampos<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Inicia a tabela de campos ISO8583 de acordo com os campos especificados no arquivo definido no parâmetro <u>nomearquivo</u>. Esta função deve ser chamada antes de iniciarmos o trabalho com as mensagens ISO8583.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo contendo o formato e o tamanho de todos os 128 campos da norma ISO8583 (string).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre>   0: tabela de campos iniciada corretamente
+-802: não foi possível iniciar a tabela de campos</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;iso8583.iniciatabelacampos nomearquivo="$(arquivo)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="iso8583.inserecampo">iso8583.inserecampo<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Insere um campo na mensagem a ser enviada, iniciada por <u>iso8583.iniciamensagem</u>. Os campos devem ser inseridos sempre em ordem crescente.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>numerocampo</u>: Número do campo que vamos inserir da mensagem. Podemos especificar de 2 a 128 (inteiro).</li>
+<li><u>tipo</u>: Tipo do campo que vamos inserir da mensagem, podendo ser: &ldquo;string&rdquo; ou &ldquo;integer&rdquo; (string).</li>
+<li><u>valor</u>: Valor do campo (string ou inteiro).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre>   0: campo inserido com sucesso
+-801: invalid parameter
+-802: function error
+-803: buffer overrun
+-804: field error</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;iso8583.inserecampo numerocampo="$(n_campo)" tipo="$(tipo)" valor="$(val)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="iso8583.pegacampo">iso8583.pegacampo<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Extrai um campo de uma mensagem previamente analisada através do comando <u>iso8583.analizamensagem</u>. Os campos devem ser extraídos sempre em ordem crescente.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>numerocampo</u>: Número do campo que vamos pegar da mensagem. Podemos especificar de 2 a 128 (inteiro).</li>
+<li><u>tipo</u>: Tipo do campo que vamos pegar da mensagem, podendo ser: &ldquo;string&rdquo; ou &ldquo;integer&rdquo; (string).</li>
+<li><u>variavelvalor</u>: Variável onde será armazenado o valor do campo (string ou inteiro).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre>   0: campo inserido com sucesso
+-801: invalid parameter
+-802: function error
+&nbsp;803: buffer overrun
+-805: no field
+-806: msg error</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;iso8583.pegacampo numerocampo="$(n_campo)" tipo="$(tipo)" variavelvalor="$(val)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="iso8583.transactmessage">iso8583.transactmessage<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Efetua a discagem, conecta ao host, acrescenta o size da mensagem, acrescenta o header e o trailler da mensagem ISO 8583 de acordo com os parâmetros previamente configurados, envia a mensagem ao host e faz 10 tentativas de recebimento da mensagem de resposta.</p>
+
+<p>Canais disponíveis:</p>
+
+<pre>
+"NONE" : Nenhum size acrescentado
+"NAC"  : Size de 2 bytes binários (x01 x00 ou 0000-0001 0000-0000)
+"NCC"  : Size de 2 bytes no formato BCD (x02 x56)
+"RAW"  : Size de 4 bytes no formato binário (x00 x00 x01 x00 ou
+         0000-0000 0000-0000 0000-0001 0000-0000)
+"ASCII": Size de 4 bytes no formato ASCII (x30 x32 x35 x36 ou 0256)
+</pre>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>channel</u>: Size que será incrementado (string).</li>
+<li><u>header</u>: Header que será acrescentado ao inicio da mensagem ISO 8583 antes do envio (string).</li>
+<li><u>trailler</u>: Trailler que será acrescentado ao final da mensagem ISO 8583 antes do envio (string).</li>
+<li><u>isomsg</u>: Mensagem ISO 8583 (string).</li>
+<li><u>variavelresposta</u>: Mensagem ISO 8583 de resposta do autorizador (string).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre> 0 Tamanho da mensagem de resposta
+-1: Channel desconhecido ou não implementado
+-2: Não foi possível conectar ao host ou fazer a discagem
+-3: Falha no envio da mensagem
+-4: Falha ao receber o tamanho da mensagem de resposta
+-5: Falha ao receber a mensagem de resposta</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;iso8583.transactmessage channel="NONE" header="$(header)" trailler="$(trailler)" isomsg="$(isomsg)" variavelresposta="$(resposta)" variavelretorno="$(retorno)" /&gt;
+</pre>
+
+
+
+
+<h2 id="learquivo">learquivo<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite ler um arquivo no formato WALK dbfile (&lsquo;chave=valor\nchave=valor\n&rsquo;). Se por algum motivo o arquivo não existir, o nome da chave não existir no arquivo, ou qualquer outro erro no sistema de arquivos, <u>vardestino</u> será completado com um espaço em branco (&lsquo; &rsquo;).</p>
+
+<p>Pode-se ler arquivos criados por instruções POSXML ou mesmo arquivos criados em outros programas e carregados no terminal de alguma maneira, desde que sigam o formato citado.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo em disco a ser aberto (string).</li>
+<li><u>chave</u>: Chave do valor, que será lido no arquivo (string).</li>
+<li><u>variaveldestino</u>: Variável onde será armazenado o valor lido (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor="config.dat" variavel="filename" /&gt;
+&lt;variavelstr valor="senhatecnica" variavel="key" /&gt;
+&lt;variavelstr valor=" " variavel="buffer" /&gt;
+&lt;learquivo nomearquivo="$(filename)" chave=$(key)" variaveldestino="$(buffer)" /&gt;
+</pre>
+
+
+
+
+<h4>Opções de filtro</h4>
+
+
+<p>É possível utilizar o comando learquivo passando como parâmetro uma chave que será utilizada como filtro. Para isso, ao informar a chave, utilizar duas barras, da seguinte forma:</p>
+
+<table id="models">
+<tr>
+<th style="width: 33%;" class="topleft">Parâmetro</th>
+<th style="width: 33%;">Conteúdo do arquivo</th>
+<th style="width: 33%;" class="topright">Resultado da operação</th>
+</tr>
+<tr class="off">
+<td>/400/</td>
+<td><pre>4004  = "N"
+4005  = "Y"
+40001 = "N"</pre></td>
+<td>4004</td>
+</tr>
+<tr class="light">
+<td>/4000/</td>
+<td><pre>4004  = "N"
+4005  = "Y"
+40001 = "N"</pre></td>
+<td>40001</td>
+</tr>
+<tr class="off">
+<td>/40049876543/</td>
+<td><pre>4004  = "N"
+4005  = "Y"
+40001 = "N"</pre></td>
+<td>4004</td>
+</tr>
+<tr class="light">
+<td>/4/</td>
+<td><pre>4004  = "N"
+4005  = "Y"
+40001 = "N"</pre></td>
+<td>4004</td>
+</tr>
+<tr class="off">
+<td>/abcde/</td>
+<td><pre>4004  = "N"
+4005  = "Y"
+40001 = "N"</pre></td>
+<td>sem registro</td>
+</tr>
+</table>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor="bins.dat" variavel="filename" /&gt;
+&lt;variavelstr valor="/400/" variavel="key" /&gt;
+&lt;variavelstr valor=" " variavel="buffer" /&gt;
+&lt;learquivo nomearquivo="$(filename)" chave="$(key)" variaveldestino="$(buffer)" /&gt;
+</pre>
+
+
+
+
+<h2 id="learquivobyindex">learquivobyindex<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite ler um arquivo no formato WALK dbfile , ex: ‘chave=&ldquo;valor&rdquo;\nchave=&ldquo;valor&rdquo;\n’. Especificamos o index da chave que queremos pesquisas, e se a mesma existir no arquivo, variavelchave, e variavelvalor serão preenchidos com seus respectivos valores. Se por algum motivo o arquivo não existir, o nome da chave não existir no arquivo, ou qualquer outro erro no sistema de arquivos, variavelretorno será igual a 0. Do contrário será igual a 1.</p>
+
+<p>Pode-se ler arquivos criados por instruções PosXML ou mesmo arquivos criados em outros programas e carregados no terminal de alguma maneira, desde que sigam o formato citado.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo formato WALK dbfile</li>
+<li><u>index</u>: Index da chave que queremos analisar. Começa em 0, e vai aumentando de acordo com a quantidade de items no arquivo (inteiro).</li>
+<li><u>variavelchave</u>: Variável que irá armazenar o valor da chave do item no index especificado (string).</li>
+<li><u>variavelvalor</u>: Variável que vai armazenar o valor do item no index especificado (string).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre>0: Item não encontrado
+1: Item encontrado</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor="" variavel="key" /&gt;
+&lt;variavelstr valor="" variavel="value" /&gt;
+&lt;variavelint valor="0" variavel="ret" /&gt;
+&lt;learquivobyindex nomearquivo="teste.db" index="0" variavelchave="$(key)" variavelvalor="$(value)" variavelretorno="$(ret)" /&gt;
+</pre>
+
+
+
+
+<h2 id="letecla">letecla<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>letecla</u> é semelhante ao comando <u>esperateclatimeout</u>. Ele aguarda o operador do terminal pressionar qualquer tecla no terminal para continuar alguma operação, com a diferença que em <u>variavelretorno</u>, estará disponível a tecla pressionada pelo operador.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>milisegundos</u>: Milisegundos que a instrução vai aguardar antes de continuar a execução (inteiro).</li>
+<li><u>variavelretorno</u>: Tecla pressionada pelo usuário. As teclas padrões que todos terminais possuem são: KEY_0 , KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9, KEY_POUND, KEY_STAR, KEY_CLEAR, KEY_CANCEL, KEY_ENTER. As teclas opcionais variam de terminal pra terminal, e podem ir de KEY_EXTRA1 até KEY_EXTRA99 (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="2000" variavel="segs"/&gt;
+&lt;variavelstr valor="" variavel="ret"/&gt;
+&lt;variavelstr valor="KEY_1" variavel="tecla"/&gt;
+&lt;display coluna="0" linha="0" mensagem="aperte uma tecla"/&gt;
+&lt;letecla milisegundos="$(segs)" variavelretorno="$(ret)"/&gt;
+
+&lt;if operador="igual" variavel="$(ret)" valor="$(tecla)"&gt;
+  &lt;display coluna="0" linha="1" mensagem="numero 1 digitado!"/&gt;
+  &lt;esperatecla/&gt;
+&lt;/if&gt;
+</pre>
+
+
+
+
+<h2 id="limpadisplay">limpadisplay<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>limpadisplay</u> é utilizado para apagar todas as mensagens exibidas no visor (display) do terminal POS.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;limpadisplay /&gt;
+</pre>
+
+
+
+
+<h2 id="limpavariaveis">limpavariaveis<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>limpavariaveis</u> é utilizado para apagar o conteúdo da <u>variável</u> que armazena o buffer que é enviado ao host.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;limpavariaveis /&gt;
+</pre>
+
+
+
+
+<h2 id="menu">menu<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>menu</u> monta um menu na tela do terminal, conforme o número de linhas do mesmo, onde o caracter &lsquo;\&rsquo; é utilizado para efetuar a quebra de linha entre as opções.</p>
+
+<p>Quando o quantidade de opções atingi o número máximo de linhas, é exibido o caracter &lsquo;+&rsquo;, indicando que é possível rolar para a próxima tela, pressionado as teclas ENTER ou OK.</p>
+
+<p>A primeira opção antes da primeira barra é utilizado como título, o qual estará sempre visível, mesmo que a quantidade de opções seja maior que a tela, causando o efeito de rolagem.</p>
+
+<p>O usuário pode digitar de 0 a 9, ou seja, existe a possibilidade de utilizar até 10 opções de menu.</p>
+
+<p>O valor digitado é armazenado na <u>variável</u> informada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavel</u>: Variável onde será armazenado o valor digitado (inteiro).</li>
+<li><u>opcoes</u>: Opções do menu delimitadas por &lsquo;\&rsquo; (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;menu variavel="$(var1)" opcoes="MENU\1. primeira linha\2. segunda linha 2 \3. terceira linha"/&gt;
+&lt;if variavel="$(var1)" operador="igual" valor="2"&gt;
+  &lt;display linha="0" coluna="0" mensagem="Segunda Opcao" /&gt;
+  &lt;esperatecla /&gt;
+&lt;/if&gt;
+</pre>
+
+
+
+
+<h2 id="menuwithheader">menuwithheader<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>A instução <u>menuwithheader</u> constrói um menu na tela do terminal, conforme o número de linhas do mesmo. Na constante string opções para cada barra &ldquo;\&rdquo; existente, vai ser uma quebra de linha. O cabeçalho será quebrado em &ldquo;|&rdquo; e mostrado na primeira linha atualizando baseado no tempo definido em timeouttiulo. Quando o número de opções atinge o tamanho máximo do número de linhas, vai aparecer um sinal de &ldquo;+&rdquo; indicando que é possível rolar para outra tela. É possível mostrar a outra tela, pressionando(enter ou OK).
+O Usuário pode digitar qualquer key. O valor digitado fica armazenado em variavel. Quando estourar o timeout retornará &ldquo;-1&rdquo;. A chave do config.dat iskeytimeout deve ser 1.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>header</u>: Opções de cabeçalho delimitadas por &ldquo;|&rdquo;(string).</li>
+<li><u>options</u>: Opções do menu delimitadas por &ldquo;\&rdquo;(string).</li>
+<li><u>timeout</u>: Timeout de função, iskeytimeout deve ser 1(string).</li>
+<li><u>timeoutheader</u>: Tempo para a troca do próximo cabeçalho(string).</li>
+<li><u>variablereturn</u>: Variavel onde ficará armazenado o valor digitado(string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;menuwithheader header="Bem Vindo|d/M/yy h:m:s|d/M/yy h:m:s|h:m:s MENU|h:m:s AA|BB" 
+timeoutheader="1" options="1.Opcao A\2.Opcao B\3.Opcao C\4.AA\5.BB\6.CC\7.DD\8.EE\9.FF" 
+timeout="30" variablereturn="$(sMenu)"/&gt;
+&lt;imprima mensagem="$(sMenu)"/&gt;
+</pre>
+
+
+
+
+<h2 id="mostrabitmap">mostrabitmap<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite mostrar um bitmap monocromático no visor do terminal, que pode ser utilizado para animações, layout, entre outras finalidades. Para isso, é necessário salvar o bitmap na pasta download e baixar o arquivo com o comando <u>baixaraquivo</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo bitmap que será exibido no display (string).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre> 0: Bitmap não encontrado
+-1: Bitmap com tamanho inválido
+-2: Bitmap não monocromático</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="1" variavel="ret"/&gt;
+&lt;variavelstr valor="teste.bmp" variavel="arquivobmp"/&gt;
+&lt;baixaarquivo caminhoremoto="\teste.bmp" excluiaposdownload="0" nomearquivo="$(arquivobmp)" variavelretorno="$(ret)"/&gt;
+&lt;mostrabitmap nomearquivo="$(arquivobmp)" variavelretorno="$(ret)"/&gt;
+&lt;esperatecla/&gt;
+</pre>
+
+
+
+
+<h2 id="network.checkgprssignal">network.checkgprssignal<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>network.checkgprssignal</u> checa o status da conexão GPRS, caso o terminal tenha suporte a este tipo de conexão.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelstatus</u>: Porcentagem do nível do sinal GPRS (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;network.checkgprssignal variavelstatus="$(status)" /&gt;
+</pre>
+
+
+
+
+<h2 id="network.hostdisconnect">network.hostdisconnect<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Efetua a desconexão entre o terminal POS e o host, porém o terminal ainda permanece conectado à rede.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;network.hostdisconnect /&gt;
+</pre>
+
+
+
+
+<h2 id="network.httprequest">network.httprequest<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite realizar um <u>POST</u> ou <u>GET</u> do protocolo HTTP. Possibilita baixar e enviar arquivos, receber e enviar informações de um servidor HTTP.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><p><u>url</u>: URL do host, contendo o nome do arquivo será acessado, sem <u>http://</u> (string).</p></li>
+<li><p><u>campos</u>: Campos que serão enviados no <u>POST</u> no formato abaixo (string):<br/></br/><pre>variavel_1=valor_1&amp;variavel_2=valor_2</pre> Note que se este campo estiver vazio, ao invés de um <u>POST</u>, o comando <u>network.httprequest</u> irá efetuar um <u>GET</u> na url especificada.<br/><br/> É possível também especificar neste campo, um arquivo a ser enviado. Para tal, utiliza-se a nomenclatura <u>file:nomedoarquivo</u> e em seguida as outras variáveis do <u>POST</u>.<br/><br/>Atente-se que somente um arquivo pode ser especificado por vez, e <u>file:</u> deve ser especificado sempre como primeiro campo, conforme o exemplo abaixo:<br/><pre>file:inicio.posxml&amp;variavel_1=valor_1&amp;variavel2=valor_2</pre></p></li>
+<li><p><u>savetofile</u>: Nome do arquivo que irá armazenar a resposta do host. Se esta variável estiver vazia a resposta então será armazenada em <u>variavelresponse</u> (string).</p></li>
+<li><p><u>variavelresponse</u>: Variável que irá armazenar a resposta do host, caso a variável <u>savetofile</u> não tenha sido especificada (string).</p></li>
+</ol>
+
+
+<p>. <u>variavelstatuscode</u>: Código de status do protocolo HTTP que será retornado pelo host (string).</p>
+
+<ol>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre>-9 : Arquivo de upload invalido
+-8 : Download incompleto
+-7 : Erro ao iniciar gravação do arquivo
+-6 : Não foi possível conectar-se ao host
+-5 : Tamanho máximo da resposta do host excedido
+-4 : Erro no header recebido do host
+-3 : URL inválida
+-2 : Erro no recebimento do POST
+-1 : Erro no envio do POST
+&nbsp;0 : Se a variável savetofile foi especificada, arquivo baixado com sucesso
+&gt;0 : Tamanho da resposta do host, armazenado em variavelresponse</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;network.httprequest url="$(str_url)" campos="$(str_campos)" savetofile="$(str_file)" variavelresponse="$(str_response)" variavelstatuscode="$(str_status)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="network.ping">network.ping<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>network.ping</u> checa o status do host.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre> 0: Sucesso
+-1: Sem conexão com o servidor
+-2: Falha no envio</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;network.ping variavelretorno="$(retorno)" /&gt;
+</pre>
+
+
+
+
+<h2 id="network.receive">network.receive<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>network.receive</u> recebe um buffer do host atualmente conectado. O resultado da operação é armazenado em <u>variavelretorno</u>, e pode ser:</p>
+
+<ul>
+<li><u>1</u>: Buffer recebido com sucesso</li>
+<li><u>0</u>: Erro no recebimento do buffer</li>
+</ul>
+
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>É necessário já estar conectado a um host com o comando <u>preconexao</u>.</td>
+</tr></table>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelbuffer</u>: Variável que irá armazenar o buffer recebido do host (string).</li>
+<li><u>tamanhomaximo</u>: Tamanho máximo do buffer que é desejado receber do host (inteiro).</li>
+<li><u>variavelbytesrecebidos</u>: Número de bytes recebidos do host (inteiro).</li>
+<li><u>variavelretorno</u>: Resultado da operação (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;network.receive variavelbuffer="$(buf)" tamanhomaximo="$(tamanho_max)" variavelbytesrecebidos="$(bytes)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="network.send">network.send<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>network.send</u> envia um buffer para o host atualmente conectado. O resultado da operação é armazenado em <u>variavelretorno</u>, e pode ser:</p>
+
+<ul>
+<li><u>1</u>: Buffer recebido com sucesso</li>
+<li><u>0</u>: Erro no recebimento do buffer</li>
+</ul>
+
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>É necessário já estar conectado a um host com o comando <u>preconexao</u>.</td>
+</tr></table>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>buffer</u>: Buffer que será enviado para o host (string).</li>
+<li><u>tamanho</u>: Tamanho do buffer que será enviado (inteiro).</li>
+<li><u>variavelretorno</u>: Resultado da operação (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;network.send buffer="$(buf)" tamanho="$(tamanho)" variaveretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="openserialport">openserialport<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Abre a porta serial para comunicação com periféricos externos.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>porta</u>: Nome da porta serial. Pode ser: COM1, COM2, COM3, COM4, COM5 ou COM6 (string).</li>
+<li><u>velocidade</u>: Velocidade da porta serial. Pode ser: 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, 12000, 14400, 28800 ou 33600 (string).</li>
+<li><u>configuracao</u>: Configuração da porta serial. Pode ser: A7E1, A7N1, A7O1, A8E1, A8N1 ou A8O1 (string).</li>
+<li><u>variavelretorno</u>: Retorna -2, se algum parâmetro de configuração está incorreto. Qualquer valor menor ou igual a zero, ocorreu algum erro no processo de abertura da porta serial. Se abriu com sucesso retorna a handle para manipular a porta serial através das instruções: <u>readserialport</u>, <u>writeserialport</u> e <u>closeserialport</u> (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="ret" /&gt;
+&lt;openserialport porta="COM1" velocidade="115200" configuração="A8N1" variavelretorno="$(ret)" /&gt;
+</pre>
+
+
+
+
+<h2 id="operacaomatematica">operacaomatematica<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Realiza uma operação matemática entre <u>valor1</u> e <u>valor2</u> e coloca seu resultado em <u>variaveldestino</u>. Para realizar operações com pontos flutuantes devemos utilizar em <u>variaveldestino</u> uma variável do tipo string.</p>
+
+<p>Devemos sempre obedecer a regra de utilizar o mesmo tipo de variáveis nos parâmetros <u>valor1</u>, <u>valor2</u> e <u>variaveldestino</u>.</p>
+
+<p>Os operadores matemáticos são:<pre>+ : soma
+&ndash; : subtração
+* : multiplicação
+/ : divisão
+^ : exponenciação
+% : resto da divisão</pre></p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>valor1</u>: Primeiro valor da operação matemática (string ou inteiro).</li>
+<li><u>operador</u>: Operador da operação matemática, sendo : +,&ndash;,*,/,%,^ (string).</li>
+<li><u>valor2</u>: Segunda valor da operação matemática (string ou inteiro).</li>
+<li><u>variaveldestino</u>: Variável contendo o resultado da operação matemática (string ou inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor="1.2" variavel="var1" /&gt;
+&lt;variavelstr valor="3.4" variavel="var2" /&gt;
+&lt;variavelstr valor=" " variavel="var3" /&gt;
+&lt;operacaomatematica valor1="$(var1)" operador="+" valor2="$(var2)" variaveldestino="$(var3)" /&gt;
+</pre>
+
+
+
+
+<h2 id="paperfeed">paperfeed<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>paperfeed</u> envia para a impressora do terminal POS um sinal, de forma que o papel salte algumas linhas e seja possível destaca-lo sem cortar o conteúdo da impressão.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;paperfeed /&gt;
+</pre>
+
+
+
+
+<h2 id="parseticket">parseticket<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Aguarda remoção do cartão, utiliza de emv.settimeout se setado</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>literais</u>: Literais em Walk file DB (string).</li>
+<li><u>mensagem</u>: Mensagem não parseado (string).</li>
+<li><u>produtomenu</u>: Nome do produto que aparece no menu (string).</li>
+<li><u>ticket</u>: Ticket não parseado (string).</li>
+<li><u>variavelretorno</u>: Ticket parseado (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;parseticket literais="$(sLiterais)" mensagem="sMensagem" produtomenu="$(sProduto)" ticket="$(sTicket)" variavelretorno="$(sParse)" /&gt;
+</pre>
+
+
+
+
+<h2 id="pegacartao">pegacartao<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>pegacartao</u> fica aguardando o operador do terminal POS passar um cartão magnético em sua leitora de trilhas ou a digitação dos números de um cartão, podendo exibir duas mensagens, uma para ser exibida quando o terminal pedir que o operador passe o cartão na leitora e a outra para ser exibida quando o operador pede para digitar o cartão.</p>
+
+<p>É possível também determinar o número <u>mínimo</u> e <u>máximo</u> de bytes que podem ser digitados. O conteúdo do cartão digitado ou capturado pela tarja magnética é armazenado na memória, até ser enviado ao host no seguinte formato:</p>
+
+<ul>
+<li>&lt;cartao&gt;00000000000000000 se foi passado ou</li>
+<li>&lt;cartao&gt;D0000000000000000 se foi digitado</li>
+</ul>
+
+
+<p>A configuração de trilhas a serem analisadas e se é permitido que o operador digite o numero do cartão é definido no parâmetro <u>tiposcartao</u>.</p>
+
+<p>Se configurarmos o terminal de modo que não seja permitido a digitação do cartão, quando o operador pressionar qualquer tecla do terminal, ao invés de passar o cartão, o aplicativo se encerrará.</p>
+
+<p>É possível também usar esta instrução com uma transação EMV, se o cartão passado for um cartão com chip a instrução <u>emv.inittransaction</u> será executada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>primeiramensagem</u>: Primeira mensagem exibida no display (string).</li>
+<li><u>segundamensagem</u>: Mensagem exibida após o usuário pressionar OK (string).</li>
+<li><u>minimo</u>: Número mínimo a ser digitado (inteiro).</li>
+<li><u>maximo</u>: Número máximo a ser digitado (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;pegacartao primeiramensagem="Passe cartao ou tecle OK" segundamensagem="Digite cartão com 16 digitos" minimo="16" maximo="16" /&gt;
+</pre>
+
+
+
+
+<h2 id="pegacartaoevariavel">pegacartaoevariavel<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Semelhante ao comando <u>pegacartao</u>, a diferença é que o valor capturado não é enviado ao host, e sim armazenado na <u>variável</u> informada.</p>
+
+<p>É possível também usar esta instrução com uma transação EMV, se o cartão passado for um cartão com chip a instrução <u>emv.inittransaction</u> será executada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>primeiramensagem</u>: Primeira mensagem exibida no display (string).</li>
+<li><u>segundamensagem</u>: Mensagem exibida após o usuário pressionar OK (string).</li>
+<li><u>minimo</u>: Número mínimo a ser digitado (inteiro).</li>
+<li><u>maximo</u>: Número máximo a ser digitado (inteiro).</li>
+<li><u>variavel</u>: Variável que irá armazenar o valor do cartão (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;pegacartaoevariavel primeiramensagem="Passe o cartao ou tecle OK" segundamensagem="Digite o Cartao:" minimo="4" maximo="40" variavel="$(PIN)" /&gt;
+</pre>
+
+
+
+
+<h2 id="pegadatahora">pegadatahora<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite colocar o valor de data/hora atuais em uma <u>variável</u> do tipo string, no formato especificado em <u>formato</u>, onde qualquer caracter de formatação de data será substituído pelo valor do relógio do terminal.</p>
+
+<p>Os caracters reservados para formatação de data são:</p>
+
+<ul>
+<li><u>yy</u>: ano com 4 dígitos</li>
+<li><u>y</u>: ano com 2 dígitos</li>
+<li><u>M</u>: mês com 2 dígitos</li>
+<li><u>d</u>: dia com 2 dígitos</li>
+<li><u>h:</u> hora com 2 dígitos</li>
+<li><u>m</u>: minuto com 2 dígitos</li>
+<li><u>s</u>: segundos com 2 dígitos</li>
+</ul>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>formato</u>: Formato da data que será armazenada (string).</li>
+<li><u>variaveldestino</u>: Variável contendo a data no formato especificado (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor=" " variavel="buffer" /&gt;
+&lt;pegadatahora formato="Data Hoje : d/M/yy h:m:s" variaveldestino="$(buffer)" /&gt;
+</pre>
+
+
+
+
+<h2 id="pinpad.close">pinpad.close<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando pinpad.close encerra a comunicação com um pinpad interno ou externo que foi previamente estabelecida com <u>pinpad.open</u>. Ainda define a messagem padrão do display do pinpad externo.</p>
+
+<p><strong>parâmetros</strong></p>
+
+<ol>
+<li><u>message</u>: Mensagem default que será mostrado no display do pinpad(string)</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;pinpad.close message="Pinpad encerrado"/&gt;
+</pre>
+
+
+
+
+<h2 id="pinpad.display">pinpad.display<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando pinpad.display exibe a mensagem contida no parâmetro message do display do pinpad externo. Não aplica ao pinpad interno.</p>
+
+<p><strong>parâmetros</strong></p>
+
+<ol>
+<li><u>message</u>: mensagem que vai ser mostrada no display(string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;pinpad.display message="$(sMessage)"/&gt;
+</pre>
+
+
+
+
+<h2 id="pinpad.getkey">pinpad.getkey<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando pinpad.getkey captura uma tecla que seja pressionada no pinpad externo enquanto exibe uma mensagem contida no parâmetro message no display do pinpad externo. Não aplica ao pinpad interno.</p>
+
+<p><strong>parâmetros</strong></p>
+
+<ol>
+<li><u>message</u>: mensagem que vai ser mostrada no display(string).</li>
+<li><u>timeout</u>: Timeout em segundos que a instrução vai aguardar antes de continuar a execução(inteiro).</li>
+<li><u>variavelretorno</u>: -1: timeout, KEY_ENTER, KEY_CANCEL, KEY_CLEAR, KEY_EXTRAS(string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;pinpad.getkey message="$(sMessage)" timeout="10" variavelretorno="$(iRet)"/&gt;
+</pre>
+
+
+
+
+<h2 id="pinpad.getpindukpt">pinpad.getpindukt<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando pinpad.getpindukpt captura um pin e encripta o mesmo usando o padrão DUKPT no pinpad externo ou interno enquanto exibe uma mensagem contida no parâmetro message no display do pinpad externo ou na tela do terminal POS.</p>
+
+<p><strong>parâmetros</strong></p>
+
+<ol>
+<li><u>maxlen</u>: Número máximo de caracteres digitados no pin(inteiro).</li>
+<li><u>message</u>: Mensagem que vai ser mostrada no display(string).</li>
+<li><u>pan</u>: Account number(string).</li>
+<li><u>type</u>: 0:DES 1:3DES(inteiro).</li>
+<li><u>variavelretorno</u>: 0:OK, -1: Comm error, -2: Cancel, -3: error pin(inteiro).</li>
+<li><u>variavelretornoksn</u>: KSN(string).</li>
+<li><u>variavelretornopin</u>: Pin cifrado DUKPT DES ou 3DES(string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;pinpad.getpindukpt maxlen="$(iMax)" message="$(sMessage)" pan="$(sSen)" type="0" variavelretornoksn="$(sKsn)"
+variavelretornopin="$(sPin)" variavelretorno="$(iRet)"/&gt;
+</pre>
+
+
+
+
+<h2 id="pinpad.loadipek">pinpad.loadipek<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>A instrução <u>pinpad.loadipek</u> grava uma chave inicial em uma KSN inicial na memória do pinpad interno ou externo para efetuarmos uma encriptação de senhas usando o padrão DUKPT.</p>
+
+<p><strong>parâmetros</strong></p>
+
+<ol>
+<li><u>ipek</u>: Chave inicial em formato hex ascii 16 ou 32 caracteres(string).</li>
+<li><u>ksn</u>: Ksn inial em formato hex ascii 20 caracteres(string).</li>
+<li><u>type</u>: 0: DES 1: 3DES(inteiro).</li>
+<li><u>variavelretorno</u>: 0: OK, -1: Error(inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;pinpad.loadipek ipek="$(sIpek)" ksn="$(sKsn)" type="1" variavelretorno="$(iRet)"/&gt;
+</pre>
+
+
+
+
+<h2 id="pinpad.open">pinpad.open<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>pinpad.open</u> habilita a comunicação entre o pinpad interno ou externo e o POS.</p>
+
+<p><strong>parâmetros</strong></p>
+
+<ol>
+<li><u>type</u>: 0: pinpad interno 1: pinpad externo(inteiro).</li>
+<li><u>variavelretorno</u>: 0: pinpad conectado 1: pinpad não conectado(inteiro).</li>
+<li><u>variavelserialnumber</u>: Variavel onde ficará armazenado o serial number do pinpad que acabou de ser aberto(string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;pinpad.open type="1" variavelserialnumber="$(sSerial)" variavelretorno="$(iRet)"/>/&gt;
+</pre>
+
+
+
+
+<h2 id="preconexao">preconexao<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>preconexao</u> inicializa o dispositivo de conexão e armazena na <u>variável</u> o resultado da operação, onde o valor <u>-1</u> significa que ocorreu um erro de conexão, e <u>0</u> indica que o terminal está conectado ao host.</p>
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>Diferente do comando <u>conectar</u>, esta instrução não envia informações ao host, apenas realiza a conexão.</td>
+</tr></table>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelstatus:</u> Variável que indica o status da conexão (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="-1" variavel="iConectado" /&gt;
+
+&lt;preconexao variavelstatus="$(iConectado)" /&gt;
+
+&lt;if variavel="$(iConectado)" operador="igual" valor="-1"&gt;
+   &lt;display linha="0" coluna="0" mensagem=" Erro de conexao" /&gt;
+&lt;/if&gt;
+
+&lt;if variavel="$(iConectado)" operador=" igual" valor="0"&gt;
+   &lt;display linha="0" coluna="0" mensagem=" Conectado ..." /&gt;
+   &lt;esperatecla /&gt;
+&lt;/if&gt;
+</pre>
+
+
+
+
+<h2 id="predial">predial<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando efetua uma pré-discagem. Lembrando que este comando não conecta ou envia informação para o host, apenas faz a discagem.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>opcao</u>: 1 para realizar a pré-discagem ou 2 para verificar se a discagem foi completada (inteiro).</li>
+<li><u>variavelstatus</u>: Indica o status da discagem, onde (inteiro):<pre> 0: Discado
+-1: Erro na discagem
+-2: Valor inválido na variável opcao</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;predial opcao="1" variavelstatus="$(status)" /&gt;
+</pre>
+
+
+
+
+<h2 id="readserialport">readserialport<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Lê um buffer capturado pela porta serial que está plugada a um dispositivo externo, previamente aberta com a instrução <u>openserialport</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelhandle</u>: Variável retornada em <u>openserialport</u>. Deve ser diferente e maior que zero (inteiro).</li>
+<li><u>variavelbuffer</u>: Variável que armazenará o buffer lido pela porta serial (string).</li>
+<li><u>bytes</u>: Quantidade de bytes que será lido da porta serial (inteiro).</li>
+<li><u>timeout</u>: Tempo em mili-segundos que a instrução irá esperar para receber alguma coisa da porta serial (inteiro).</li>
+<li><u>variavelretorno</u>: Quantidade de bytes lidos da porta serial. Se retornar -1, significa que não foi lida nenhuma informação e o tempo especificado em timeout foi atingido (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="ret" /&gt;
+&lt;variavelint valor="0" variavel="readBytes" /&gt;
+&lt;variavelstr valor="" variavel="buf" /&gt;
+&lt;openserialport porta="COM1" velocidade="115200" configuração="A8N1" variavelretorno="$(ret)" /&gt;
+&lt;readserialport variavelhandle="$(ret)" variavelbuffer="$(buf)" bytes="10" timeout="2000" variavelretorno="$(readBytes)" /&gt;
+</pre>
+
+
+
+
+<h2 id="smartcard.cartaoinserido">smartcard.cartaoinserido<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Verifica se o cartão está inserido no leitor de smart card do terminal Pos.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>slot</u>: customer = 1, merchant1 = 2, merchant2 = 3 ou merchant3 = 4 (inteiro).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre> 1: cartão está inserido no leitor do terminal
+-1: slot inválido
+-2: cartão não está inserido</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="ret" /&gt;
+&lt;smartcard.cartaoinserido slot="1" variavelretorno="$(ret)" /&gt;
+</pre>
+
+
+
+
+<h2 id="smartcard.fechaleitor">smartcard.fechaleitor<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Finalizar o processo de comunicação com o cartão , e fecha o leitor de smart card do terminal Pos.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>slot</u>: customer = 1, merchant1 = 2, merchant2 = 3 ou merchant3 = 4 (inteiro).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre> 1: leitor fechado com sucesso
+-1: slot inválido</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="ret" /&gt;
+&lt;smartcard.fechaleitor slot="1" variavelretorno="$(ret)" /&gt;
+</pre>
+
+
+
+
+<h2 id="smartcard.inicialeitor">smartcard.inicialeitor<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Inicia o leitor de smart card do terminal e tenta iniciar o cartão no slot informado, verificando o ATR do cartão.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>slot</u>: customer = 1, merchant1 = 2, merchant2 = 3 ou merchant3 = 4 (inteiro).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre> 1: leitor iniciado e ATR do cartão lido com sucesso
+-1: slot inválido
+-2: erro ao iniciar leitor ou ler cartão</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="ret" /&gt;
+&lt;smartcard.inicialeitor slot="1" variavelretorno="$(ret)" /&gt;
+</pre>
+
+
+
+
+<h2 id="smartcard.transmiteapdu">smartcard.transmiteapdu<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Envia um comando APDU para o cartão no <u>slot</u> especificado. Atente-se que antes de usar este comando, a leitora precisa ter sido inicializada pelo comando <u>smartcard.inicialeitor</u>.</p>
+
+<p>Todos os campos devem estar preenchidos com valores hexadecimais (consulte os comandos <u>string.tohex</u> e <u>string.fromhex</u>).</p>
+
+<table class='note'>
+<tr><td class='icon'></td><td class='content'>Os campos opcionais não utilizados devem ser preenchidos com "00".</td>
+</tr></table>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>slot</u>: Main = 1 , sam1 = 2 , sam2 = 3, sam3 = 4 ou sam4 = 5 (inteiro).</li>
+<li><u>header</u>: Comando hexadecimal composto por CLA + INS + P1 + P2. Ex: &ldquo;B00C0000&rdquo; (string).</li>
+<li><u>LC</u>: Opcional &ndash; O tamanho do campo <u>datafield</u> em hexadecimal. Se o tamanho do <u>datafield</u> é de 10 bytes, é necessário colocar o tamanho &ldquo;0A&rdquo; (string).</li>
+<li><u>datafield</u>: Opcional &ndash; O comando APDU em hexadecimal (string).</li>
+<li><u>LE</u>: Opcional &ndash; O tamanho da resposta em hexadecimal. Se tivermos uma resposta maior que 2 bytes (SW1 e SW2), é necessário a inclusão do tamanho neste campo (string).</li>
+<li><u>variaveldatafieldresponse</u>: Variável que receberá a resposta do comando em uma representação hexadecimal (string).</li>
+<li><u>variavelSW</u>: Variável que irá armazenar os 2 bytes hexadecimais da resposta do comando APDU (string).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre> 1: Comando enviado com sucesso
+-1: Slot inválido
+-2: Erro ao enviar o comando para o cartão</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;smartcard.transmitAPDU slot="1" header="00B40300" LC="00" datafield="00" LE="00" variaveldatafieldresponse="$(sDatafield)" variavelSW="$(sSW)" variavelretorno="$(iRet)" /&gt;
+</pre>
+
+
+
+
+<h2 id="somastring">somastring<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Concatena duas strings, especificadas em <u>valor1</u> e <u>valor2</u>, e após juntar os dois valores coloca o resultado na variável especificada em <u>variaveldestino</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>valor1</u>: Primeiro valor a ser concatenado (string).</li>
+<li><u>valor2</u>: Segundo valor a ser concatenado (string).</li>
+<li><u>variaveldestino</u>: Variável contendo o resultado da concatenação (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor="AAA" variavel="var1" /&gt;
+&lt;variavelstr valor="BBB" variavel="var2" /&gt;
+&lt;variavelstr valor=" " variavel="var3" /&gt;
+&lt;somastring valor1="$(var1)" valor2="$(var2)" variaveldestino="$(var3)" /&gt;
+</pre>
+
+
+
+
+<h2 id="string.charat">string.charat<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Extrai um caracter da string especificada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u>: String que será consultada (string).</li>
+<li><u>character_index</u>: Index indicando uma posição na string (inteiro).</li>
+<li><u>variavelretorno</u>: Caracter da posição especificada (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.charat string="$(str)" character_index="$(index)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="string.elementat">string.elementat<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Retorna um elemento em uma determinada posição (index) na string especificada, separada pelo caracter definido em <u>delimiter</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u>: String que será dividida (string).</li>
+<li><u>element_index</u>: Index para determinada posição no <u>array</u> criado pela string separada por <u>delimiter</u> (inteiro).</li>
+<li><u>delimiter</u>: Caracter que será utilizado para dividir a string em vários elementos, criando um <u>array</u> (string).</li>
+<li><u>variavelretorno</u>: Elemento especificado (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.elementat string="$(str)" element_index="$(index)" delimiter="$(dlmt)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="string.elements">string.elements<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Retorna quantos elementos existem na string especificada, separadas pelo character delimiter. Mesmo quando o character especificado em delimiter não existe na string, teremos 1 elemento.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u>: String que será dividida (string).</li>
+<li><u>delimiter</u>: Caracter que será utilizado para dividir a string em vários elementos, criando um <u>array</u> (string).</li>
+<li><u>variavelretorno</u>: Número de elementos divididos por <u>delimiter</u> encontrados na string especificada (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.elements string="$(str)" delimiter="$(dlmt)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="string.find">string.find<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Procura por uma substring na string especificada. O resultado da operação é armazenado em <u>variavelretorno</u>, e pode ser:</p>
+
+<ul>
+<li><u>-1</u>: Substring não encontrada</li>
+<li><u>X</u>: Onde X é a posição na string da substring encontrada</li>
+</ul>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u>: String que será consultada (string).</li>
+<li><u>substring</u>: Termo que será consultado na string informada (string).</li>
+<li><u>start</u>: Posição (index) inicial da consulta (inteiro).</li>
+<li><u>variavelretorno</u>: Resultado da operação (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.find string="$(str)" substring="$(sub_str)" start="$(index)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="string.fromhex">string.fromhex<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Converte uma string hexadecimal para ASCII.</p>
+
+<p>Por exemplo:</p>
+
+<p>A string &ldquo;3132333435&rdquo; em hexadecimal seria convertido para &ldquo;12345&rdquo; em ASCII.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u>: Representação hexadecimal de uma string (string).</li>
+<li><u>variavelretorno</u>: Representação em ASCII da string hexadecimal (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.fromhex string="3132333435" variavelretorno="$(str_ascii)" /&gt;
+</pre>
+
+
+
+
+<h2 id="string.getvaluebykey">string.getvaluebykey<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>string.getvaluebykey</u> procura em uma string por um valor baseado em key/value.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.getvaluebykey chave="valor" string="$(sStringDeLeitura)" variavelretorno="$(sStringDeResposta)" /&gt;
+</pre>
+
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>chave</u>: Chave do valor que queremos ler da string (string).</li>
+<li><u>string</u>: String em que vamos pesquisar (string).</li>
+<li><u>variavelretorno</u>: Variável que armazenará o valor vindo da string (string).</li>
+</ol>
+
+
+<h2 id="string.insertat">string.insertat<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Insere um elemento em uma determinada posição (index) na string especificada, separada pelo caracter definido em <u>delimiter</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u>: String que será dividida (string).</li>
+<li><u>string_to_be_inserted</u>: String que será inserida em determinada posição da string especificada (string).</li>
+<li><u>element_index</u>: Index para determinada posição no <u>array</u> criado pela string separada por <u>delimiter</u> (inteiro).</li>
+<li><u>delimiter</u>: Caracter que será utilizado para dividir a string em vários elementos, criando um <u>array</u> (string).</li>
+<li><u>variavelretorno</u>: String original com o novo elemento inserido (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.insertat string="$(str)" string_to_be_inserted="$(str_insert)" element_index="$(index)" delimiter="$(dlmt)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="string.length">string.length<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Retorna o tamanho da string especificada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>valor</u>: String que será contada os caracters ate o fim (string).</li>
+<li><u>variavelretorno</u>: Tamanho da string (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="tamanho" /&gt;
+&lt;string.length valor="Hello World" variavelretorno="$(tamanho)" /&gt;
+</pre>
+
+
+
+
+<h2 id="string.pad">string.pad<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>A string que é passada recebe um pad com o caractere especificado.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>align</u>: Alinhamento do pad, pode ser left, right ou center (string).</li>
+<li><u>caracter</u>: O caracter que vai ser usado no pad (string).</li>
+<li><u>destino</u>: A variavel que recebera a string com pad (string).</li>
+<li><u>length</u>: Tamanho da string com o pad (inteiro).</li>
+<li><u>origem</u>: A string a receber pad (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.pad align="left" caracter="#" destino="$(sStringwithpad)" length="$(iString)" origem="$(sString)"/&gt;
+</pre>
+
+
+
+
+<h2 id="string.removeat">string.removeat<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Remove um elemento em uma determinada posição (index) na string especificada, separada pelo caracter definido em <u>delimiter</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u>: String que será dividida (string).</li>
+<li><u>element_index</u>: Index para determinada posição no <u>array</u> criado pela string separada por <u>delimiter</u> (inteiro).</li>
+<li><u>delimiter</u>: Caracter que será utilizado para dividir a string em vários elementos, criando um <u>array</u> (string).</li>
+<li><u>variavelretorno</u>: String original com o elemento especificado removido (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.removeat string="$(str)" element_index="$(index)" delimiter="$(dlmt)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="string.replace">string.replace<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Substitui todas as ocorrências da substring especificada na string original.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>original_string</u>: String original (string).</li>
+<li><u>old_substring</u>: Valor que será substituído na string original (string).</li>
+<li><u>new_substring</u>: Valor que será colocado no lugar do valor antigo, na string especificada (string).</li>
+<li><u>variavelretorno</u>: Variável na onde será armazenada a nova string com os valores especificados substituídos (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.replace original_string="$(str_orig)" old_substring="$(str_val)" new_substring="$(str_new)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="string.replaceat">string.replaceat<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Substitui um elemento em uma determinada posição (index) na string especificada, separada pelo caracter definido em <u>delimiter</u>.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u>: String que será dividida (string).</li>
+<li><u>new_element</u>: String que será inserida em determinada posição da string especificada (string).</li>
+<li><u>element_index</u>: Index para determinada posição no <u>array</u> criado pela string separada por <u>delimiter</u> (inteiro).</li>
+<li><u>delimiter</u>: Caracter que será utilizado para dividir a string em vários elementos, criando um <u>array</u> (string).</li>
+<li><u>variavelretorno</u>: String original com o elemento especificado substituído (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.replaceat string="$(str)" new_element="$(new_elemt)" element_index="$(index)" delimiter="$(dlmt)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="string.substring">string.substring<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite copiar partes de uma string especificada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u>: String de origem (string).</li>
+<li><u>start</u>: Index para a posição na string de onde desejamos iniciar a cópia da substring (inteiro).</li>
+<li><u>length</u>: Quantidade de caracteres da substring (inteiro).</li>
+<li><u>variavelretorno</u>: Substring copiada de string (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.substring string="$(str)" start="$(index)" length="$(tamanho)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="string.tohex">string.tohex<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Converte uma string ASCII para hexadecimal.</p>
+
+<p>Por exemplo:</p>
+
+<p>A string &ldquo;12345&rdquo; em ASCII seria convertido para &ldquo;3132333435&rdquo; em hexadecimal.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u> Representação ASCII de uma string (string).</li>
+<li><u>variavelretorno</u>: Representação em hexadecimal da string ASCII (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.tohex string="12345" variavelretorno="$(str_hex)" /&gt;
+</pre>
+
+
+
+
+<h2 id="string.trim">string.trim<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Elimina os espaços em branco da esquerda e da direita da string especificada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>string</u>: String que será consultada (string).</li>
+<li><u>variavelretorno</u>: String sem espaços em branco na esquerda ou na direita (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;string.trim string="$(str)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="stringtoint">stringtoint<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>stringtoint</u> converte o conteúdo de variáveis do tipo string para o tipo inteiro. O conteúdo convertido é armazenado em uma variável do tipo inteiro.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelstr</u>: Variável que será convertida (string).</li>
+<li><u>variavelint</u>: Variável que irá armazenar o valor inteiro (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;stringtoint variavelstr="$(ValorStr)" variavelint="$(ValorInteiro)" /&gt;
+</pre>
+
+
+
+
+<h2 id="substring">substring<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>substring</u> copia um trecho de uma variável do tipo string para outra variável do tipo string.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelorigem</u>: Variável que será utilizada para montar a substring (string).</li>
+<li><u>posicao</u>: Posição inicial da substring, onde a primeira posição disponível é 0 (inteiro).</li>
+<li><u>caracter</u>: Caractere que delimita o final da substring (string).</li>
+<li><u>variaveldestino</u>: Variável que irá armazenar o resultado da substring (string).</li>
+<li><u>variavelretorno</u>: Posição do caracter, se este foi encontrado, ou -1, se não foi encontrado (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;substring posicao="1" variavelorigem="$(ContemTudo)" variaveldestino="$(ContemParte)" caracter="," variavelretorno="$(ret)" /&gt;
+</pre>
+
+
+
+
+<h2 id="system.beep">system.beep<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>system.beep</u> executa um sinal sonoro curto.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;system.beep /&gt;
+</pre>
+
+
+
+
+<h2 id="system.checkbattery">system.checkbattery<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>system.checkbattery</u> checa o status da bateria do terminal, caso o mesmo possua bateria.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelstatus</u>: Porcentagem do nível do sinal (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;system.checkbattery variavelstatus="$(status)" /&gt;
+</pre>
+
+
+
+
+<h2 id="system.info">system.info<span><a href="comandos-posxml#content">voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>system.info</u> busca informações no sistema, como MAC Address e SIM ID.</p>
+
+<p><strong>parâmetros</strong></p>
+
+<ol>
+<li><p><u>tipo</u>: Tipo da informação, simid ou macaddress (string).</p></li>
+<li><p><u>variavelretorno</u>: Variavel que vai armazenar a informação(string).</p></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;editaarquivo nomearquivo="config.dat" chave="uclmedia" valor="ETHERNET"/&gt; 
+&lt;editaarquivo nomearquivo="config.dat" chave="uclprotocol" valor="TCP"/&gt;
+&lt;editaarquivo nomearquivo="config.dat" chave="myip" valor="192.168.0.202"/&gt;
+&lt;editaarquivo nomearquivo="config.dat" chave="mygateway" valor="192.168.0.1"/&gt;
+&lt;editaarquivo nomearquivo="config.dat" chave="dnsprimario" valor="8.8.8.8"/&gt;
+&lt;editaarquivo nomearquivo="config.dat" chave="iphost" valor="192.168.0.177"/&gt;
+&lt;editaarquivo nomearquivo="config.dat" chave="portahost" valor="8000"/&gt;
+&lt;editaarquivo nomearquivo="config.dat" chave="withssl" valor="0"/&gt;
+     
+&lt;variavelstr valor="" variavel="sRet"/&gt;
+&lt;system.info tipo="macaddress" variavelretorno="$(sRet)"/&gt;
+
+&lt;display coluna="0" linha="0" mensagem="$(sRet)"/&gt; 
+ 
+</pre>
+
+
+
+
+<h2 id="system.readcard">system.readcard<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Espera que um cartão seja passado ou uma tecla seja pressionada, onde o tempo aguardado é especificado em <u>timeout</u>. Caso nenhuma ação seja tomada, os valores de retorno padrão são:</p>
+
+<pre>variaveltecla="KEY_CANCEL"
+variavelcartao="0"</pre>
+
+
+<p>É possível também usar esta instrução com uma transação EMV, se o cartão passado for um cartão com chip a instrução <u>emv.inittransaction</u> será executada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variaveltecla</u>: Tecla pressionado pelo usuário. As teclas padrões que todos terminais possuem são: KEY_0, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9, KEY_CLEAR, KEY_CANCEL, KEY_ENTER. As teclas opcionais variam de terminal para terminal, e podem ir de KEY_EXTRA1 até KEY_EXTRA99 (string).</li>
+<li><u>variavelcartao</u>: Variável onde ficará armazenado o valor do cartão (string).</li>
+<li><u>timeout</u>: Tempo em mili-segundos que a instrução vai aguardar antes de continuar a execução (inteiro).</li>
+<li><u>variavelretorno</u>: (inteiro) Resultado da operação, que pode ser:<pre> 0: Botão digitado ou cartão passado com sucesso
+-1: Erro na leitura do cartão
+-2: Passou o tempo especificado na variável timeout e nenhuma ação ocorreu</pre>
+Retornos EMV:<pre>1: Cartão passado com sucesso.
+Valor maior que 1: Erro ao capturar o cartão.</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;system.readcard variaveltecla="$(tecla)" variavelcartao="$(cartao)" timeout="5000" variavelretorno="$(ret)" /&gt;
+</pre>
+
+
+
+
+<h2 id="system.reinicia">system.reinicia<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Reinicia o terminal.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;system.reinicia/&gt;
+</pre>
+
+
+
+
+<h2 id="ultimapagina">ultimapagina<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite recarregar e executar a última pagina de comandos recebido pelo terminal, enviados pelo host. Esta última página sempre fica armazenada na memória do terminal até que se desligue o mesmo.</p>
+
+<p>Quando chamada, está instrução executa a última pagina, e em seguida a execução do walk termina. Muito útil, para escrevermos lógicas de reimpressão caso a ultima pagina seja um ticket enviado para o terminal.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;ultimapagina /&gt;
+</pre>
+
+
+
+
+<h2 id="unzipfile">unzipfile<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Extrai o conteúdo de um arquivo compactado no diretório em que o arquivo se encontra. Para isto, o arquivo deve estar dentro da pasta download, para que possa ser baixado pelo comando <u>baixaarquivo</u> e então ser descompactado.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>nomearquivo</u>: Nome do arquivo que será descompactado (string).</li>
+<li><u>variavelretorno</u>: Resultado da operação, que pode ser (inteiro):<pre> 0: Descompressão feita com sucesso
+-1: Erro na descompressão</pre></li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="ret"/&gt;
+&lt;variavelstr valor="teste.zip" variavel="nomearq"/&gt;
+&lt;baixaarquivo caminhoremoto="\teste.zip" excluiaposdownload="0" nomearquivo="$(nomearq)" variavelretorno="$(ret)"/&gt;
+&lt;unzipfile nomearquivo="$(nomearq)" variavelretorno="$(ret)"/&gt;
+</pre>
+
+
+
+
+<h2 id="variavelint">variavelint<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>variavelint</u> é um termo de atribuição e serve para armazenar um determinado valor numérico (inteiro) em uma variável especificada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>valor</u>: Valor da variável (inteiro).</li>
+<li><u>variavel</u>: Nome da variável (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="1" variavel="Parcelas" /&gt;
+</pre>
+
+
+
+
+<h2 id="variavelintoperador">variavelintoperador<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite adicionar +1 ou decrementar -1 na variável do tipo inteiro especificado em <u>variavelorigem</u>. Muito útil em situações que desejamos utilizar laços ou fazer contadores.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>operador</u>: Operador de incremento &lsquo;++&rsquo; ou decremento &lsquo;&#45;&#45;&rsquo; (string).</li>
+<li><u>variavelorigem</u>: Variável que será incrementada ou decrementada (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variável="$(counter)" /&gt;
+&lt;variavelintoperador operador="++" variavelorigem="$(counter)" /&gt;
+</pre>
+
+
+
+
+<h2 id="variavelstr">variavelstr<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>O comando <u>variavelstr</u> é um termo de atribuição e serve para armazenar um determinado valor alfanumérico (letras e números) em uma variável especificada.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>valor</u>: Valor da variável (string).</li>
+<li><u>variavel</u>: Nome da variável (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelstr valor="Plano Bê" variavel="Nome" /&gt;
+</pre>
+
+
+
+
+<h2 id="verificapapelimpressora">verificapapelimpressora<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Permite verificar se o compartimento de papel ainda contém papel. Útil para avisar quando o papel acabou e não deixar o operador prosseguir com a operação, enquanto não trocar o bobina.</p>
+
+<p>Se ainda houver papel no compartimento, o valor da variável <u>variavelresultado</u> será igual a 1, caso contrário, será 0.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelresultado</u>: Variável contendo o resultado da verificação do papel (inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="-1" variável="temPapel" /&gt;
+&lt;verificapapelimpressora variavelresultado="$(temPapel)" /&gt;
+
+&lt;if variavel="$(temPapel)" operador="igual" valor="0"&gt;
+  &lt;display linha="0" coluna="0" mensagem=" Sem papel " /&gt;
+&lt;/if&gt;
+
+&lt;if variavel="$(temPapel)" operador="igual" valor="1"&gt;
+  &lt;display linha="0" coluna="0" mensagem=" Possui papel " /&gt;
+&lt;/if&gt;
+</pre>
+
+
+
+
+<h2 id="while">while<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>A instrução while é um termo utilizado para especificar uma tomada de decisão ou comparação lógica dentro do programa POSXML. Outros comandos e instruções podem ser contidos dentro do argumento while e /while. Os comandos e instruções dentro do argumento são executados até que a expressão se torne falsa. A instrução processa a operação entre variavel e o valor especificado, e entra na execução da próxima instrução dentro de if, caso seja verdadeiro o resultado.</p>
+
+<p>Todos os operadores (igual/diferente/maior/menor/maiorigual/menorigual) no caso de variável inteiro realizam as operações padrões de comparação de qualquer linguagem de programação. Já os operadores (maior/menor/maiorigual/menorigual) no caso de variável string, converterá a variável para ponto flutuante e realizarão a comparação. Os operadores (igual/diferente) seguem a mesma lógica de comparação de qualquer linguagem de programação.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavel</u>: Variável para comparação. (string ou inteiro).</li>
+<li><u>operador</u>: Operador de comparação, que pode ser : menor, maior, igual, diferente, maiorigual ou menorigual (string).</li>
+<li><u>valor</u>: Valor para comparação (string ou inteiro).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="i" /&gt;
+&lt;while variavel="$(i)" operador="menor" valor="10"&gt;
+  &lt;display linha="0" coluna="0" mensagem=" Loop ..." /&gt;
+  &lt;variavelintoperador operador="++" variavelorigem="$(i) /&gt;
+&lt;/while&gt;
+</pre>
+
+
+
+
+<h2 id="writeserialport">writeserialport<span><a href="comandos-posxml#content">Voltar ao topo</a></span></h2>
+
+
+<p>Escreve um buffer na porta serial, previamente aberta com a instrução openserialport.</p>
+
+<p><strong>Parâmetros</strong></p>
+
+<ol>
+<li><u>variavelhandle</u>: Variável retornada em <u>openserialport</u>. Deve ser diferente e maior que zero (inteiro).</li>
+<li><u>buffer</u>: Buffer que será escrito na porta serial (string).</li>
+</ol>
+
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;variavelint valor="0" variavel="ret" /&gt;
+&lt;variavelint valor="0" variavel="readBytes" /&gt;
+&lt;variavelstr valor="" variavel="buf" /&gt;
+&lt;openserialport porta="COM1" velocidade="115200" configuração="A8N1" variavelretorno="$(ret)" /&gt;
+&lt;writeserialport variavelhandle="$(ret)" buffer="Hello World" /&gt;
+</pre>
+
+
+
+
+
+		</div>
+	</div>
+	
+	<div id='end-application'><br /></div><div id='default-footer'>  <div id='default-footer-inner'>    <a href='http://www.planobe.com.br'><img alt='PlanoBe' src='../images/logo-planobe.png' /></a>    <p>Os nomes e logomarcas WALK, WALKWEB, WALKSERVER, POSXML, xTiss e Plano Bê são marcas registradas da Plano Bê Desenvolvimento de Sistemas Ltda.</p>    <p>Todos os textos e design são de direito autoral de ©2005-2012 Plano Bê, LTDA.</p>    <p>Todos os direitos reservados.</p>    <p style="display:none">valid: <a href='http://validator.w3.org/check?uri=referer'>XHTML 1.1</a> | <a href='http://jigsaw.w3.org/css-validator/check/referer?profile=css3'>CSS 3</a></p>  </div></div>
+</div>
+
+<!-- google site search -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&amp;t13n_langs=en"></script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+  <!-- Analytics -->
+  
+  <script type='text/javascript'> 
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3586526-19']);
+      _gaq.push(['_setDomainName', '.plataformawalk.com.br']);
+      _gaq.push(['_trackPageview']);
+    //]]>
+  </script>
+  
+
+  <script type='text/javascript'> 
+    //<![CDATA[
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+  </script>
+
+	<script type="text/javascript">
+		function validate_i18n(form){
+			if(form.value == 'es'){
+				window.location = 'http://translate.google.com/translate?hl=en&sl=pt&tl=es&u=http%3A%2F%2Fmanual.plataformawalk.com.br';
+			}else{
+				document.getElementById('i18n_form').submit();
+			}
+		}
+
+		$(document).ready(function() {
+			$("#locale").append("<option value='es'>Spanish</option>");
+			$("img[rel]").overlay();
+		});
+	</script>
+</body>
+</html>

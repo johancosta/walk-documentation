@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+	<title>WALK | A estrutura do POSXML</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='Plano Be, Plano Bê, POS terminal, point of sale terminal, terminais POS, pos software, point of sale software, point of sale software development, point of sale software development, pos terminal software, pos credit card terminal, mobile pos terminal, credit card terminal, pos equipment, VeriFone, Redecard, Nurit, Ingenico, transações eletrônicas, PayNews, WALK platform, plataforma WALK, WALK framework, sistema WALK, POSXML, pagamentos movel, mobile payments, m-payments, pagamentos móveis' name='keywords' />
+	<meta content='A estrutura do POSXML' name='description' />
+	<meta content='Plano Be' name='author' />
+  <meta name="google-site-verification" content="VxbryVDusgFi-QnPbJ-mnyHN9GlRkNwjJ4yLiR4QCdE" />
+
+	<link type="text/css" rel="stylesheet" href="../stylesheets/main.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/default.css" media="screen" />
+	<link type="text/css" rel="stylesheet" href="../stylesheets/print.css" media="print" />
+	
+	<!-- image map - maplight -->
+	<script type="text/javascript" src="../javascripts/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="../javascripts/jquery.maphilight.min.js"></script>
+	<script>
+		$(function() {
+			$('.map').maphilight();
+		});
+	</script>
+
+	<!-- syntaxhighlighter_2 -->
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shCore.css" />
+	<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2/styles/shThemeHeroku.css" />
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPlain.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushRuby.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushCSharp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../syntaxhighlighter_2/scripts/shBrushVb.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+		SyntaxHighlighter.config.clipboardSwf = '/javascripts/clipboard.swf';
+		SyntaxHighlighter.defaults.gutter = false;
+	</script>
+</head>
+<body>
+
+<div style="display:none">  <div id='default-header-inner'>    <div id='language'>      <form id='i18n_form' action='posxml-a-estrutura-do-posxml'>        <div>          <select id=locale style="display:none" name=locale onchange=validate_i18n(this);>             <option value=pt-BR selected=selected>Portuguese</option> <option value=en>English</option></select>          </select>        </div>      </form>    </div>    <div id='default-nav'>      <ul>        <li><a href='http://www.plataformawalk.com.br'><strong>INICIO</strong><span>Plataforma WALK</span></a></li>        <li><a href='http://blog.plataformawalk.com.br'><strong>WALKING</strong><span>Blog</span></a></li>        <li><a href='../index.html'><strong>MANUAL</strong><span>Documentação</span></a></li>        <li><a href='http://helpdesk.plataformawalk.com.br'><strong>HELP DESK</strong><span>Peça Ajuda</span></a></li>      </ul>    </div>  </div></div>
+
+<div id="bodywrap">
+
+	<div id="docsnav">
+		<form action="http://manual.plataformawalk.com.br/search" id="cse-search-box">
+			<div id="search" style="display:none">
+				<input type="hidden" name="cx" value="006895165009419401911:3z-q2nkhyxk" />
+				<input type="hidden" name="cof" value="FORID:10;NB:1" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="31" />
+			</div>
+		</form>
+
+		<ul>
+			
+				<li>
+				<h3>Entendendo a Plataforma</h3>
+				<ul>
+					
+						
+							<li><a href="understanding-the-platform">Framework WALK</a></li>
+						
+					
+						
+							<li><a href="posxml">POSXML</a></li>
+						
+					
+						
+							<li><a href="walk-compiler">WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="walk-server">WALK Server</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Framework WALK</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-framework-walk">Instalação</a></li>
+						
+					
+						
+							<li><a href="instalando-a-aplicacao-inicial">Aplicação Inicial</a></li>
+						
+					
+						
+							<li><a href="gerando-licencas">Gerando Licenças</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>POSXML</h3>
+				<ul>
+					
+						
+							<li><a href="posxml-intro">POSXML introdução</a></li>
+						
+					
+						
+							<li class="current"><a>A estrutura do POSXML</a></li>
+						
+					
+						
+							<li><a href="posxml-variaveis-e-memoria">Variáveis e Memória</a></li>
+						
+					
+						
+							<li><a href="posxml-sistema-de-arquivos">Sistema de Arquivos</a></li>
+						
+					
+						
+							<li><a href="posxml-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="comandos-posxml">Lista de Comandos</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Compiler</h3>
+				<ul>
+					
+						
+							<li><a href="walk-compiler-intro">WALK Compiler introdução</a></li>
+						
+					
+						
+							<li><a href="utilizando-o-walk-compiler">Utilizando o WALK Compiler</a></li>
+						
+					
+						
+							<li><a href="posxml-exemplos/index">Aprendendo a Programar</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>WALK Server</h3>
+				<ul>
+					
+						
+							<li><a href="walk-server-intro">WALK Server integração</a></li>
+						
+					
+						
+							<li><a href="walk-server-instalacao">Instalação</a></li>
+						
+					
+						
+							<li><a href="walk-server-configuracao">Configuração</a></li>
+						
+					
+						
+							<li><a href="walk-server-testes-e-verificacoes">Testes</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Integração</h3>
+				<ul>
+					
+						
+							<li><a href="integracao-map">Integração introdução</a></li>
+						
+					
+						
+							<li><a href="integracao-introducao">Resumo da rede</a></li>
+						
+					
+						
+							<li><a href="integracao-aplicacao-posxml">Aplicação POSXML</a></li>
+						
+					
+						
+							<li><a href="integracao-configuracoes">Configurações</a></li>
+						
+					
+						
+							<li><a href="integracao-carregando-o-aplicativo">Carregando o aplicativo</a></li>
+						
+					
+						
+							<li><a href="integracao-entendendo-a-comunicacao">Entendendo a comunicação</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Tutoriais</h3>
+				<ul>
+					
+						
+							<li><a href="configuracao-do-terminal-pos">Configuração do terminal</a></li>
+						
+					
+						
+							<li><a href="formato-do-pacote-de-dados">Formato do pacote de dados</a></li>
+						
+					
+						
+							<li><a href="resolucoes-de-tela-e-impressao">Resoluções de tela e impressão</a></li>
+						
+					
+						
+							<li><a href="velocidade-dos-terminais">Velocidade dos terminais</a></li>
+						
+					
+						
+							<li><a href="configuracao-do-teclado-no-framework-walk">Configuração do teclado no Framework WALK</a></li>
+						
+					
+						
+							<li><a href="interface-grafica-para-terminais-verix">Interface gráfica para terminais Verix</a></li>
+						
+					
+						
+							<li><a href="instalando-o-framework-a-partir-de-outro-terminal">Instalando o Framework a partir de outro terminal</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Instalando o chip GPRS</h3>
+				<ul>
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-nurit-8000">Terminais Nurit 8000</a></li>
+						
+					
+						
+							<li><a href="instalando-o-chip-gprs-em-terminais-ingenico-i5100">Terminais Ingenico i5100</a></li>
+						
+					
+				</ul>
+				</li>
+			
+				<li>
+				<h3>Ajuda</h3>
+				<ul>
+					
+						
+							<li><a href="perguntas-frequentes">Perguntas Frequentes</a></li>
+						
+					
+						
+							<li><a href="fornecedores-de-equipamentos-e-acessorios">Fornecedores de equipamentos e acessórios</a></li>
+						
+					
+				</ul>
+				</li>
+			
+		</ul>
+	</div>
+
+	<div id="content">
+		<div class="topic_content">
+			<h1>A estrutura do POSXML</h1>
+
+
+
+
+
+
+
+<p id='description'>A estrutura do POSXML</p>
+
+
+<p>Segue o padrão aberto XML, amplamente difundido na indústria de software. O padrão XML é totalmente flexível e possibilita rápida expansão. Todas as regras de formatação aplicadas ao XML continuam existindo no POSXML. Alguma dessas são descritas abaixo:</p>
+
+<h3>1. Organização e Estrutura</h3>
+
+<p>A linguagem POSXML é organizada e estruturada em forma de <u>tags</u> com níveis e subníveis de comandos que formam a estrutura lógica do aplicativo POSXML. Uma <u>tag</u> pode ser identificada quando está entre os sinais <strong>&lt;</strong> (menor) e <strong>></strong> (maior), onde a mesma deve obrigatoriamente ser aberta e fechada.</p>
+
+<p><strong>Exemplo</strong></p>
+
+<pre class="brush: xml;">
+&lt;aplicativoposxml xmlns="http://tempuri.org/posxml.xsd"&gt;
+&nbsp;&nbsp;&nbsp;...
+&nbsp;&nbsp;&nbsp;...
+&lt;/aplicativoposxml&gt;
+</pre>
+
+
+<h3>2. Tag Pai ou Tag Root</h3>
+
+<p>Todo aplicativo POSXML deve obrigatoriamente possuir uma <u>tag pai</u> ou <u>tag root</u>, e possuir um nome válido, obedecendo ao critério de abertura e fechamento da mesma.</p>
+
+<p>Abaixo da <u>tag root</u>, devemos obrigatoriamente ter uma <u>tag</u> chamada <strong>&lt;pagina&gt;</strong>, que delimita um bloco da aplicação que é executado conforme solicitado.</p>
+
+<p>A <strong>&lt;pagina nome=&ldquo;principal&rdquo;&gt;</strong> é a primeira a ser executada, e a única que fica armazenada no terminal. Nela devemos escrever toda a lógica de nosso programa.</p>
+
+<p>Ao fazermos qualquer modificação na <strong>&lt;pagina nome=&ldquo;principal&rdquo;&gt;</strong> e o terminal se conectar ao <u>host</u>, a mensagem <strong>WALK: Aplicativo Atualizado!</strong> aparecerá na tela do terminal.</p>
+
+<p>As demais páginas além da principal, podem ser utilizadas para escrever <u>tickets</u> de impressão ou lógicas de confirmação. Lembre-se: Apenas a página principal fica armazenada no terminal, as demais são compiladas em tempo de execução e enviadas pelo <u>host</u> ao terminal.</p>
+
+<p>A execução se inicia na página principal, e após executar a sequência de comandos, se assim for especificado o terminal vai se conectar ao <u>host</u>. Cabe ao <u>host</u> especificar o retorno contendo o nome da próxima <strong>&lt;pagina&gt;</strong> a ser executada. Assim é possível navegar entre as páginas segundo instruções do <u>host</u> autorizador.</p>
+
+<p>Conforme mencionado, a página principal inicia sua execução imediata no terminal POS sem nenhum tipo de conexão. Apenas se a página principal do <u>host</u> estiver diferente da página principal do terminal é que esta será atualizada.</p>
+
+<pre class="brush: xml;">
+&lt;aplicativoposxml xmlns="http://tempuri.org/posxml.xsd"&gt;
+  &lt;pagina nome= "principal"&gt;
+    &lt;display linha="1" coluna="0" mensagem="Aplicativo PosXML" /&gt;
+    &lt;display linha="2" coluna="0" mensagem="Plano Be Tecnologia"/&gt;
+    &lt;esperatecla /&gt;
+    &lt;limpadisplay /&gt;
+    &lt;conectar /&gt;
+  &lt;/pagina&gt;
+&lt;/aplicativoposxml&gt;
+</pre>
+
+
+<h3>3. Case sensitive</h3>
+
+<p>A linguagem POSXML é <u>case sensitive</u>, portando existem diferenças entre palavras com letras minúsculas e palavras com letras maiúsculas. Devemos ficar atentos ao escrever aplicativos, principalmente ao nomear funções e variáveis.</p>
+
+<p>No exemplo abaixo a função que será chamada é a segunda, porque <strong>mostramensagem</strong> não é igual a <strong>mostraMensagem</strong>.</p>
+
+<pre class="brush: xml;">
+&lt;aplicativoposxml xmlns="http://tempuri.org/posxml.xsd"&gt;
+  &lt;pagina nome= "principal"&gt;
+    &lt;chamafuncao nome="mostramensagem" /&gt;
+    
+    &lt;funcao nome="mostraMensagem"&gt;
+      &lt;display linha="0" coluna="0" mensagem=" Mensagem 1" /&gt;
+      &lt;esperatecla /&gt;
+    &lt;/funcao&gt;
+
+    &lt;funcao nome="mostramensagem"&gt;
+      &lt;display linha="0" coluna="0" mensagem=" Mensagem 2" /&gt;
+      &lt;esperatecla /&gt;
+    &lt;/funcao&gt;
+
+  &lt;/pagina&gt;
+&lt;/aplicativoposxml&gt;
+</pre>
+
+
+<h3>4. Caracteres reservados</h3>
+
+<p>Todos os caracteres reservados na linguagem XML continuam existindo na linguagem POSXML e devem ser escritos da maneira correta.</p>
+
+<p>Os símbolos a seguir devem ser escritos da seguinte maneira:</p>
+
+<pre>
+< &amp;lt;
+> &amp;gt;
+& &amp;amp;
+' &amp;apos;
+" &amp;quot;
+</pre>
+
+
+<p><strong>Exemplo</strong></p>
+
+<p>Para exibir uma mensagem com o símbolo de menor (&lt;), a sintaxe ficaria assim:</p>
+
+<pre class="brush: xml;">
+&lt;aplicativoposxml xmlns="http://tempuri.org/posxml.xsd"&gt;
+  &lt;pagina nome= "principal"&gt;
+    &lt;chamafuncao nome="mostramensagem" /&gt;
+    
+    &lt;funcao nome="mostramensagem"&gt;
+      &lt;display linha="0" coluna="0" mensagem="&amp;lt; = menor" /&gt;
+      &lt;esperatecla /&gt;
+    &lt;/funcao&gt;
+
+  &lt;/pagina&gt;
+&lt;/aplicativoposxml&gt;
+</pre>
+
+
+<h3>5. Comentários</h3>
+
+<p>Blocos de comentários podem ser utilizados com as <u>tags</u> <strong>&lt;!&#45;&#45;</strong> e <strong>&#45;&#45;&gt;</strong>, por exemplo:</p>
+
+<pre class="brush: xml;">
+&lt;aplicativoposxml xmlns="http://tempuri.org/posxml.xsd"&gt;
+  &lt;pagina nome= "principal"&gt;
+
+    &lt;!-- função que mostra uma mensagem no display --&gt;
+    &lt;funcao nome="mostramensagem"&gt;
+      &lt;display linha="0" coluna="0" mensagem="&amp;lt; = menor" /&gt;
+      &lt;esperatecla /&gt;
+    &lt;/funcao&gt;
+
+  &lt;/pagina&gt;
+&lt;/aplicativoposxml&gt;
+</pre>
+
+
+
+
+	<div id="next_section">Próximo: <a href="posxml-variaveis-e-memoria">Variáveis e Memória &rarr;</a></div>
+
+
+		</div>
+	</div>
+	
+	<div id='end-application'><br /></div><div id='default-footer'>  <div id='default-footer-inner'>    <a href='http://www.planobe.com.br'><img alt='PlanoBe' src='../images/logo-planobe.png' /></a>    <p>Os nomes e logomarcas WALK, WALKWEB, WALKSERVER, POSXML, xTiss e Plano Bê são marcas registradas da Plano Bê Desenvolvimento de Sistemas Ltda.</p>    <p>Todos os textos e design são de direito autoral de ©2005-2012 Plano Bê, LTDA.</p>    <p>Todos os direitos reservados.</p>    <p style="display:none">valid: <a href='http://validator.w3.org/check?uri=referer'>XHTML 1.1</a> | <a href='http://jigsaw.w3.org/css-validator/check/referer?profile=css3'>CSS 3</a></p>  </div></div>
+</div>
+
+<!-- google site search -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&amp;t13n_langs=en"></script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+  <!-- Analytics -->
+  
+  <script type='text/javascript'> 
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3586526-19']);
+      _gaq.push(['_setDomainName', '.plataformawalk.com.br']);
+      _gaq.push(['_trackPageview']);
+    //]]>
+  </script>
+  
+
+  <script type='text/javascript'> 
+    //<![CDATA[
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+  </script>
+
+	<script type="text/javascript">
+		function validate_i18n(form){
+			if(form.value == 'es'){
+				window.location = 'http://translate.google.com/translate?hl=en&sl=pt&tl=es&u=http%3A%2F%2Fmanual.plataformawalk.com.br';
+			}else{
+				document.getElementById('i18n_form').submit();
+			}
+		}
+
+		$(document).ready(function() {
+			$("#locale").append("<option value='es'>Spanish</option>");
+			$("img[rel]").overlay();
+		});
+	</script>
+</body>
+</html>
